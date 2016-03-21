@@ -177,6 +177,44 @@
 <blockquote>
 <p>尝试使用 <code>!</code> 来判断 optional 值，可以有效控制运行时错误发生。每次优先判断 optional 值存在时，才去使用 optional 值。</p>
 </blockquote>
+<h2 id="optional-绑定"><a href="#optional-绑定" class="headerlink" title="optional 绑定"></a>optional 绑定</h2><blockquote>
+<p>optional 绑定可以使用在 <code>if</code> 和 <code>while</code> 语句中<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> a = <span class="type">Int</span>(<span class="string">"4"</span>), b = <span class="type">Int</span>(<span class="string">"10"</span>) <span class="keyword">where</span> a &lt; b &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(a)</span> &lt; <span class="subst">\(b)</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="隐式展开-optional"><a href="#隐式展开-optional" class="headerlink" title="隐式展开 optional"></a>隐式展开 optional</h2><blockquote>
+<p>隐式展开的好处，在于不用在每次调用 optional的时候，去检测它是否存在。</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> possibleString: <span class="type">String</span>? = <span class="string">"Ha ha"</span></span><br><span class="line"><span class="keyword">let</span> forcedString: <span class="type">String</span> = possibleString!</span><br><span class="line"><span class="comment">// 调用 possibleString 时，需要使用 ! 去检测它的值是否存在</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> assumedString: <span class="type">String</span>! = <span class="string">"Ha ha"</span></span><br><span class="line"><span class="keyword">let</span> implicitString: <span class="type">String</span> = assumedString</span><br><span class="line"><span class="comment">// 调用 assumedString 时，不需要使用 ！去检测，它会自动检测值是否存在。</span></span><br></pre></td></tr></table></figure>
+<p><strong> 小提示 </strong></p>
+<blockquote>
+<p>如果 隐式展开 optional的值是nil，尝试使用它的时候，它会抛出一个运行时错误。</p>
+</blockquote>
+<h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><blockquote>
+<p>当你的程序遭遇错误时，你可以使用 错误处理 来响应你的错误信息。</p>
+</blockquote>
+<ul>
+<li>你可以指明你的函数抛出一个错误。使用关键字 <code>throws</code></li>
+<li>使用 <code>try</code> <code>catch</code> 来捕获你的错误信息。</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">makeASandwich</span><span class="params">()</span></span> <span class="keyword">throws</span> &#123;</span><br><span class="line">    ···</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> makeASandwich()</span><br><span class="line">    eatASandwich()</span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="type">Error</span>.<span class="type">OutOfCleanDishes</span> &#123;</span><br><span class="line">    washDishes()</span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="type">Error</span>.<span class="type">MissingIngredients</span>(<span class="keyword">let</span> ingredients) &#123;</span><br><span class="line">    buyGroceries(ingredients)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h2><blockquote>
+<p>有时候，你的代码不可能简单的继续执行，当它不满足一些特定的条件。在这些情况下，你可以使用一个断言在你的代码中到代码运行结束，当发生在一些缺失和无效值的时候可以提供一个调试机会。</p>
+</blockquote>
+<p>调试与断言</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> age = -<span class="number">3</span></span><br><span class="line"><span class="built_in">assert</span>(age &gt;=<span class="number">0</span>, <span class="string">"A person's age cannot be less than zero"</span>)</span><br></pre></td></tr></table></figure>
+<p><strong> 小提示 </strong></p>
+<blockquote>
+<p>使用机构编译后的代码，断言是被禁用的。例如，当你编译正式版时在 Xcode 中是禁用的。</p>
+</blockquote>
+<p>断言的使用场景</p>
+<ul>
+<li>一个数字下标是通过一个自定义下标实现的，但是下标索引值不能太低和太高。</li>
+<li>通过函数得到一个值，但是一个无效的值意味着这个函数是不能完成任务的。</li>
+<li>一个可选的值是 nil, 但是一个 non-nil 值被使用，而且代码还执行成功了。</li>
+</ul>
+<p><strong> 小提示 </strong></p>
+<blockquote>
+<p>断言能够造成你的应用停止运行，这不能替代你的代码设计的当一个无效的情况从不可能上升到可能。既然如此，在一个无效的情况变为可能时，一个断言是有效的方式，在你的应用发布前可以确保这个条件能够高亮并且通知到开发者。</p>
+</blockquote>
 
       
     </div><!-- .entry-content -->
