@@ -65,6 +65,80 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-android/text_to_speech" class="post-android/text_to_speech post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/android/text_to_speech/">Android TextToSpeech简单应用</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="/android/text_to_speech/#comments" class="leave-reply">评论</a>
+            
+            <a href="javascript:void(0);" data-url="http://lagelalegal.github.io/android/text_to_speech/" data-id="cim36ohpo0002wj33e597sdpg" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>TextToSpeech的简单应用</p>
+<blockquote>
+<p><code>TextToSpeech</code> 合成语音是从一句文字立即播放或者创建一个语音文件。<br>在这里我们使用的语音引擎是<a href="http://www.coolapk.com/apk/com.iflytek.tts" target="_blank" rel="external">讯飞的语音引擎</a><br>并且这里只涉及到播放语音文件，没有涉及到创建一个语音文件。</p>
+</blockquote>
+<p>实例化一个 TextToSpeech 对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">private static final String IFLYTEK = &quot;com.iflytek.tts&quot;;</span><br><span class="line">TextToSpeech tts = null;</span><br><span class="line">int version = Build.VERSION.SDK_INT;</span><br><span class="line"></span><br><span class="line">Log.i(TAG, action);</span><br><span class="line">if (tts == null) &#123;</span><br><span class="line">    if (version &gt; 14) &#123;</span><br><span class="line">        tts = new TextToSpeech(context, this, IFLYTEK);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        tts = new TextToSpeech(context, this);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里的 <code>this</code> 对象一定要实现 OnInitListener 接口<br>在android版本14的时候，提供创建一个TTS对象的同时可以指定默认语音引擎。</p>
+</blockquote>
+<p>实现 <code>OnInitListener</code> 接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public void onInit(int status) &#123;</span><br><span class="line">    if (status == TextToSpeech.SUCCESS) &#123;</span><br><span class="line">        ready = true;</span><br><span class="line">        Log.i(TAG, &quot;初始化成功&quot;);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        show(&quot;暂无语音引擎&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Android版本14之前的版本，需要设定默认语音引擎，需要调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (ready) &#123;</span><br><span class="line">    tts.setEngineByPackageName(IFLYTEK);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>调用<code>setEngineByPackageName</code>时，需要在tts对象的<code>onInit</code>调用成功之后。</p>
+</blockquote>
+<p>在使用语音引擎之前，我们需要需要检测一下语音引擎是否安装。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">private boolean checkApkExist(String packageName) &#123;</span><br><span class="line">    if (packageName == null || &quot;&quot;.equals(packageName.trim())) &#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    try &#123;</span><br><span class="line">        ApplicationInfo info = context.getPackageManager().getApplicationInfo(packageName, PackageManager.GET_UNINSTALLED_PACKAGES);</span><br><span class="line">    &#125; catch (PackageManager.NameNotFoundException e) &#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果，语音引擎已经安装了，那么我就可以使用 speak 方法了，将我们的一段文字转换成语音。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (ready) &#123;</span><br><span class="line">    tts.speak(&quot;我是中国人&quot;, TextToSpeech.QUEUE_ADD, null);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：调用 speak 方法时，一定是要在 OnInit 方法回调之后。<br>上面的调用方法，在API 21的时候，已经被弃用。</p>
+</blockquote>
+<p>如果speak了一段很长的话，我们想停止的时候，可以使用stop方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (ready &amp;&amp; tts.isSpeaking()) &#123;</span><br><span class="line">    tts.stop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后，当我们关闭Activity 的时候，请谨记释放资源。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public void onDestroy() &#123;</span><br><span class="line">    if (tts != null) &#123;</span><br><span class="line">        tts.shutdown();</span><br><span class="line">        tts = null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>点击这里，查看<a href="/files/Demo.java">源代码</a></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/android/text_to_speech/">
+    <time datetime="2016-03-22T02:24:36.000Z" class="entry-date">
+        2016-03-22
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-swift/01" class="post-swift/01 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -82,7 +156,7 @@
             
             <a href="/swift/01/#comments" class="leave-reply">评论</a>
             
-            <a href="javascript:void(0);" data-url="http://lagelalegal.github.io/swift/01/" data-id="cim1dpnp70002gz33hdu6mtcq" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="javascript:void(0);" data-url="http://lagelalegal.github.io/swift/01/" data-id="cim36ohq80005wj33otg6lh46" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -256,7 +330,7 @@
             
             <a href="/blog/hello_world/#comments" class="leave-reply">评论</a>
             
-            <a href="javascript:void(0);" data-url="http://lagelalegal.github.io/blog/hello_world/" data-id="cim1dpnom0001gz3384cg52md" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="javascript:void(0);" data-url="http://lagelalegal.github.io/blog/hello_world/" data-id="cim36ohow0001wj33bkm409aq" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -316,6 +390,10 @@
       <ul>
         
           <li>
+            <a href="/android/text_to_speech/">Android TextToSpeech简单应用</a>
+          </li>
+        
+          <li>
             <a href="/swift/01/">Swift Lesson 01</a>
           </li>
         
@@ -332,7 +410,7 @@
   <aside class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/">swift</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/">swift</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </aside>
 
@@ -341,7 +419,7 @@
   <aside class="widget">
     <h3 class="widget-title">云标签</h3>
     <div class="widget-content tagcloud">
-      <a href="/tags/swift/" style="font-size: 10px;">swift</a>
+      <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/swift/" style="font-size: 10px;">swift</a>
     </div>
   </aside>
 
