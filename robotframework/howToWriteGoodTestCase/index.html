@@ -13,18 +13,51 @@
   <meta name="baidu-site-verification" content="6YyXGXLcQi" />
   
   
-  <title>Swift | 个人博客</title>
+  <title>如何使用RobotFramework写出好的测试案例 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个人所有的成功和失败，都是其习惯造就的结果。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Swift">
-<meta property="og:url" content="http://lagelalegal.github.io/swift.html">
+  <meta name="description" content="&amp;#x76EE;&amp;#x5F55;&amp;#xFF1A;
+
+
+&amp;#x4ECB;&amp;#x7ECD;
+&amp;#x53D6;&amp;#x540D;
+&amp;#x6D4B;&amp;#x8BD5;&amp;#x5957;&amp;#x4EF6;&amp;#x540D;&amp;#x79F0;
+
+
+
+
+&amp;#x4ECB;&amp;#x7ECD;
+&amp;#x8FD9;&amp;#x662F;&amp;#x4F7F;&amp;#x7528; Robot Framework &amp;#x5199;&amp;#x51FA;&amp;#x5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用RobotFramework写出好的测试案例">
+<meta property="og:url" content="http://lagelalegal.github.io/robotframework/howToWriteGoodTestCase/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="一个人所有的成功和失败，都是其习惯造就的结果。">
-<meta property="og:updated_time" content="2016-03-17T08:23:14.000Z">
+<meta property="og:description" content="&amp;#x76EE;&amp;#x5F55;&amp;#xFF1A;
+
+
+&amp;#x4ECB;&amp;#x7ECD;
+&amp;#x53D6;&amp;#x540D;
+&amp;#x6D4B;&amp;#x8BD5;&amp;#x5957;&amp;#x4EF6;&amp;#x540D;&amp;#x79F0;
+
+
+
+
+&amp;#x4ECB;&amp;#x7ECD;
+&amp;#x8FD9;&amp;#x662F;&amp;#x4F7F;&amp;#x7528; Robot Framework &amp;#x5199;&amp;#x51FA;&amp;#x5">
+<meta property="og:updated_time" content="2016-03-30T01:10:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swift">
-<meta name="twitter:description" content="一个人所有的成功和失败，都是其习惯造就的结果。">
+<meta name="twitter:title" content="如何使用RobotFramework写出好的测试案例">
+<meta name="twitter:description" content="&amp;#x76EE;&amp;#x5F55;&amp;#xFF1A;
+
+
+&amp;#x4ECB;&amp;#x7ECD;
+&amp;#x53D6;&amp;#x540D;
+&amp;#x6D4B;&amp;#x8BD5;&amp;#x5957;&amp;#x4EF6;&amp;#x540D;&amp;#x79F0;
+
+
+
+
+&amp;#x4ECB;&amp;#x7ECD;
+&amp;#x8FD9;&amp;#x662F;&amp;#x4F7F;&amp;#x7528; Robot Framework &amp;#x5199;&amp;#x51FA;&amp;#x5">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -64,7 +97,7 @@
     </nav>
 </header>
       <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main"><article id="page-undefined" class="page-undefined post type-post status-publish format-standard hentry">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-robotframework/howToWriteGoodTestCase" class="post-robotframework/howToWriteGoodTestCase post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -72,38 +105,91 @@
         
   
     <h1 class="entry-title article-title">
-      Swift
+      如何使用RobotFramework写出好的测试案例
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="/swift.html#comments" class="leave-reply">评论</a>
+            <a href="/robotframework/howToWriteGoodTestCase/#comments" class="leave-reply">评论</a>
             
-            <a href="javascript:void(0);" data-url="http://lagelalegal.github.io/swift.html" data-id="cimhjz0cq0000eh3368ry65zl" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="javascript:void(0);" data-url="http://lagelalegal.github.io/robotframework/howToWriteGoodTestCase/" data-id="cimhjz0dt0002eh33n63s1hsa" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        
+        <p>&#x76EE;&#x5F55;&#xFF1A;</p>
+<!-- toc -->
+<ul>
+<li><a href="#&#x4ECB;&#x7ECD;">&#x4ECB;&#x7ECD;</a></li>
+<li><a href="#&#x53D6;&#x540D;">&#x53D6;&#x540D;</a><ul>
+<li><a href="#&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x540D;&#x79F0;">&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x540D;&#x79F0;</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h1 id="&#x4ECB;&#x7ECD;"><a href="#&#x4ECB;&#x7ECD;" class="headerlink" title="&#x4ECB;&#x7ECD;"></a>&#x4ECB;&#x7ECD;</h1><ul>
+<li>&#x8FD9;&#x662F;&#x4F7F;&#x7528; Robot Framework &#x5199;&#x51FA;&#x597D;&#x7684;&#x6D4B;&#x8BD5;&#x6309;&#x94AE;&#x7684;&#x9AD8;&#x7EA7;&#x5F15;&#x5BFC;&#x3002;<ul>
+<li>&#x5982;&#x4F55;&#x771F;&#x6B63;&#x7684;&#x548C;&#x88AB;&#x6D4B;&#x8BD5;&#x7CFB;&#x7EDF;&#x4EA4;&#x4E92;&#xFF0C;&#x8FD9;&#x662F;&#x8D85;&#x51FA;&#x672C;&#x6587;&#x7684;&#x8303;&#x56F4;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>&#x5C3D;&#x53EF;&#x80FD;&#x4FDD;&#x6301;&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x7B80;&#x5355;&#x6613;&#x61C2;&#xFF0C;&#x5728;&#x4EBA;&#x4EEC;&#x719F;&#x6089;&#x7684;&#x9886;&#x57DF;&#x662F;&#x6700;&#x91CD;&#x8981;&#x7684;&#x5F15;&#x5BFC;&#x65B9;&#x5F0F;&#x3002;<ul>
+<li>&#x8FD9;&#x901A;&#x5E38;&#x4E5F;&#x7B80;&#x5316;&#x4E86;&#x7EF4;&#x62A4;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>&#x5173;&#x4E8E;&#x8FD9;&#x4E2A;&#x4E3B;&#x9898;&#x66F4;&#x591A;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x60F3;&#x8981;&#x4E86;&#x89E3;&#x4E00;&#x4E9B;&#x5F88;&#x68D2;&#x7684;&#x8D44;&#x6E90;&#x3002;<ul>
+<li><a href="http://www.slideshare.net/pekkaklarck/robot-framework-dos-and-donts" target="_blank" rel="external">Robot Framework Dos and Don&#x2019;ts</a> &#x662F;&#x57FA;&#x4E8E;&#x5982;&#x4F55;&#x505A;&#x7684;&#x4E00;&#x4E2A;&#x5E7B;&#x706F;&#x7247;&#x3002;</li>
+<li><a href="http://cwd.dhemery.com/2009/11/wmaat/" target="_blank" rel="external">&#x7F16;&#x5199;&#x53EF;&#x7EF4;&#x62A4;&#x7684;&#x81EA;&#x52A8;&#x5316;&#x9A8C;&#x6536;&#x6D4B;&#x8BD5;</a>&#x662F; Dale Emery &#x5199;&#x7684;&#x6587;&#x7AE0;&#x3002;</li>
+<li><a href="https://blog.codecentric.de/en/2010/07/how-to-structure-a-scalable-and-maintainable-acceptance-test-suite" target="_blank" rel="external">&#x5982;&#x4F55;&#x6784;&#x9020;&#x4E00;&#x5957;&#x53EF;&#x6269;&#x5C55;&#x548C;&#x53EF;&#x7EF4;&#x62A4;&#x7684;&#x9A8C;&#x6536;&#x6D4B;&#x8BD5;</a>&#x8FD9;&#x662F;Andreas Ebbert-Karroum &#x7684;&#x4E00;&#x7BC7;&#x535A;&#x6587;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h1 id="&#x53D6;&#x540D;"><a href="#&#x53D6;&#x540D;" class="headerlink" title="&#x53D6;&#x540D;"></a>&#x53D6;&#x540D;</h1><h2 id="&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x540D;&#x79F0;"><a href="#&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x540D;&#x79F0;" class="headerlink" title="&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x540D;&#x79F0;"></a>&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x540D;&#x79F0;</h2><ul>
+<li>&#x5957;&#x4EF6;&#x540D;&#x5B57;&#x5E94;&#x8BE5;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x63CF;&#x8FF0;&#x3002;</li>
+<li>&#x81EA;&#x52A8;&#x88AB;&#x521B;&#x5EFA;&#x7684;&#x540D;&#x5B57;&#x6765;&#x81EA;&#x6587;&#x4EF6;&#x6216;&#x6587;&#x4EF6;&#x5939;&#x540D;&#x5B57;&#x3002;<ul>
+<li>&#x53BB;&#x6389;&#x540E;&#x7F00;&#x540D;&#x3002;</li>
+<li>&#x5C06;&#x4E0B;&#x5212;&#x7EBF;&#x8F6C;&#x6362;&#x6210;&#x7A7A;&#x683C;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x540D;&#x5B57;&#x90FD;&#x662F;&#x5C0F;&#x5199;&#xFF0C;&#x5355;&#x8BCD;&#x5E94;&#x8BE5;&#x5927;&#x5199;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p>-</p>
+
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/swift.html">
-    <time datetime="2016-03-17T07:52:35.000Z" class="entry-date">
-        2016-03-17
+    <a href="/robotframework/howToWriteGoodTestCase/">
+    <time datetime="2016-03-29T07:22:03.000Z" class="entry-date">
+        2016-03-29
     </time>
 </a>
     
     
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/robotframework/">robotframework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
+
     </footer>
 </article>
 
 
     
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/study_jams/first_lesson/" rel="prev"><span class="meta-nav">←</span> Study Jams 第一课</a></span>
+    
+    
+        <span class="nav-next"><a href="/swift/03/" rel="next">Swift 第三课时 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
 
 
 
@@ -111,7 +197,7 @@
 
   <section id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="page-undefined" data-title="Swift" data-url="http://lagelalegal.github.io/swift.html"></div>
+    <div class="ds-thread" data-thread-key="post-robotframework/howToWriteGoodTestCase" data-title="如何使用RobotFramework写出好的测试案例" data-url="http://lagelalegal.github.io/robotframework/howToWriteGoodTestCase/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
