@@ -15,49 +15,40 @@
   
   <title>如何使用RobotFramework写出好的测试案例 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;#x76EE;&amp;#x5F55;&amp;#xFF1A;
+  <meta name="description" content="&amp;#x539F;&amp;#x6587;&amp;#x5730;&amp;#x5740;
+&amp;#x76EE;&amp;#x5F55;&amp;#xFF1A;
 
 
 &amp;#x4ECB;&amp;#x7ECD;
 &amp;#x53D6;&amp;#x540D;
 &amp;#x6D4B;&amp;#x8BD5;&amp;#x5957;&amp;#x4EF6;&amp;#x540D;&amp;#x79F0;
-
-
-
-
-&amp;#x4ECB;&amp;#x7ECD;
-&amp;#x8FD9;&amp;#x662F;&amp;#x4F7F;&amp;#x7528; Robot Framework &amp;#x5199;&amp;#x51FA;&amp;#x5">
+&amp;#x6D4B;&amp;#x8BD5;&amp;#x6848;&amp;#x4F8B;&amp;#x547D;&amp;#x540D;
+&amp;#x5173;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何使用RobotFramework写出好的测试案例">
 <meta property="og:url" content="http://lagelalegal.github.io/robotframework/howToWriteGoodTestCase/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="&amp;#x76EE;&amp;#x5F55;&amp;#xFF1A;
+<meta property="og:description" content="&amp;#x539F;&amp;#x6587;&amp;#x5730;&amp;#x5740;
+&amp;#x76EE;&amp;#x5F55;&amp;#xFF1A;
 
 
 &amp;#x4ECB;&amp;#x7ECD;
 &amp;#x53D6;&amp;#x540D;
 &amp;#x6D4B;&amp;#x8BD5;&amp;#x5957;&amp;#x4EF6;&amp;#x540D;&amp;#x79F0;
-
-
-
-
-&amp;#x4ECB;&amp;#x7ECD;
-&amp;#x8FD9;&amp;#x662F;&amp;#x4F7F;&amp;#x7528; Robot Framework &amp;#x5199;&amp;#x51FA;&amp;#x5">
-<meta property="og:updated_time" content="2016-03-30T01:10:33.000Z">
+&amp;#x6D4B;&amp;#x8BD5;&amp;#x6848;&amp;#x4F8B;&amp;#x547D;&amp;#x540D;
+&amp;#x5173;">
+<meta property="og:updated_time" content="2016-04-05T13:15:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何使用RobotFramework写出好的测试案例">
-<meta name="twitter:description" content="&amp;#x76EE;&amp;#x5F55;&amp;#xFF1A;
+<meta name="twitter:description" content="&amp;#x539F;&amp;#x6587;&amp;#x5730;&amp;#x5740;
+&amp;#x76EE;&amp;#x5F55;&amp;#xFF1A;
 
 
 &amp;#x4ECB;&amp;#x7ECD;
 &amp;#x53D6;&amp;#x540D;
 &amp;#x6D4B;&amp;#x8BD5;&amp;#x5957;&amp;#x4EF6;&amp;#x540D;&amp;#x79F0;
-
-
-
-
-&amp;#x4ECB;&amp;#x7ECD;
-&amp;#x8FD9;&amp;#x662F;&amp;#x4F7F;&amp;#x7528; Robot Framework &amp;#x5199;&amp;#x51FA;&amp;#x5">
+&amp;#x6D4B;&amp;#x8BD5;&amp;#x6848;&amp;#x4F8B;&amp;#x547D;&amp;#x540D;
+&amp;#x5173;">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -114,35 +105,50 @@
             
             <a href="/robotframework/howToWriteGoodTestCase/#comments" class="leave-reply">评论</a>
             
-            <a href="javascript:void(0);" data-url="http://lagelalegal.github.io/robotframework/howToWriteGoodTestCase/" data-id="cimhjz0dt0002eh33n63s1hsa" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="javascript:void(0);" data-url="http://lagelalegal.github.io/robotframework/howToWriteGoodTestCase/" data-id="cimng7t930003bk336zn2u3ip" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>&#x76EE;&#x5F55;&#xFF1A;</p>
+        <p><a href="https://github.com/robotframework/HowToWriteGoodTestCases/blob/master/HowToWriteGoodTestCases.rst#introduction" target="_blank" rel="external">&#x539F;&#x6587;&#x5730;&#x5740;</a></p>
+<p>&#x76EE;&#x5F55;&#xFF1A;</p>
 <!-- toc -->
 <ul>
 <li><a href="#&#x4ECB;&#x7ECD;">&#x4ECB;&#x7ECD;</a></li>
 <li><a href="#&#x53D6;&#x540D;">&#x53D6;&#x540D;</a><ul>
 <li><a href="#&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x540D;&#x79F0;">&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x540D;&#x79F0;</a></li>
+<li><a href="#&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x547D;&#x540D;">&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x547D;&#x540D;</a></li>
+<li><a href="#&#x5173;&#x952E;&#x5B57;&#x540D;&#x79F0;">&#x5173;&#x952E;&#x5B57;&#x540D;&#x79F0;</a></li>
+<li><a href="#&#x521D;&#x59CB;&#x5316;&#x548C;&#x62C6;&#x5378;&#x5173;&#x952E;&#x5B57;&#x547D;&#x540D;">&#x521D;&#x59CB;&#x5316;&#x548C;&#x62C6;&#x5378;&#x5173;&#x952E;&#x5B57;&#x547D;&#x540D;</a></li>
 </ul>
 </li>
+<li><a href="#&#x6587;&#x6863;">&#x6587;&#x6863;</a><ul>
+<li><a href="#&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x6587;&#x6863;">&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x6587;&#x6863;</a></li>
+<li><a href="#&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x6587;&#x6863;">&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x6587;&#x6863;</a></li>
+<li><a href="#&#x7528;&#x6237;&#x5173;&#x952E;&#x5B57;&#x6587;&#x6863;">&#x7528;&#x6237;&#x5173;&#x952E;&#x5B57;&#x6587;&#x6863;</a></li>
+<li><a href="#&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x7ED3;&#x6784;">&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x7ED3;&#x6784;</a></li>
+<li><a href="#&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x7ED3;&#x6784;">&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x7ED3;&#x6784;</a></li>
+<li><a href="#&#x5DE5;&#x4F5C;&#x6D41;&#x6D4B;&#x8BD5;">&#x5DE5;&#x4F5C;&#x6D41;&#x6D4B;&#x8BD5;</a></li>
+<li><a href="#&#x6570;&#x636E;&#x9A71;&#x52A8;&#x6D4B;&#x8BD5;">&#x6570;&#x636E;&#x9A71;&#x52A8;&#x6D4B;&#x8BD5;</a></li>
+<li><a href="#&#x7528;&#x6237;&#x5173;&#x952E;&#x5B57;">&#x7528;&#x6237;&#x5173;&#x952E;&#x5B57;</a></li>
+<li><a href="#&#x53D8;&#x91CF;">&#x53D8;&#x91CF;</a></li>
+<li><a href="#&#x53D8;&#x91CF;&#x547D;&#x540D;">&#x53D8;&#x91CF;&#x547D;&#x540D;</a></li>
+<li><a href="#&#x4F20;&#x9012;&#x548C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x503C;">&#x4F20;&#x9012;&#x548C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x503C;</a></li>
+</ul>
+</li>
+<li><a href="#&#x907F;&#x514D;&#x4F7F;&#x7528;&#x4F11;&#x7720;">&#x907F;&#x514D;&#x4F7F;&#x7528;&#x4F11;&#x7720;</a></li>
 </ul>
 <!-- tocstop -->
 <h1 id="&#x4ECB;&#x7ECD;"><a href="#&#x4ECB;&#x7ECD;" class="headerlink" title="&#x4ECB;&#x7ECD;"></a>&#x4ECB;&#x7ECD;</h1><ul>
-<li>&#x8FD9;&#x662F;&#x4F7F;&#x7528; Robot Framework &#x5199;&#x51FA;&#x597D;&#x7684;&#x6D4B;&#x8BD5;&#x6309;&#x94AE;&#x7684;&#x9AD8;&#x7EA7;&#x5F15;&#x5BFC;&#x3002;<ul>
+<li>&#x8FD9;&#x662F;&#x4F7F;&#x7528; Robot Framework &#x5199;&#x51FA;&#x597D;&#x7684;&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x7684;&#x9AD8;&#x7EA7;&#x5F15;&#x5BFC;&#x3002;<ul>
 <li>&#x5982;&#x4F55;&#x771F;&#x6B63;&#x7684;&#x548C;&#x88AB;&#x6D4B;&#x8BD5;&#x7CFB;&#x7EDF;&#x4EA4;&#x4E92;&#xFF0C;&#x8FD9;&#x662F;&#x8D85;&#x51FA;&#x672C;&#x6587;&#x7684;&#x8303;&#x56F4;&#x3002;</li>
 </ul>
 </li>
-</ul>
-<ul>
 <li>&#x5C3D;&#x53EF;&#x80FD;&#x4FDD;&#x6301;&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x7B80;&#x5355;&#x6613;&#x61C2;&#xFF0C;&#x5728;&#x4EBA;&#x4EEC;&#x719F;&#x6089;&#x7684;&#x9886;&#x57DF;&#x662F;&#x6700;&#x91CD;&#x8981;&#x7684;&#x5F15;&#x5BFC;&#x65B9;&#x5F0F;&#x3002;<ul>
 <li>&#x8FD9;&#x901A;&#x5E38;&#x4E5F;&#x7B80;&#x5316;&#x4E86;&#x7EF4;&#x62A4;&#x3002;</li>
 </ul>
 </li>
-</ul>
-<ul>
 <li>&#x5173;&#x4E8E;&#x8FD9;&#x4E2A;&#x4E3B;&#x9898;&#x66F4;&#x591A;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x60F3;&#x8981;&#x4E86;&#x89E3;&#x4E00;&#x4E9B;&#x5F88;&#x68D2;&#x7684;&#x8D44;&#x6E90;&#x3002;<ul>
 <li><a href="http://www.slideshare.net/pekkaklarck/robot-framework-dos-and-donts" target="_blank" rel="external">Robot Framework Dos and Don&#x2019;ts</a> &#x662F;&#x57FA;&#x4E8E;&#x5982;&#x4F55;&#x505A;&#x7684;&#x4E00;&#x4E2A;&#x5E7B;&#x706F;&#x7247;&#x3002;</li>
 <li><a href="http://cwd.dhemery.com/2009/11/wmaat/" target="_blank" rel="external">&#x7F16;&#x5199;&#x53EF;&#x7EF4;&#x62A4;&#x7684;&#x81EA;&#x52A8;&#x5316;&#x9A8C;&#x6536;&#x6D4B;&#x8BD5;</a>&#x662F; Dale Emery &#x5199;&#x7684;&#x6587;&#x7AE0;&#x3002;</li>
@@ -159,7 +165,262 @@
 </ul>
 </li>
 </ul>
-<p>-</p>
+<ul>
+<li>&#x5728;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E2D;&#x540D;&#x79F0;&#x53EF;&#x4EE5;&#x76F8;&#x5BF9;&#x8F83;&#x957F;&#xFF0C;&#x4F46;&#x662F;&#x8FC7;&#x957F;&#x7684;&#x540D;&#x5B57;&#x662F;&#x4E0D;&#x4FBF;&#x7684;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C; <code>--name</code> &#x9009;&#x9879;&#xFF0C;&#x53EF;&#x4EE5;&#x66FF;&#x6362;&#x9876;&#x5C42;&#x7684;&#x5957;&#x4EF6;&#x540D;&#x79F0;&#x3002;</li>
+</ul>
+<p>&#x4F8B;&#x5982;&#xFF1A;</p>
+<ul>
+<li>login_tests.robot -&gt; Login Tests</li>
+<li>IP_v4_and_v6 -&gt; Ip v4 and v6</li>
+</ul>
+<h2 id="&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x547D;&#x540D;"><a href="#&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x547D;&#x540D;" class="headerlink" title="&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x547D;&#x540D;"></a>&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x547D;&#x540D;</h2><ul>
+<li>&#x6D4B;&#x8BD5;&#x540D;&#x79F0;&#x5E94;&#x8BE5;&#x548C;&#x5957;&#x4EF6;&#x540D;&#x79F0;&#x63CF;&#x8FF0;&#x4E00;&#x81F4;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x5957;&#x4EF6;&#x5305;&#x542B;&#x4F60;&#x591A;&#x4E2A;&#x76F8;&#x540C;&#x7684;&#x6D4B;&#x8BD5;&#xFF0C;&#x5E76;&#x4E14;&#x8FD9;&#x4E2A;&#x5957;&#x4EF6;&#x7684;&#x547D;&#x540D;&#x662F;&#x53EF;&#x53D6;&#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x6D4B;&#x8BD5;&#x540D;&#x79F0;&#x53EF;&#x4EE5;&#x77ED;&#x5C0F;&#x3002;</li>
+<li>&#x51C6;&#x786E;&#x7684;&#x540D;&#x5B57;&#x662F;&#x4F60;&#x5728;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#x4E2D;&#x6307;&#x5B9A;&#x5E76;&#x4E14;&#x65E0;&#x9700;&#x4EFB;&#x4F55;&#x8F6C;&#x6362;&#x3002;</li>
+</ul>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5728; <code>invalid_login.robot</code> &#x4E2D;&#x628A;<code>invalid login</code> &#x548C;&#x6D4B;&#x8BD5;&#x8054;&#x7CFB;&#x8D77;&#x6765;&#xFF0C;&#x4E0B;&#x9762;&#x90FD;&#x662F;OK&#x7684;&#x6D4B;&#x8BD5;&#x540D;&#x79F0;&#x3002;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*** Test Cases ***</span><br><span class="line">Empty Password</span><br><span class="line">Empty Username</span><br><span class="line">Empty Username And Password</span><br><span class="line">Invalid Username</span><br><span class="line">Invalid Password</span><br><span class="line">Invalid Username And Password</span><br></pre></td></tr></table></figure>
+<p>&#x4E0B;&#x9762;&#x8FD9;&#x4E9B;&#x547D;&#x540D;&#x662F;&#x6709;&#x70B9;&#x957F;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*** Test Cases ***</span><br><span class="line">Login With Empty Password Should Fail</span><br><span class="line">Login With Empty Username Should Fail</span><br><span class="line">Login With Empty Username And Password Should Fail</span><br><span class="line">Login With Invalid Password Should Fail</span><br><span class="line">Login With Invalid Username Should Fail</span><br><span class="line">Login With Invalid UserName And Invalid Password Should Fail</span><br></pre></td></tr></table></figure>
+<h2 id="&#x5173;&#x952E;&#x5B57;&#x540D;&#x79F0;"><a href="#&#x5173;&#x952E;&#x5B57;&#x540D;&#x79F0;" class="headerlink" title="&#x5173;&#x952E;&#x5B57;&#x540D;&#x79F0;"></a>&#x5173;&#x952E;&#x5B57;&#x540D;&#x79F0;</h2><ul>
+<li>&#x6B64;&#x5916;&#xFF0C;&#x5173;&#x952E;&#x5B57;&#x547D;&#x540D;&#x5E94;&#x8BE5;&#x63CF;&#x8FF0;&#x548C;&#x6E05;&#x6670;</li>
+<li>&#x5E94;&#x8BE5;&#x9610;&#x8FF0;&#x5173;&#x952E;&#x5B57;&#x662F;&#x505A;&#x4EC0;&#x4E48;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x63CF;&#x8FF0;&#x5B83;&#x8BE5;&#x600E;&#x4E48;&#x505A;&#x3002;</li>
+<li>&#x975E;&#x5E38;&#x4E0D;&#x540C;&#x7684;&#x62BD;&#x8C61;&#x7B49;&#x7EA7;(&#x4F8B;&#x5982; <code>Input Text</code> &#x6216;&#x8005; <code>Administrator logs into system</code>)</li>
+<li>&#x6CA1;&#x6709;&#x660E;&#x786E;&#x7684;&#x6307;&#x5BFC;&#x65B9;&#x6848;,&#x4E00;&#x4E2A;&#x5173;&#x952E;&#x5B57;&#x6807;&#x9898;&#x5927;&#x5199;&#x6216;&#x8005;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BCD;&#x5927;&#x5199;&#x3002;<ul>
+<li>&#x6807;&#x9898;&#x60C5;&#x51B5;&#x7ECF;&#x5E38;&#x88AB;&#x4F7F;&#x7528;&#x5728;&#x5173;&#x952E;&#x5B57;&#x540D;&#x79F0;&#x5F88;&#x77ED;&#x7684;&#x65F6;&#x5019;&#x3002;</li>
+<li>&#x901A;&#x5E38;&#x5173;&#x952E;&#x5B57;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BCD;&#x5927;&#x5199;&#x662F;&#x6700;&#x597D;&#x7684;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5C31;&#x50CF;&#x4E00;&#x4E2A;&#x53E5;&#x5B50;&#x3002;&#x8FD9;&#x4E9B;&#x5173;&#x952E;&#x5B57;&#x5F80;&#x5F80;&#x4E5F;&#x6709;&#x66F4;&#x9AD8;&#x7684;&#x7B49;&#x7EA7;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p>&#x597D;&#x7684;&#x6848;&#x4F8B;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*** Keywords ***</span><br><span class="line">Login With Valid Credentials</span><br></pre></td></tr></table></figure>
+<p>&#x5DEE;&#x7684;&#x6848;&#x4F8B;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Input Valid Username And Valid Password And Click Login Button</span><br></pre></td></tr></table></figure>
+<h2 id="&#x521D;&#x59CB;&#x5316;&#x548C;&#x62C6;&#x5378;&#x5173;&#x952E;&#x5B57;&#x547D;&#x540D;"><a href="#&#x521D;&#x59CB;&#x5316;&#x548C;&#x62C6;&#x5378;&#x5173;&#x952E;&#x5B57;&#x547D;&#x540D;" class="headerlink" title="&#x521D;&#x59CB;&#x5316;&#x548C;&#x62C6;&#x5378;&#x5173;&#x952E;&#x5B57;&#x547D;&#x540D;"></a>&#x521D;&#x59CB;&#x5316;&#x548C;&#x62C6;&#x5378;&#x5173;&#x952E;&#x5B57;&#x547D;&#x540D;</h2><ul>
+<li>&#x5C3D;&#x91CF;&#x4F7F;&#x7528;&#x63CF;&#x8FF0;&#x5B83;&#x662F;&#x505A;&#x4EC0;&#x4E48;&#x7684;&#x540D;&#x8BCD;&#x3002;<ul>
+<li>&#x5C3D;&#x53EF;&#x80FD;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x5173;&#x952E;&#x5B57;&#x3002;</li>
+</ul>
+</li>
+<li>&#x5982;&#x679C;&#x4E00;&#x4E2A;<code>&#x521D;&#x59CB;&#x5316;</code>&#x548C;<code>&#x62C6;&#x5378;</code>&#x5305;&#x542B;&#x4E0D;&#x76F8;&#x5173;&#x7684;&#x6B65;&#x9AA4;&#xFF0C;&#x591A;&#x4E2A;&#x62BD;&#x8C61;&#x540D;&#x8BCD;&#x662F;&#x53EF;&#x88AB;&#x63A5;&#x53D7;&#x7684;<ul>
+<li>&#x6E05;&#x5355;&#x4E2D;&#x540D;&#x8BCD;&#x7684;&#x6B65;&#x9AA4;&#x662F;&#x91CD;&#x590D;&#x548C;&#x7EF4;&#x62A4;&#x95EE;&#x9898;&#x3002;</li>
+<li>&#x4F7F;&#x7528;&#x4E00;&#x4E9B;&#x666E;&#x901A;&#x7684;&#x540D;&#x5B57;&#x662F;&#x66F4;&#x597D;&#x7684;&#x3002;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;<code>Initialize system</code>&#xFF09;</li>
+</ul>
+</li>
+<li>&#x5982;&#x679C;&#x5173;&#x952E;&#x5B57;&#x8986;&#x5199;&#x4E86;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x5728;&#x66F4;&#x5E95;&#x5C42;&#x7684;&#x6B65;&#x9AA4;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x5185;&#x7F6E;&#x5173;&#x952E;&#x5B57;<a href="http://robotframework.org/robotframework/latest/libraries/BuiltIn.html#Run%20Keywords" target="_blank" rel="external">&#x8FD0;&#x884C;&#x5173;&#x952E;&#x5B57;</a>&#x80FD;&#x591F;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#x3002;<ul>
+<li>&#x5982;&#x679C;<code>&#x521D;&#x59CB;&#x5316;</code>&#x548C;<code>&#x62C6;&#x5378;</code>&#x573A;&#x666F;&#x53EA;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x4E00;&#x6B21;&#xFF0C;&#x5C31;&#x4E0D;&#x8981;&#x91CD;&#x590D;&#x7684;&#x4F7F;&#x7528;&#x3002;</li>
+</ul>
+</li>
+<li>&#x6BCF;&#x4E2A;&#x4EBA;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;<code>&#x521D;&#x59CB;&#x5316;</code>&#x548C;<code>&#x62C6;&#x5378;</code>&#x5E94;&#x5F53;&#x90FD;&#x662F;&#x660E;&#x786E;&#x7684;&#x3002;</li>
+</ul>
+<p>&#x597D;&#x7684;&#x6848;&#x4F8B;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*** Settings ***</span><br><span class="line">Suite Setup     Initialize System</span><br></pre></td></tr></table></figure>
+<p>&#x597D;&#x7684;&#x6848;&#x4F8B;&#xFF08;&#x5982;&#x679C;&#x53EA;&#x4F7F;&#x7528;&#x4E00;&#x6B21;&#xFF09;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Suite Setup      Run Keywords</span><br><span class="line">&#xB7;&#xB7;&#xB7;              Login To System   AND</span><br><span class="line">&#xB7;&#xB7;&#xB7;              Add User          AND</span><br><span class="line">&#xB7;&#xB7;&#xB7;              Activate Alarms   AND</span><br><span class="line">&#xB7;&#xB7;&#xB7;              Check Balance</span><br></pre></td></tr></table></figure>
+<p>&#x5DEE;&#x7684;&#x6848;&#x4F8B;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*** Settings ***</span><br><span class="line">Suite Setup         Login To System, Add User, Activate Alarms And Check Balance</span><br></pre></td></tr></table></figure>
+<h1 id="&#x6587;&#x6863;"><a href="#&#x6587;&#x6863;" class="headerlink" title="&#x6587;&#x6863;"></a>&#x6587;&#x6863;</h1><h2 id="&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x6587;&#x6863;"><a href="#&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x6587;&#x6863;" class="headerlink" title="&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x6587;&#x6863;"></a>&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x6587;&#x6863;</h2><ul>
+<li>&#x7ECF;&#x5E38;&#x4E00;&#x4E2A;&#x597D;&#x7684;&#x60F3;&#x6CD5;&#x6DFB;&#x52A0;&#x5230;&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x6587;&#x4EF6;&#x7684;&#x7EFC;&#x5408;&#x6587;&#x6863;&#x4E2D;&#x3002;</li>
+<li>&#x5E94;&#x5F53;&#x5305;&#x542B;&#x540E;&#x53F0;&#x4FE1;&#x606F;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x521B;&#x5EFA;&#x6D4B;&#x8BD5;&#xFF0C;&#x5907;&#x6CE8;&#x6267;&#x884C;&#x73AF;&#x5883;&#xFF0C;&#x7B49;&#x3002;</li>
+<li>&#x4E0D;&#x8981;&#x53EA;&#x91CD;&#x590D;&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x540D;&#x79F0;&#x3002;<ul>
+<li>&#x5982;&#x679C;&#x771F;&#x7684;&#x4E0D;&#x9700;&#x8981;&#x6700;&#x597D;&#x4E0D;&#x6DFB;&#x52A0;&#x6587;&#x6863;&#x3002;</li>
+</ul>
+</li>
+<li>&#x4E0D;&#x8981;&#x5305;&#x542B;&#x592A;&#x591A;&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x8BE6;&#x60C5;&#x3002;<ul>
+<li>&#x6D4B;&#x8BD5;&#x5E94;&#x5F53;&#x8DB3;&#x591F;&#x6E05;&#x6670;&#x660E;&#x4E86;&#x3002;</li>
+<li>&#x91CD;&#x590D;&#x7684;&#x4FE1;&#x606F;&#x662F;&#x6D6A;&#x8D39;&#x7684;&#x8FD8;&#x6709;&#x7EF4;&#x62A4;&#x95EE;&#x9898;&#x3002;</li>
+</ul>
+</li>
+<li>&#x6587;&#x6863;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#x7684;&#x94FE;&#x63A5;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x6587;&#x6863;&#x4FE1;&#x606F;&#x76F8;&#x5F53;&#x4E8E; &#x952E;&#x503C;&#x5BF9;&#xFF0C;&#x53EF;&#x8981;&#x8003;&#x8651;&#x4F7F;&#x7528;&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x5143;&#x6570;&#x636E;&#x3002;</li>
+<li>&#x6587;&#x6863;&#x548C;&#x5143;&#x6570;&#x636E;&#x662F;&#x9876;&#x5C42;&#x7684;&#x5957;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x5404;&#x81EA;&#x4F7F;&#x7528; <code>--doc</code> &#x548C; <code>--metadata</code> &#x9009;&#x9879;&#x3002;</li>
+</ul>
+<p>&#x597D;&#x7684;&#x6848;&#x4F8B;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">*** Settings ***</span><br><span class="line">Documentation    Tests to verify that account withdrawals succeed and</span><br><span class="line">&#xB7;&#xB7;&#xB7;              fail correctly depending from users account balance</span><br><span class="line">&#xB7;&#xB7;&#xB7;              and account type dependent rules.</span><br><span class="line">&#xB7;&#xB7;&#xB7;              See http://internal.example.com/docs/abs.pdf</span><br><span class="line">Metadata         Version  0.1</span><br></pre></td></tr></table></figure>
+<p>&#x5DEE;&#x7684;&#x6848;&#x4F8B;&#xFF08;&#x5C24;&#x5176;&#x662F;&#x5982;&#x679C;&#x6761;&#x4EF6;&#x540D;&#x79F0;&#x662F; <code>account_withdrawal.robot</code>&#xFF09;:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*** Settings ***</span><br><span class="line">Documentation        Tests Account Withdrawal.</span><br></pre></td></tr></table></figure>
+<h2 id="&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x6587;&#x6863;"><a href="#&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x6587;&#x6863;" class="headerlink" title="&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x6587;&#x6863;"></a>&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x6587;&#x6863;</h2><ul>
+<li>&#x901A;&#x5E38;&#x6D4B;&#x8BD5;&#x4E0D;&#x9700;&#x8981;&#x6587;&#x6863;&#x3002;<ul>
+<li>&#x7236;&#x5957;&#x4EF6;&#x7684;&#x6587;&#x6863;&#x548C;&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x5E94;&#x5F53;&#x7ED9;&#x4E88;&#x8DB3;&#x591F;&#x7684;&#x540E;&#x53F0;&#x4FE1;&#x606F;&#x3002;</li>
+<li>&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x7ED3;&#x6784;&#x5E94;&#x5F53;&#x8DB3;&#x591F;&#x6E05;&#x6670;&#x5728;&#x6CA1;&#x6709;&#x6587;&#x6863;&#x548C;&#x6CE8;&#x91CA;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x3002;</li>
+</ul>
+</li>
+<li>&#x6807;&#x7B7E;&#x901A;&#x5E38;&#x6BD4;&#x6587;&#x6863;&#x66F4;&#x7075;&#x6D3B;&#x7684;&#x63D0;&#x4F9B;&#x66F4;&#x591A;&#x5B9E;&#x7528;&#x6027;&#xFF08;&#x7EDF;&#x8BA1;&#xFF0C;&#x5305;&#x542B;/&#x6392;&#x9664;&#xFF0C;&#x7B49;&#xFF09;&#x3002;</li>
+<li>&#x6709;&#x65F6;&#x5019;&#x6D4B;&#x8BD5;&#x6587;&#x6863;&#x662F;&#x6709;&#x7528;&#x7684;&#xFF0C;&#x65E0;&#x9700;&#x5BB3;&#x6015;&#x4F7F;&#x7528;&#x5B83;&#x3002;</li>
+</ul>
+<p>&#x597D;&#x7684;&#x6848;&#x4F8B;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">*** Test Cases ***</span><br><span class="line">Valid Login</span><br><span class="line">    [Tags]       Iteration-3        Smoke</span><br><span class="line">    Open Login Page</span><br><span class="line">    Input Username      ${VALID USERNAME}</span><br><span class="line">    Input Password      ${VALID PASSWORD}</span><br><span class="line">    Submit Credentials</span><br><span class="line">    Welcome Page Should Be Open</span><br></pre></td></tr></table></figure>
+<p>&#x5DEE;&#x7684;&#x6848;&#x4F8B;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">*** Test Cases ***</span><br><span class="line">Valid Login</span><br><span class="line">    [Documentation]    Opens a browser to login url, inputs valid username</span><br><span class="line">    &#xB7;&#xB7;&#xB7;                and password and checks that the welcome page is open.</span><br><span class="line">    &#xB7;&#xB7;&#xB7;                This is a smoke test. Created in iteration 3.</span><br><span class="line">    Open Broser     ${URL}      ${BROWSER}</span><br><span class="line">    Input Text      field1      ${NU11}</span><br><span class="line">    Input Text      field2      ${PW11}</span><br><span class="line">    Click Button    button_12</span><br><span class="line">    Titlt Should Be     Welcome Page</span><br></pre></td></tr></table></figure>
+<h2 id="&#x7528;&#x6237;&#x5173;&#x952E;&#x5B57;&#x6587;&#x6863;"><a href="#&#x7528;&#x6237;&#x5173;&#x952E;&#x5B57;&#x6587;&#x6863;" class="headerlink" title="&#x7528;&#x6237;&#x5173;&#x952E;&#x5B57;&#x6587;&#x6863;"></a>&#x7528;&#x6237;&#x5173;&#x952E;&#x5B57;&#x6587;&#x6863;</h2><ul>
+<li>&#x6587;&#x6863;&#x4E0D;&#x662F;&#x5FC5;&#x8981;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x5173;&#x952E;&#x5B57;&#x76F8;&#x5BF9;&#x7B80;&#x5355;&#x7684;<ul>
+<li>&#x597D;&#x7684;&#x5173;&#x952E;&#x5B57;&#x548C;&#x53C2;&#x6570;&#x540D;&#x79F0;&#x548C;&#x6E05;&#x6670;&#x7684;&#x7ED3;&#x6784;&#x662F;&#x8DB3;&#x591F;&#x7684;&#x3002;</li>
+</ul>
+</li>
+<li>&#x6700;&#x91CD;&#x8981;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#xFF0C;&#x6587;&#x6863;&#x53C2;&#x6570;&#x548C;&#x8FD4;&#x56DE;&#x503C;&#x3002;</li>
+<li>&#x5728;&#x6587;&#x6863;&#x4E2D;&#x5C55;&#x793A;&#x4E00;&#x4E2A;&#x8D44;&#x6E90;&#x6587;&#x4EF6;&#xFF0C;&#x4F7F;&#x7528; <a href="http://robotframework.org/robotframework/#built-in-tools" target="_blank" rel="external">Libdoc</a> &#x751F;&#x6210;&#xFF0C;&#x4EE5;&#x53CA;&#x7F16;&#x8F91;&#x5668;<a href="https://github.com/robotframework/RIDE" target="_blank" rel="external">RIDE</a> &#x80FD;&#x591F;&#x5C55;&#x793A;&#x5B83;&#x5728;&#x4E00;&#x4E2A;&#x5173;&#x952E;&#x5B57;&#x4E2D;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x3002;</li>
+</ul>
+<h2 id="&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x7ED3;&#x6784;"><a href="#&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x7ED3;&#x6784;" class="headerlink" title="&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x7ED3;&#x6784;"></a>&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x7ED3;&#x6784;</h2><ul>
+<li>&#x5728;&#x4E00;&#x4E2A;&#x6761;&#x4EF6;&#x91CC;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x90FD;&#x5E94;&#x5F53;&#x662F;&#x76F8;&#x5173;&#x8054;&#x7684;&#x3002;<ul>
+<li>&#x901A;&#x5E38;&#x516C;&#x5171;&#x7684; <code>&#x521D;&#x59CB;&#x5316;</code> &#x6216; <code>&#x62C6;&#x5378;</code> &#x662F;&#x4E0D;&#x9519;&#x7684;&#x63D0;&#x793A;&#x7269;&#x3002;</li>
+</ul>
+</li>
+<li>&#x5728;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x91CC;&#x4E0D;&#x80FD;&#x6539;&#x5305;&#x542B;&#x592A;&#x591A;&#x7684;&#x6D4B;&#x8BD5;&#xFF08;&#x6700;&#x5927;10&#x4E2A;&#xFF09;&#xFF0C;&#x9664;&#x975E;&#x5B83;&#x662F;&#x6570;&#x636E;&#x9A71;&#x52A8;&#x6D4B;&#x8BD5;&#x3002;</li>
+<li>&#x6D4B;&#x8BD5;&#x5E94;&#x5F53;&#x90FD;&#x662F;&#x72EC;&#x7ACB;&#x7684;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x4F7F;&#x7528;<code>setup/teardown</code>&#x3002;</li>
+<li>&#x6709;&#x65F6;&#x5019;&#x4F9D;&#x8D56;&#x6D4B;&#x8BD5;&#x65F6;&#x4E0D;&#x53EF;&#x907F;&#x514D;&#x7684;&#x3002;<ul>
+<li>&#x4F8B;&#x5982;&#xFF0C;&#x5957;&#x4EF6;&#x80FD;&#x591F;&#x5206;&#x522B;&#x7684;&#x591A;&#x6B21;&#x521D;&#x59CB;&#x503C;&#x5BF9;&#x4E8E;&#x6240;&#x6709;&#x6D4B;&#x8BD5;&#x3002;</li>
+<li>&#x4ECE;&#x6765;&#x6CA1;&#x6709;&#x957F;&#x94FE;&#x5F0F;&#x7684;&#x4F9D;&#x8D56;&#x6D4B;&#x8BD5;&#x3002;</li>
+<li>&#x8003;&#x8651;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A; <code>${PREV TEST STATUS}</code> &#x53D8;&#x91CF;&#x6765;&#x9A8C;&#x8BC1;&#x524D;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7684;&#x72B6;&#x6001;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x7ED3;&#x6784;"><a href="#&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x7ED3;&#x6784;" class="headerlink" title="&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x7ED3;&#x6784;"></a>&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x7ED3;&#x6784;</h2><ul>
+<li>&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x5E94;&#x5F53;&#x7B80;&#x5355;&#x6613;&#x61C2;&#x3002;</li>
+<li>&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x53EA;&#x6D4B;&#x8BD5;&#x4E00;&#x4EF6;&#x4E8B;&#x60C5;&#x3002;<ul>
+<li>&#x4E8B;&#x60C5;&#x80FD;&#x591F;&#x5F88;&#x5C0F;&#xFF08;&#x5355;&#x4E00;&#x7684;&#x529F;&#x80FD;&#x90E8;&#x5206;&#xFF09;&#x6216;&#x5F88;&#x5927;&#xFF08;&#x7AEF;&#x5230;&#x7AEF;&#x6D4B;&#x8BD5;&#xFF09;&#x3002;</li>
+</ul>
+</li>
+<li>&#x9009;&#x62E9;&#x5408;&#x9002;&#x7684;&#x62BD;&#x8C61;&#x7B49;&#x7EA7;&#x3002;<ul>
+<li>&#x59CB;&#x7EC8;&#x4F7F;&#x7528;&#x62BD;&#x8C61;&#x7B49;&#x7EA7;&#xFF08;&#x5355;&#x4E00;&#x5C42;&#x62BD;&#x8C61;&#x539F;&#x7406;&#xFF09;&#x3002;</li>
+<li>&#x4E0D;&#x8981;&#x5305;&#x542B;&#x975E;&#x5FC5;&#x8981;&#x7684;&#x8BE6;&#x60C5;&#x5728;&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x5C42;&#x3002;</li>
+</ul>
+</li>
+<li>&#x4E24;&#x79CD;&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#xFF1A;<ul>
+<li>&#x5DE5;&#x4F5C;&#x6D41;&#x6D4B;&#x8BD5;</li>
+<li>&#x6570;&#x636E;&#x9A71;&#x52A8;&#x6D4B;&#x8BD5;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x5DE5;&#x4F5C;&#x6D41;&#x6D4B;&#x8BD5;"><a href="#&#x5DE5;&#x4F5C;&#x6D41;&#x6D4B;&#x8BD5;" class="headerlink" title="&#x5DE5;&#x4F5C;&#x6D41;&#x6D4B;&#x8BD5;"></a>&#x5DE5;&#x4F5C;&#x6D41;&#x6D4B;&#x8BD5;</h2><ul>
+<li>&#x901A;&#x5E38;&#x6709;&#x5982;&#x4E0B;&#x51E0;&#x4E2A;&#x9636;&#x6BB5;&#xFF1A;<ul>
+<li>&#x5148;&#x51B3;&#x6761;&#x4EF6;&#xFF08;&#x53EF;&#x9009;&#x62E9;&#x7684;&#xFF0C;&#x7ECF;&#x5E38;&#x5728;<code>setup</code>)</li>
+<li>&#x52A8;&#x4F5C;&#xFF08;&#x5BF9;&#x7CFB;&#x7EDF;&#x505A;&#x4EC0;&#x4E48;&#x4E00;&#x4E9B;&#x4E8B;&#xFF09;</li>
+<li>&#x6838;&#x5B9E;&#xFF08;&#x9A8C;&#x8BC1;&#x7ED3;&#x679C;&#xFF0C;&#x5F3A;&#x5236;&#x7684;&#xFF09;</li>
+<li>&#x6E05;&#x9664;&#xFF08;&#x53EF;&#x9009;&#x62E9;&#xFF0C;&#x7ECF;&#x5E38;&#x5728;<code>teardown</code>&#x53BB;&#x786E;&#x4FDD;&#x5B83;&#x88AB;&#x6267;&#x884C;&#xFF09;</li>
+</ul>
+</li>
+<li>&#x5173;&#x952E;&#x5B57;&#x63CF;&#x8FF0;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x505A;&#x4EC0;&#x4E48;&#x3002;<ul>
+<li>&#x4F7F;&#x7528;&#x6E05;&#x6670;&#x5730;&#x5173;&#x952E;&#x5B57;&#x540D;&#x79F0;&#x6765;&#x9002;&#x5E94;&#x62BD;&#x8C61;&#x7B49;&#x7EA7;&#x3002;</li>
+<li>&#x5E94;&#x5F53;&#x5305;&#x542B;&#x8DB3;&#x591F;&#x7684;&#x4FE1;&#x606F;&#x5BF9;&#x4E8E;&#x624B;&#x52A8;&#x6D4B;&#x8BD5;&#x3002;</li>
+<li>&#x5E94;&#x5F53;&#x7EDD;&#x4E0D;&#x4F7F;&#x7528;&#x6587;&#x6863;&#x548C;&#x8BC4;&#x8BBA;&#x6765;&#x89E3;&#x91CA;&#x6D4B;&#x8BD5;&#x662F;&#x505A;&#x4EC0;&#x4E48;&#x7684;&#x3002;</li>
+</ul>
+</li>
+<li>&#x4E0D;&#x540C;&#x7684;&#x6D4B;&#x8BD5;&#x6709;&#x4E0D;&#x61C2;&#x7684;&#x62BD;&#x8C61;&#x7B49;&#x7EA7;&#x3002;<ul>
+<li>&#x6D4B;&#x8BD5;&#x4E00;&#x4E2A;&#x529F;&#x80FD;&#x8BE6;&#x60C5;&#x9700;&#x8981;&#x66F4;&#x6E05;&#x6670;&#x3002;</li>
+<li>&#x7AEF;&#x5230;&#x7AEF;&#x6D4B;&#x8BD5;&#x53EF;&#x80FD;&#x5728;&#x66F4;&#x9AD8;&#x7684;&#x7B49;&#x7EA7;&#x3002;</li>
+<li>&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x5E94;&#x8BE5;&#x53EA;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x7B49;&#x7EA7;&#x3002;</li>
+</ul>
+</li>
+<li>&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x5F0F;&#x3002;<ul>
+<li>&#x66F4;&#x591A;&#x7684;&#x4E13;&#x4E1A;&#x6D4B;&#x8BD5;&#x9488;&#x5BF9;&#x5E95;&#x5C42;&#x8BE6;&#x60C5;&#x548C;&#x6574;&#x5408;&#x6D4B;&#x8BD5;&#x3002;</li>
+<li><code>&#x53EF;&#x6267;&#x884C;&#x7684;&#x89C4;&#x683C;</code>&#x884C;&#x4E3A;&#x662F;&#x5FC5;&#x987B;&#x7684;&#x3002;</li>
+<li>&#x4F7F;&#x7528;&#x9886;&#x57DF;&#x8BED;&#x8A00;&#x3002;</li>
+<li>&#x6BCF;&#x4E2A;&#x4EBA;&#xFF08;&#x7528;&#x6237;&#x6216;&#x4EA7;&#x54C1;&#x62E5;&#x6709;&#x8005;&#xFF09;&#x90FD;&#x80FD;&#x660E;&#x767D;&#x3002;</li>
+</ul>
+</li>
+<li>&#x6CA1;&#x6709;&#x590D;&#x6742;&#x7684;&#x903B;&#x8F91;&#x5728;&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x5C42;&#x7EA7;&#x3002;<ul>
+<li>&#x6CA1;&#x6709;&#x5FAA;&#x73AF;&#x6216;&#x8005;&#x5224;&#x65AD;&#x7ED3;&#x6784;&#x3002;</li>
+<li>&#x5C0F;&#x5FC3;&#x7684;&#x4F7F;&#x7528;&#x6307;&#x5B9A;&#x53D8;&#x91CF;&#x3002;</li>
+<li>&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x4E0D;&#x5E94;&#x8BE5;&#x770B;&#x8D77;&#x6765;&#x50CF;&#x811A;&#x672C;&#x3002;</li>
+</ul>
+</li>
+<li>&#x6700;&#x5927;10&#x4E2A;&#x6B65;&#x9AA4;&#xFF0C;&#x66F4;&#x5C11;&#x662F;&#x53EF;&#x53D6;&#x7684;&#x3002;</li>
+</ul>
+<p>&#x4E0B;&#x9762;&#x4F8B;&#x5B50;&#x4F7F;&#x7528; <code>&#x6807;&#x51C6;</code> &#x5173;&#x952E;&#x5B57;&#x9A71;&#x52A8;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*** Test Cases ***</span><br><span class="line">Valid Login</span><br><span class="line">    Open Broser To Login Page</span><br><span class="line">    Input Username      demo</span><br><span class="line">    Input Password      mode</span><br><span class="line">    Submit Credentials</span><br><span class="line">    Welcome Page Should Be Open</span><br></pre></td></tr></table></figure>
+<p>&#x4E0B;&#x9762;&#x4F8B;&#x5B50;&#x4F7F;&#x7528;&#x9AD8;&#x7B49;&#x7EA7;&#x7684; <code>gherkin</code> &#x65B9;&#x5F0F;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">*** Test Cases ***</span><br><span class="line">Valid Login</span><br><span class="line">    Given browser is opened to login page</span><br><span class="line">    When user &quot;demo&quot; logs in with password &quot;mode&quot;</span><br><span class="line">    Then welcome page should be open</span><br></pre></td></tr></table></figure>
+<p>&#x67E5;&#x770B;&#x8FD9;&#x4E2A;<a href="https://bitbucket.org/robotframework/webdemo/wiki/Home" target="_blank" rel="external">&#x7F51;&#x9875;&#x9879;&#x76EE;&#x793A;&#x8303;</a>&#x9488;&#x5BF9;&#x4E0A;&#x8FF0;&#x4F8B;&#x5B50;&#x7684;&#x53EF;&#x6267;&#x884C;&#x7248;&#x672C;&#x3002;</p>
+<h2 id="&#x6570;&#x636E;&#x9A71;&#x52A8;&#x6D4B;&#x8BD5;"><a href="#&#x6570;&#x636E;&#x9A71;&#x52A8;&#x6D4B;&#x8BD5;" class="headerlink" title="&#x6570;&#x636E;&#x9A71;&#x52A8;&#x6D4B;&#x8BD5;"></a>&#x6570;&#x636E;&#x9A71;&#x52A8;&#x6D4B;&#x8BD5;</h2><ul>
+<li>&#x4E00;&#x4E2A;&#x9AD8;&#x9636;&#x5173;&#x952E;&#x5B57;&#x5BF9;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x3002;<ul>
+<li>&#x4E0D;&#x540C;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x521B;&#x5EFA;&#x4E0D;&#x540C;&#x7684;&#x6D4B;&#x8BD5;&#x3002;</li>
+<li>&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x80FD;&#x591F;&#x591A;&#x6B21;&#x8FD0;&#x884C;&#x76F8;&#x540C;&#x7684;&#x5173;&#x952E;&#x5B57;&#x6765;&#x9A8C;&#x8BC1;&#x591A;&#x4E2A;&#x76F8;&#x5173;&#x7684;&#x53D8;&#x5316;&#x3002;</li>
+</ul>
+</li>
+<li>&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x5173;&#x952E;&#x5B57;&#x7684;&#x5B9E;&#x73B0;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x5B83;&#x901A;&#x5E38;&#x5305;&#x542B;&#x4E86;&#x76F8;&#x4F3C;&#x7684;&#x5DE5;&#x4F5C;&#x6D41;&#x4F5C;&#x4E3A;&#x5DE5;&#x4F5C;&#x6D41;&#x6D4B;&#x8BD5;&#x3002;<ul>
+<li>&#x9664;&#x975E;&#x662F;&#x5728;&#x522B;&#x5904;&#x9700;&#x8981;&#xFF0C;&#x5728;&#x76F8;&#x540C;&#x7684;&#x6587;&#x4EF6;&#x521B;&#x5EFA;&#x548C;&#x4F7F;&#x7528;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x68D2;&#x7684;&#x4E3B;&#x610F;&#x3002;</li>
+</ul>
+</li>
+<li>&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x529F;&#x80FD;&#x6D4B;&#x8BD5;&#x6A21;&#x677F;&#x3002;<ul>
+<li>&#x4E0D;&#x9700;&#x8981;&#x591A;&#x6B21;&#x91CD;&#x590D;&#x5173;&#x952E;&#x5B57;&#x3002;</li>
+<li>&#x5728;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x4E2D;&#x66F4;&#x5BB9;&#x6613;&#x7684;&#x6D4B;&#x8BD5;&#x591A;&#x4E2A;&#x53D8;&#x5316;&#x3002;</li>
+</ul>
+</li>
+<li>&#x5C3D;&#x53EF;&#x80FD;&#x5E76;&#x63A8;&#x8350;&#x540D;&#x79F0;&#x5217;&#x6807;&#x9898;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x771F;&#x7684;&#x9700;&#x8981;&#x5F88;&#x591A;&#x884C;&#x7684;&#x6D4B;&#x8BD5;&#xFF0C;&#x8003;&#x8651;&#x521B;&#x9020;&#x4E00;&#x4E2A;&#x989D;&#x5916;&#x7684;&#x6A21;&#x578B;&#x4F5C;&#x4E3A;&#x57FA;&#x7840;&#x3002;</li>
+</ul>
+<p>&#x4F8B;&#x5B50;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">*** Settings ***</span><br><span class="line">Test Template       Login with invalid credentials should fail</span><br><span class="line"></span><br><span class="line">*** Test Cases ***      USERNAME            PASSWORD</span><br><span class="line">Invalid Username        invalid             ${VALID PASSWORD}</span><br><span class="line">Invalid Password        ${VALID USERNAME}   invalid</span><br><span class="line">Invalid Both            invalid             invalid</span><br><span class="line">Empty Password          ${VALID USERNAME}   ${EMPTY}</span><br><span class="line">Empty Username          ${EMPTY}            ${VALID PASSWORD}</span><br><span class="line">Empty Both              ${EMPTY}            ${EMPTY}</span><br><span class="line"></span><br><span class="line">*** Keywords ***</span><br><span class="line">Login with invalid credentials should fail</span><br><span class="line">    [Arguments]         ${username}         ${password}</span><br><span class="line">    Input Username      ${username}</span><br><span class="line">    Input Password      ${password}</span><br><span class="line">    Submit Credentials</span><br><span class="line">    Error Page Should Be Open</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>&#x4E0A;&#x8FF0;&#x4F8B;&#x5B50;&#x7684;&#x53EF;&#x6267;&#x884C;&#x7248;&#x672C;&#xFF0C;&#x8BF7;&#x67E5;&#x770B;&#x8FD9;&#x4E2A;<a href="https://bitbucket.org/robotframework/webdemo/wiki/Home" target="_blank" rel="external">&#x7F51;&#x9875;&#x9879;&#x76EE;&#x793A;&#x4F8B;</a></p>
+</blockquote>
+<h2 id="&#x7528;&#x6237;&#x5173;&#x952E;&#x5B57;"><a href="#&#x7528;&#x6237;&#x5173;&#x952E;&#x5B57;" class="headerlink" title="&#x7528;&#x6237;&#x5173;&#x952E;&#x5B57;"></a>&#x7528;&#x6237;&#x5173;&#x952E;&#x5B57;</h2><ul>
+<li>&#x5E94;&#x8BE5;&#x7B80;&#x5355;&#x6613;&#x61C2;&#x3002;<ul>
+<li>&#x548C;&#x5DE5;&#x4F5C;&#x6D41;&#x6D4B;&#x8BD5;&#x4E00;&#x6837;&#x7684;&#x89C4;&#x5219;&#x3002;</li>
+</ul>
+</li>
+<li>&#x4E0D;&#x540C;&#x7684;&#x62BD;&#x8C61;&#x7B49;&#x7EA7;&#x3002;</li>
+<li>&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x4E00;&#x4E9B;&#x7A0B;&#x5E8F;&#x903B;&#x8F91;&#xFF08;&#x5FAA;&#x73AF;&#xFF0C;&#x5224;&#x65AD;&#xFF09;&#x3002;<ul>
+<li>&#x5C24;&#x5176;&#x662F;&#x4E00;&#x4E9B;&#x4F4E;&#x9636;&#x5173;&#x952E;&#x5B57;&#x3002;</li>
+<li>&#x590D;&#x6742;&#x7684;&#x903B;&#x8F91;&#x5B81;&#x613F;&#x5728;&#x7528;&#x6237;&#x5173;&#x952E;&#x5B57;&#x91CC;&#x800C;&#x4E0D;&#x662F;&#x8F6F;&#x4EF6;&#x5E93;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x53D8;&#x91CF;"><a href="#&#x53D8;&#x91CF;" class="headerlink" title="&#x53D8;&#x91CF;"></a>&#x53D8;&#x91CF;</h2><ul>
+<li>&#x5305;&#x542B;&#x957F;&#x800C;&#x590D;&#x6742;&#x7684;&#x503C;&#x3002;</li>
+<li>&#x53EF;&#x4EE5;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4F7F;&#x7528; <code>--variable</code> &#x9009;&#x9879;&#xFF0C;&#x6765;&#x4F20;&#x9012;&#x4FE1;&#x606F;&#x3002;</li>
+<li>&#x4F20;&#x9012;&#x4FE1;&#x606F;&#x548C;&#x5173;&#x952E;&#x5B57;&#x3002;</li>
+</ul>
+<h2 id="&#x53D8;&#x91CF;&#x547D;&#x540D;"><a href="#&#x53D8;&#x91CF;&#x547D;&#x540D;" class="headerlink" title="&#x53D8;&#x91CF;&#x547D;&#x540D;"></a>&#x53D8;&#x91CF;&#x547D;&#x540D;</h2><ul>
+<li>&#x6E05;&#x6670;&#x7684;&#x5E76;&#x4E14;&#x4E0D;&#x957F;&#x7684;&#x540D;&#x5B57;&#x3002;</li>
+<li>&#x80FD;&#x591F;&#x5728;&#x53D8;&#x91CF;&#x8868;&#x4E2D;&#x4F7F;&#x7528;&#x6CE8;&#x91CA;&#x7ED9;&#x6587;&#x6863;&#x66F4;&#x591A;&#x8BE6;&#x60C5;&#x3002;</li>
+<li>&#x59CB;&#x7EC8;&#x7684;&#x4F7F;&#x7528;&#x6848;&#x4F8B;&#x3002;<ul>
+<li>&#x5728;&#x4E00;&#x4E2A;&#x660E;&#x786E;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x91CC;&#x9762;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x4F7F;&#x7528;&#x5C0F;&#x5199;&#x3002;</li>
+<li>&#x5176;&#x4ED6;&#x7684;&#x90FD;&#x4F7F;&#x7528;&#x5927;&#x5199;&#x3002;&#xFF08;&#x5168;&#x5C40;&#x7684;&#xFF0C;&#x5957;&#x4EF6;&#xFF0C;&#x548C;&#x6D4B;&#x8BD5;&#x7EA7;&#x522B;&#xFF09;</li>
+<li>&#x7A7A;&#x683C;&#x548C;&#x4E0B;&#x5212;&#x7EBF;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5206;&#x5272;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;&#x3002;</li>
+</ul>
+</li>
+<li>&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x6E05;&#x5355;&#x53D8;&#x91CF;&#xFF0C;&#x52A8;&#x6001;&#x7684;&#x8BBE;&#x7F6E;&#x5728;&#x53D8;&#x91CF;&#x8868;&#x4E2D;&#x3002;<ul>
+<li>&#x8BBE;&#x7F6E;&#x5178;&#x578B;&#x7684;&#x4F7F;&#x7528;&#x5185;&#x5D4C;&#x7684;&#x5173;&#x952E;&#x5B57; <a href="http://robotframework.org/robotframework/latest/libraries/BuiltIn.html#Set%20Suite%20Variable" target="_blank" rel="external">&#x8BBE;&#x7F6E;&#x5957;&#x4EF6;&#x53D8;&#x91CF;</a></li>
+<li>&#x8FD9;&#x4E2A;&#x521D;&#x59CB;&#x5316;&#x503C;&#x5E94;&#x5F53;&#x89E3;&#x91CA;&#xFF0C;&#x5728;&#x4F55;&#x65F6;&#x54EA;&#x91CC;&#x8FD9;&#x4E2A;&#x771F;&#x5B9E;&#x7684;&#x503C;&#x88AB;&#x8BBE;&#x7F6E;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">*** Settings ***</span><br><span class="line">Suite Setup         Set Active User</span><br><span class="line"></span><br><span class="line">*** Variables ***</span><br><span class="line"># Default sytem address. Override when tested agains other instances.</span><br><span class="line">${SERVER URL}       http://www.baidu.com</span><br><span class="line">${USER}             Actual value set dynamically at suite setup</span><br><span class="line"></span><br><span class="line">*** Keywords ***</span><br><span class="line">Set Active User</span><br><span class="line">    ${USER} =   Get Current User    ${SERVER URL}</span><br><span class="line">    set Suite Variable      ${USER}</span><br></pre></td></tr></table></figure>
+<h2 id="&#x4F20;&#x9012;&#x548C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x503C;"><a href="#&#x4F20;&#x9012;&#x548C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x503C;" class="headerlink" title="&#x4F20;&#x9012;&#x548C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x503C;"></a>&#x4F20;&#x9012;&#x548C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x503C;</h2><ul>
+<li>&#x4ECE;&#x5173;&#x952E;&#x5B57;&#x4E2D;&#x5E38;&#x89C1;&#x7684;&#x5904;&#x7406;&#x662F;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x5206;&#x914D;&#x5B83;&#x4EEC;&#x7ED9;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x5E76;&#x4E14;&#x5C06;&#x5B83;&#x4EEC;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;&#x5176;&#x4ED6;&#x5173;&#x952E;&#x5B57;&#x3002;<ul>
+<li>&#x6E05;&#x6670;&#x548C;&#x6613;&#x4E8E;&#x7406;&#x89E3;&#x7684;&#x65B9;&#x6CD5;&#x3002;</li>
+<li>&#x5141;&#x8BB8;&#x521B;&#x5EFA;&#x72EC;&#x7ACB;&#x7684;&#x5173;&#x952E;&#x5B57;&#x5E76;&#x4E14;&#x65B9;&#x4FBF;&#x91CD;&#x65B0;&#x4F7F;&#x7528;&#x3002;</li>
+<li>&#x770B;&#x8D77;&#x6765;&#x50CF;&#x7F16;&#x7A0B;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x7EA7;&#x522B;&#x4E0D;&#x662F;&#x5F88;&#x597D;&#x3002;</li>
+</ul>
+</li>
+<li>&#x53EF;&#x4F9B;&#x9009;&#x62E9;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x4ECE;&#x5B58;&#x50A8;&#x4FE1;&#x606F;&#x7684;&#x8F6F;&#x4EF6;&#x5E93;&#x4E2D;&#x6216;&#x8005;&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x7684;<code>&#x8BBE;&#x7F6E;&#x6D4B;&#x8BD5;&#x53D8;&#x91CF;</code>&#x5173;&#x952E;&#x5B57;&#x3002;<ul>
+<li>&#x907F;&#x514D;&#x7F16;&#x7A0B;&#x5F0F;&#x5728;&#x6D4B;&#x8BD5;&#x7B49;&#x7EA7;&#x3002;</li>
+<li>&#x53EF;&#x4EE5;&#x66F4;&#x590D;&#x6742;&#x7684;&#x7406;&#x89E3;&#x548C;&#x5236;&#x9020;&#x56F0;&#x96BE;&#x7684;&#x80FD;&#x91CD;&#x590D;&#x4F7F;&#x7528;&#x7684;&#x5173;&#x952E;&#x5B57;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p>&#x597D;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">*** Test Cases ***</span><br><span class="line">Withdraw From Account</span><br><span class="line">    Withdraw From Account   $50</span><br><span class="line">    Withdraw SHould Have Succeeded</span><br><span class="line"></span><br><span class="line">*** Keywords ***</span><br><span class="line">Withdraw From Account</span><br><span class="line">    [Arguments]     ${amount}</span><br><span class="line">    ${STATUS} =     Withdraw From User Account  ${USER}     ${amount}</span><br><span class="line">    Set Test Variable   ${STATUS}</span><br><span class="line"></span><br><span class="line">Withdraw Should Have Succeeded</span><br><span class="line">    Should Be Equal     ${STATUS} SUCCESS</span><br></pre></td></tr></table></figure></p>
+<p>&#x4E0D;&#x662F;&#x5F88;&#x68D2;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">*** Test Cases ***</span><br><span class="line">Withdraw From Account</span><br><span class="line">    ${status} = Withdraw From Account   $50</span><br><span class="line">    Withdraw Should Have Succeeded ${status}</span><br><span class="line"></span><br><span class="line">*** Keywords ***</span><br><span class="line">Withdraw From Account</span><br><span class="line">    [Arguments]     ${amount}</span><br><span class="line">    ${status} =     Withdraw From User Account  ${USER}     ${amount}</span><br><span class="line">    [Return]    ${status}</span><br><span class="line"></span><br><span class="line">Withdraw Should Have Succeeded</span><br><span class="line">    [Arguments]     ${status}</span><br><span class="line">    Should Be Equal     ${stauts}   SUCCESS</span><br></pre></td></tr></table></figure></p>
+<h1 id="&#x907F;&#x514D;&#x4F7F;&#x7528;&#x4F11;&#x7720;"><a href="#&#x907F;&#x514D;&#x4F7F;&#x7528;&#x4F11;&#x7720;" class="headerlink" title="&#x907F;&#x514D;&#x4F7F;&#x7528;&#x4F11;&#x7720;"></a>&#x907F;&#x514D;&#x4F7F;&#x7528;&#x4F11;&#x7720;</h1><ul>
+<li>&#x4F11;&#x7720;&#x65F6;&#x975E;&#x5E38;&#x8106;&#x7684;&#x65B9;&#x5F0F;&#x9488;&#x5BF9;&#x540C;&#x6B65;&#x6D4B;&#x8BD5;&#x3002;</li>
+<li>&#x5E73;&#x5747;&#x7684;&#x5B89;&#x5168;&#x8FB9;&#x754C;&#x4F1A;&#x9020;&#x6210;&#x5F88;&#x957F;&#x7684;&#x4F11;&#x7720;&#x3002;</li>
+<li>&#x5F53;&#x4E00;&#x4E2A;&#x786E;&#x5207;&#x7684;&#x884C;&#x4E3A;&#x53D1;&#x751F;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x5173;&#x952E;&#x5B57;&#x66FF;&#x4EE3;&#x4F11;&#x7720;&#x3002;<ul>
+<li>&#x5173;&#x952E;&#x5B57;&#x540D;&#x79F0;&#x901A;&#x5E38;&#x662F;&#x4EE5; <code>Wait ...</code> &#x5F00;&#x59CB;&#x3002;</li>
+<li>&#x5E94;&#x8BE5;&#x6709;&#x4E00;&#x4E2A;&#x6700;&#x5927;&#x7684;&#x7B49;&#x5F85;&#x65F6;&#x95F4;&#x3002;</li>
+<li>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x7684;&#x5173;&#x952E;&#x5B57;<code>Wait Until Keyword Succeeds</code>&#x6765;&#x5305;&#x88F9;&#x5728;&#x5176;&#x4ED6;&#x5173;&#x952E;&#x5B57;&#x3002;</li>
+</ul>
+</li>
+<li>&#x6709;&#x65F6;&#x5019;&#x4F11;&#x7720;&#x4E5F;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;<ul>
+<li>&#x8BF7;&#x5C0F;&#x5FC3;&#x7684;&#x4F7F;&#x7528;&#x3002;</li>
+<li>&#x4E0D;&#x8981;&#x5728;&#x7528;&#x6237;&#x5173;&#x952E;&#x5B57;&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x6D4B;&#x8BD5;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x5173;&#x952E;&#x5B57;&#x4F7F;&#x7528;&#x3002;</li>
+</ul>
+</li>
+<li>&#x5728;&#x8C03;&#x8BD5;&#x4E2D;&#x505C;&#x6B62;&#x6267;&#x884C;&#x662F;&#x975E;&#x5E38;&#x6709;&#x7528;&#x7684;&#x3002;<ul>
+<li><a href="http://robotframework.org/robotframework/latest/libraries/Dialogs.html" target="_blank" rel="external">Dialogs library</a>&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x597D;&#x7684;&#x5E93;&#x3002;</li>
+</ul>
+</li>
+</ul>
 
       
     </div><!-- .entry-content -->
