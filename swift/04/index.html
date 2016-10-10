@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="一个人所有的成功和失败，都是其习惯造就的结果。" />
+  
+
+  
+  
+  
+  <meta name="baidu-site-verification" content="6YyXGXLcQi" />
+  
+  
+  <title>Siwft 类型集 | 个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Collection Types
+
+&amp;#x96C6;&amp;#x5408;&amp;#x53EF;&amp;#x53D8;&amp;#x6027;
+Arrays
+Array Type &amp;#x7B80;&amp;#x77ED;&amp;#x7684;&amp;#x8BED;&amp;#x6CD5;
+&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x7A7A;&amp;#x7684; Array
+&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Siwft 类型集">
+<meta property="og:url" content="http://lagelalegal.github.io/swift/04/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="Collection Types
+
+&amp;#x96C6;&amp;#x5408;&amp;#x53EF;&amp;#x53D8;&amp;#x6027;
+Arrays
+Array Type &amp;#x7B80;&amp;#x77ED;&amp;#x7684;&amp;#x8BED;&amp;#x6CD5;
+&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x7A7A;&amp;#x7684; Array
+&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x">
+<meta property="og:updated_time" content="2016-06-27T13:48:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Siwft 类型集">
+<meta name="twitter:description" content="Collection Types
+
+&amp;#x96C6;&amp;#x5408;&amp;#x53EF;&amp;#x53D8;&amp;#x6027;
+Arrays
+Array Type &amp;#x7B80;&amp;#x77ED;&amp;#x7684;&amp;#x8BED;&amp;#x6CD5;
+&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x7A7A;&amp;#x7684; Array
+&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="个人博客" rel="home">个人博客</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">档案</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-swift/04" class="post-swift/04 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      Siwft 类型集
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="/swift/04/#comments" class="leave-reply">评论</a>
+            
+            <a href="javascript:void(0);" data-url="http://lagelalegal.github.io/swift/04/" data-id="ciu3pgm6z000ermv8y6w7l4a7" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="collection-types"><a href="#Collection-Types" class="headerlink" title="Collection Types"></a>Collection Types</h1><!-- toc -->
+<ul>
+<li><a href="#&#x96C6;&#x5408;&#x53EF;&#x53D8;&#x6027;">&#x96C6;&#x5408;&#x53EF;&#x53D8;&#x6027;</a></li>
+<li><a href="#arrays">Arrays</a></li>
+<li><a href="#array-type-&#x7B80;&#x77ED;&#x7684;&#x8BED;&#x6CD5;">Array Type &#x7B80;&#x77ED;&#x7684;&#x8BED;&#x6CD5;</a><ul>
+<li><a href="#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;-array">&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684; Array</a></li>
+<li><a href="#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x503C;&#x7684;-array">&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x503C;&#x7684; Array</a></li>
+<li><a href="#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x901A;&#x8FC7;&#x5408;&#x5E76;&#x4E24;&#x4E2A;&#x6570;&#x7EC4;">&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x901A;&#x8FC7;&#x5408;&#x5E76;&#x4E24;&#x4E2A;&#x6570;&#x7EC4;</a></li>
+<li><a href="#&#x4ECE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x91CF;&#x521B;&#x5EFA;-array">&#x4ECE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x91CF;&#x521B;&#x5EFA; Array</a></li>
+<li><a href="#&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;&#x6570;&#x7EC4;">&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;&#x6570;&#x7EC4;</a></li>
+</ul>
+</li>
+<li><a href="#&#x8FED;&#x4EE3;&#x6570;&#x7EC4;">&#x8FED;&#x4EE3;&#x6570;&#x7EC4;</a></li>
+<li><a href="#sets">Sets</a><ul>
+<li><a href="#set-&#x7C7B;&#x578B;&#x7684;hash&#x503C;">Set &#x7C7B;&#x578B;&#x7684;Hash&#x503C;</a></li>
+<li><a href="#set-&#x7C7B;&#x578B;&#x8BED;&#x6CD5;">Set &#x7C7B;&#x578B;&#x8BED;&#x6CD5;</a></li>
+<li><a href="#&#x521B;&#x5EFA;&#x548C;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x7A7A;-set">&#x521B;&#x5EFA;&#x548C;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x7A7A; Set</a></li>
+<li><a href="#&#x7528;&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x91CF;&#x6765;&#x521B;&#x5EFA;set">&#x7528;&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x91CF;&#x6765;&#x521B;&#x5EFA;<code>Set</code></a></li>
+<li><a href="#&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;set&#x96C6;&#x5408;">&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;<code>Set</code>&#x96C6;&#x5408;</a></li>
+<li><a href="#&#x8FED;&#x4EE3;set&#x96C6;&#x5408;">&#x8FED;&#x4EE3;<code>set</code>&#x96C6;&#x5408;</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<ul>
+<li><p>Swfit &#x63D0;&#x4F9B;&#x4E86;&#x4E09;&#x79CD;&#x4E3B;&#x8981;&#x7684;&#x7C7B;&#x578B;&#x96C6;&#x5408;&#xFF0C;&#x4F17;&#x6240;&#x5468;&#x77E5;&#x7684; arrays,  sets &#x548C; dictionaries &#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x7C7B;&#x578B;&#x6570;&#x636E;&#x3002; Arrays &#x662F;&#x4E00;&#x4E2A;&#x6709;&#x5E8F;&#x7684;&#x7C7B;&#x578B;&#x503C;&#x3002; Sets &#x662F;&#x4E00;&#x4E2A;&#x65E0;&#x5E8F;&#x4E14;&#x552F;&#x4E00;&#x7684;&#x7C7B;&#x578B;&#x503C;&#x3002; Dictionaries &#x662F;&#x4E00;&#x4E2A;&#x65E0;&#x5E8F;&#x7684;&#x952E;&#x503C;&#x5BF9;&#x7C7B;&#x578B;&#x503C;&#x3002;</p>
+</li>
+<li><p>Arrays, sets &#x548C; dictionaries &#x5728; Swift &#x91CC;&#x603B;&#x662F;&#x660E;&#x786E;&#x7684;&#x7C7B;&#x578B;&#x5BF9;&#x4E8E;&#x503C;&#x548C;&#x952E;&#x88AB;&#x5B58;&#x50A8;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x610F;&#x5473;&#x7740;&#x5982;&#x679C;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x7684;&#x503C;&#x7C7B;&#x578B;&#x5728;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x4E2D;&#x4F1A;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#xFF0C;&#x4E5F;&#x610F;&#x5473;&#x7740;&#x4F60;&#x4ECE;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x91CC;&#x9762;&#x53D6;&#x51FA;&#x7684;&#x503C;&#x7684;&#x7C7B;&#x578B;&#x662F;&#x786E;&#x5B9A;&#x7684;&#x3002;</p>
+</li>
+</ul>
+<h1 id="&#x96C6;&#x5408;&#x53EF;&#x53D8;&#x6027;"><a href="#&#x96C6;&#x5408;&#x53EF;&#x53D8;&#x6027;" class="headerlink" title="&#x96C6;&#x5408;&#x53EF;&#x53D8;&#x6027;"></a>&#x96C6;&#x5408;&#x53EF;&#x53D8;&#x6027;</h1><ul>
+<li>&#x5982;&#x679C;&#x4F60;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; Array, Set, Dictionary &#x5E76;&#x4E14;&#x5206;&#x914D;&#x7ED9;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x8FD9;&#x4E2A;&#x88AB;&#x521B;&#x5EFA;&#x96C6;&#x5408;&#x662F;&#x53EF;&#x53D8;&#x7684;&#x3002;&#x8FD9;&#x4E5F;&#x5C31;&#x610F;&#x5473;&#x7740;&#x5B83;&#x662F;&#x53EF;&#x53D8;&#x7684;&#xFF0C;&#x8FD9;&#x4E2A;&#x96C6;&#x5408;&#x88AB;&#x521B;&#x5EFA;&#x540E;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x6DFB;&#x52A0;&#xFF0C;&#x5220;&#x9664;&#x548C;&#x6539;&#x53D8;&#x64CD;&#x4F5C;&#x3002;&#x5982;&#x679C;&#x4F60;&#x5206;&#x914D;&#x4E00;&#x4E2A;Array&#xFF0C;Set&#xFF0C;Dictionary &#x7ED9;&#x4E00;&#x4E2A;&#x5E38;&#x91CF;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x96C6;&#x5408;&#x662F;&#x4E0D;&#x53EF;&#x53D8;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x5B83;&#x7684;&#x5927;&#x5C0F;&#x548C;&#x5185;&#x5BB9;&#x90FD;&#x662F;&#x4E0D;&#x53EF;&#x53D8;&#x7684;&#x3002;</li>
+</ul>
+<h1 id="arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h1><ul>
+<li>&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x5B58;&#x50A8;&#x76F8;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x503C;&#x5728;&#x4E00;&#x4E2A;&#x6709;&#x5E8F;&#x7684;&#x5217;&#x8868;&#x3002;&#x76F8;&#x540C;&#x7684;&#x503C;&#x53EF;&#x4EE5;&#x591A;&#x6B21;&#x51FA;&#x73B0;&#x5728;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x7684;&#x4E0D;&#x540C;&#x4F4D;&#x7F6E;&#x3002;</li>
+</ul>
+<h1 id="array-type-&#x7B80;&#x77ED;&#x7684;&#x8BED;&#x6CD5;"><a href="#Array-Type-&#x7B80;&#x77ED;&#x7684;&#x8BED;&#x6CD5;" class="headerlink" title="Array Type &#x7B80;&#x77ED;&#x7684;&#x8BED;&#x6CD5;"></a>Array Type &#x7B80;&#x77ED;&#x7684;&#x8BED;&#x6CD5;</h1><ul>
+<li>&#x4E00;&#x4E2A; Swift array &#x5199;&#x6CD5;&#x5B8C;&#x6574;&#x7684;&#x662F; <code>Array&lt;Element&gt;</code>&#xFF0C;&#x8FD9;&#x91CC;&#x7684; <code>Element</code> &#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x5141;&#x8BB8;&#x5B58;&#x50A8;&#x7684;&#x503C;&#x7684;&#x7C7B;&#x578B;&#x3002;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x5199;&#x8FD9;&#x4E2A;&#x7C7B;&#x578B;&#x7684;&#x7B80;&#x77ED;&#x5F62;&#x5F0F;&#x7C7B;&#x4F3C;<code>[Element]</code>.&#x5C3D;&#x7BA1;&#x8FD9;&#x4E24;&#x79CD;&#x5F62;&#x5F0F;&#x5728;&#x529F;&#x80FD;&#x4E0A;&#x662F;&#x4E00;&#x76F4;&#x7684;&#xFF0C;&#x8FD9;&#x4E2A;&#x7B80;&#x6D01;&#x7684;&#x5F62;&#x5F0F;&#x662F;&#x4F18;&#x5148;&#x9009;&#x62E9;&#x7684;&#x3002;</li>
+</ul>
+<h2 id="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;-array"><a href="#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;-Array" class="headerlink" title="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684; Array"></a>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684; Array</h2><ul>
+<li>&#x4F60;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x786E;&#x5B9A;&#x7C7B;&#x578B;&#x7684;&#x7A7A; Array&#x3002;</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> someInts = [<span class="type">Int</span>]()</div><div class="line"><span class="built_in">print</span>(<span class="string">&quot;someInts is of type [Int] with <span class="subst">\(someInts.cout)</span> items.&quot;</span>)</div><div class="line"><span class="comment">// prints &quot;someInts is of type [Int] with 0 items.&quot;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p>&#x6CE8;&#x610F;&#x8FD9;&#x4E2A; <code>someInts</code> &#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;&#x88AB;&#x9690;&#x5F0F;&#x8F6C;&#x6362;&#x4E3A; <code>[Int]</code> &#x4ECE;&#x4E00;&#x4E2A;&#x521D;&#x59CB;&#x5316;&#x7684;&#x7C7B;&#x578B;.</p>
+</li>
+<li><p>&#x6216;&#x8005;&#xFF0C;&#x5982;&#x679C;&#x5B83;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x5DF2;&#x7ECF;&#x88AB;&#x63D0;&#x4F9B;&#x4E86;&#x7C7B;&#x578B;&#x4FE1;&#x606F;&#xFF0C;&#x4F8B;&#x5982;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x6216;&#x8005;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x6709;&#x7C7B;&#x578B;&#x7684;&#x53D8;&#x91CF;&#x6216;&#x5E38;&#x91CF;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;&#x6570;&#x7EC4;&#x548C;&#x4E00;&#x4E2A;&#x5B57;&#x9762;&#x7A7A;&#x6570;&#x7EC4;&#xFF0C;&#x5199;&#x6CD5;&#x662F; <code>[]</code>.</p>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">someInts.append(<span class="number">3</span>)</div><div class="line"><span class="comment">// someInts now contains 1 value of type Int</span></div><div class="line">someInts = []</div><div class="line"><span class="comment">// someInts is now an empty array, but is still of type [Int]</span></div></pre></td></tr></table></figure>
+<h2 id="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x503C;&#x7684;-array"><a href="#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x503C;&#x7684;-Array" class="headerlink" title="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x503C;&#x7684; Array"></a>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x503C;&#x7684; Array</h2><ul>
+<li>Swift &#x7684; <code>Array</code> &#x7C7B;&#x578B;&#x4E5F;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x521D;&#x59CB;&#x5316;&#x5668;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x786E;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x6570;&#x7EC4;&#x6216;&#x8005;&#x8BBE;&#x7F6E;&#x76F8;&#x540C;&#x7684;&#x503C;&#x5BF9;&#x6240;&#x6709;&#x7684;&#x503C;&#x3002;&#x4F60;&#x901A;&#x8FC7;&#x521D;&#x59CB;&#x5316;&#x5668;&#x591A;&#x4E2A;&#x6761;&#x76EE;&#x6DFB;&#x52A0;&#x5230;&#x4E00;&#x4E2A;&#x65B0; Array(&#x79F0;&#x4E4B;&#x4E3A;<code>count</code>)&#x548C;&#x63D0;&#x4F9B;&#x5408;&#x9002;&#x7684;&#x7C7B;&#x578B;&#x4F5C;&#x4E3A;&#x9ED8;&#x8BA4;&#x503C;&#xFF08;&#x79F0;&#x4E4B;&#x4E3A;<code>repeatedValue</code>&#xFF09;&#x3002;</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> threeDoubles = [<span class="type">Double</span>](<span class="built_in">count</span>: <span class="number">3</span>, repeatedValue: <span class="number">0.0</span>)</div><div class="line"><span class="comment">// threeDoubles is of type [Double], and equals [0.0, 0.0, 0.0]</span></div></pre></td></tr></table></figure>
+<h2 id="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x901A;&#x8FC7;&#x5408;&#x5E76;&#x4E24;&#x4E2A;&#x6570;&#x7EC4;"><a href="#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x901A;&#x8FC7;&#x5408;&#x5E76;&#x4E24;&#x4E2A;&#x6570;&#x7EC4;" class="headerlink" title="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x901A;&#x8FC7;&#x5408;&#x5E76;&#x4E24;&#x4E2A;&#x6570;&#x7EC4;"></a>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x901A;&#x8FC7;&#x5408;&#x5E76;&#x4E24;&#x4E2A;&#x6570;&#x7EC4;</h2><ul>
+<li>&#x4F60;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x6570;&#x7EC4;&#x6DFB;&#x52A0;&#x4E24;&#x4E2A;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x6570;&#x7EC4;&#x5E76;&#x4E14;&#x4F34;&#x968F;&#x4E00;&#x81F4;&#x7684;&#x7C7B;&#x578B;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x52A0;&#x6CD5;&#x64CD;&#x4F5C;&#x7B26;(<code>+</code>)&#x3002;&#x8FD9;&#x4E2A;&#x65B0;&#x6570;&#x7EC4;&#x7684;&#x7C7B;&#x578B;&#x4F1A;&#x88AB;&#x63A8;&#x5BFC;&#x4ECE;&#x4F60;&#x5171;&#x540C;&#x6DFB;&#x52A0;&#x7684;&#x4E24;&#x4E2A;&#x6570;&#x7EC4;&#x3002;</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> anotherThreeDoubles = [<span class="type">Double</span>](<span class="built_in">count</span>: <span class="number">3</span>, repeatedValue: <span class="number">2.5</span>)</div><div class="line"><span class="keyword">var</span> sixDoubles = threeDoubles + anotherThreeDoubles</div><div class="line"><span class="comment">// sixDoubles is inferred as [Double] and equals [0.0, 0.0, 0.0, 2.5, 2.5, 2.5]</span></div></pre></td></tr></table></figure>
+<h2 id="&#x4ECE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x91CF;&#x521B;&#x5EFA;-array"><a href="#&#x4ECE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x91CF;&#x521B;&#x5EFA;-Array" class="headerlink" title="&#x4ECE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x91CF;&#x521B;&#x5EFA; Array"></a>&#x4ECE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x91CF;&#x521B;&#x5EFA; Array</h2><ul>
+<li>&#x4F60;&#x53EF;&#x4EE5;&#x4ECE;&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x91CF;&#x6765;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x8FD9;&#x79CD;&#x7B80;&#x6D01;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5199;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x503C;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x96C6;&#x5408;&#x3002;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x91CF;&#x5199;&#x6CD5;&#x50CF;&#x4E00;&#x4E2A;&#x5217;&#x8868;&#xFF0C;&#x7528;&#x9017;&#x53F7;&#x5206;&#x9694;&#xFF0C;&#x4F7F;&#x7528;&#x4E2D;&#x62EC;&#x53F7;&#x5305;&#x56F4;&#x3002;<br><code>[value1, value2, value3]</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> shoppingList: [<span class="type">String</span>] = [<span class="string">&quot;Eggs&quot;</span>, <span class="string">&quot;Milk&quot;</span>]</div><div class="line"><span class="comment">// shoppingList has been initialized with two initial items</span></div></pre></td></tr></table></figure>
+<ul>
+<li>&#x8FD9;&#x4E2A; <code>shoppingList</code> &#x53D8;&#x91CF;&#x88AB;&#x58F0;&#x660E;&#x6210; &#x201C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x7EC4;&#x201D;,&#x5199;&#x6CD5;&#x662F;[<code>String</code>]&#x3002;&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x7279;&#x522B;&#x7684;&#x6570;&#x7EC4;&#x5DF2;&#x7ECF;&#x6307;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A;&#x503C;&#x7C7B;&#x578B;&#x4E3A;<code>String</code>, &#x5B83;&#x53EA;&#x5141;&#x8BB8;&#x5B58;&#x50A8;<code>String</code>&#x7C7B;&#x578B;&#x7684;&#x503C;&#x3002;</li>
+</ul>
+<h2 id="&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;&#x6570;&#x7EC4;"><a href="#&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;&#x6570;&#x7EC4;" class="headerlink" title="&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;&#x6570;&#x7EC4;"></a>&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;&#x6570;&#x7EC4;</h2><ul>
+<li><p>&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5B83;&#x81EA;&#x6709;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;&#xFF0C;&#x6216;&#x901A;&#x8FC7;&#x4E0B;&#x6807;&#x8BED;&#x6CD5;&#x6765;&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;&#x6570;&#x7EC4;&#x3002;</p>
+</li>
+<li><p>&#x4E3A;&#x4E86;&#x627E;&#x51FA;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x7684;&#x9879;&#x76EE;&#x6570;&#x91CF;&#xFF0C;&#x68C0;&#x67E5;&#x8FD9;&#x4E2A;&#x53EA;&#x8BFB;&#x7684;&#x5C5E;&#x6027;<code>count</code>:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">&quot;The shopping list contains <span class="subst">\(shoppingList.<span class="built_in">count</span>)</span> items.&quot;</span>)</div><div class="line"><span class="comment">// Prints &quot;The shopping list contains 2 items.&quot;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;<code>Boolean</code>&#x7C7B;&#x578B;&#x7684;&#x5C5E;&#x6027;<code>isEmpty</code>&#xFF0C;&#x662F;&#x7528;&#x6765;&#x68C0;&#x6D4B;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x7684; <code>count</code>&#x5C5E;&#x6027;&#x662F;&#x5426;&#x7B49;&#x4E8E;0:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> shoppingList.isEmpty {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;The shopping list is empty.&quot;</span>)</div><div class="line">} <span class="keyword">else</span> {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;The shopping list is not empty.&quot;</span>)</div><div class="line">}</div><div class="line"><span class="comment">// Prints &quot;The shopping list is not empty.&quot;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6570;&#x7EC4;&#x7684; <code>append(_:)</code>&#x65B9;&#x6CD5;&#x6765;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x9879;&#x5230;&#x6570;&#x7EC4;&#x4E2D;:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">shoppingList.append(<span class="string">&quot;Flour&quot;</span>)</div><div class="line"><span class="comment">// shoppingList now contains 3 items.</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>&#x6216;&#x8005;,&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x4E00;&#x81F4;&#x7684;&#x9879;&#x76EE;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x52A0;&#x6CD5;&#x64CD;&#x4F5C;&#x7B26;(<code>+=</code>):</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">shoppingList += [<span class="string">&quot;Baking Powder&quot;</span>]</div><div class="line"><span class="comment">// shoppingList now contains 4 items</span></div><div class="line">shoppingList += [<span class="string">&quot;Chocolate Spread&quot;</span>, <span class="string">&quot;Cheese&quot;</span>, <span class="string">&quot;Butter&quot;</span>]</div><div class="line"><span class="comment">// shoppingList now contains 7 items</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>&#x4F7F;&#x7528;&#x6570;&#x7EC4;&#x7684;&#x4E0B;&#x6807;&#x8BED;&#x6CD5;&#x6765;&#x53D6;&#x5F97;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x901A;&#x8FC7;&#x7D22;&#x5F15;&#x503C;&#x53EF;&#x4EE5;&#x53D6;&#x5F97;&#x4EFB;&#x4F55;&#x4F60;&#x60F3;&#x8981;&#x7684;&#xFF0C;&#x5728;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x540D;&#x5B57;&#x540E;&#x9762;&#x7684;&#x4E2D;&#x62EC;&#x53F7;&#x91CC;&#x4F7F;&#x7528;&#x3002;</p>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> firstItem = shoppingList[<span class="number">0</span>]</div><div class="line"><span class="comment">// firstItem is equal to &quot;Eggs&quot;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p>&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5C0F;&#x6807;&#x8BED;&#x6CD5;&#x53BB;&#x66F4;&#x6539;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x503C;&#x3002;</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">shoppingList[<span class="number">0</span>] = <span class="string">&quot;Six eggs&quot;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0B;&#x6807;&#x8BED;&#x6CD5;&#x4E00;&#x6B21;&#x6027;&#x53BB;&#x4FEE;&#x6539;&#x4E00;&#x4E2A;&#x8303;&#x56F4;&#x7684;&#x503C;&#xFF0C;&#x751A;&#x81F3;&#x53BB;&#x66FF;&#x6362;&#x4E0D;&#x540C;&#x957F;&#x5EA6;&#x7684;&#x6570;&#x7EC4;</p>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">shoppingList[<span class="number">4</span>...<span class="number">6</span>] = [<span class="string">&quot;Bananas&quot;</span>, <span class="string">&quot;Apples&quot;</span>]</div><div class="line"><span class="comment">// shoppingList now contains 6 items</span></div></pre></td></tr></table></figure>
+<ul>
+<li>&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x5230;&#x6570;&#x7EC4;&#x6307;&#x5B9A;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x8C03;&#x7528;&#x6570;&#x7EC4;&#x65B9;&#x6CD5;(<code>insert(_:atIndex:)</code>)&#xFF1A;</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">shoppingList.insert(<span class="string">&quot;Maple Syrup&quot;</span>, atIndex: <span class="number">0</span>)</div><div class="line"><span class="comment">// shoppingList now contains 7 items</span></div><div class="line"><span class="comment">// &quot;Maple Syrup&quot; is now the first item in the list</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p>&#x76F8;&#x4F3C;&#x7684;&#xFF0C;&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x7684;&#x9879;&#x76EE;&#xFF0C;&#x4F7F;&#x7528;&#x6570;&#x7EC4;&#x65B9;&#x6CD5;(<code>removeAtIndex(_:)</code>),&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4F1A;&#x8FD4;&#x56DE;&#x88AB;&#x79FB;&#x9664;&#x7684;&#x9879;&#x76EE;&#xFF1A;</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> mapleSyrup = shoppingList.removeAtIndex(<span class="number">0</span>)</div><div class="line"><span class="comment">// the item that was at index 0 has just been removed</span></div><div class="line"><span class="comment">// shoppingList now contains 6 items, and no Maple Syrup</span></div><div class="line"><span class="comment">// the mapleSyrup constant is now equal to the removed &quot;Maple Syrup&quot; string</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>&#x5982;&#x679C;&#x4F60;&#x60F3;&#x79FB;&#x9664;&#x6570;&#x7EC4;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;(<code>removeLast</code>)&#x800C;&#x4E0D;&#x662F;&#x4F7F;&#x7528; <code>removeAtIndex</code>&#x65B9;&#x6CD5;&#xFF0C;&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x9700;&#x8981;&#x67E5;&#x8BE2;&#x6570;&#x7EC4;&#x7684;<code>count</code>&#x5C5E;&#x6027;:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> apples = shoppingList.removeLast()</div><div class="line"><span class="comment">// the last item in the arry has just been removed</span></div><div class="line"><span class="comment">// shoppingList now contains 5 items, and no apples</span></div><div class="line"><span class="comment">// the apples constant is now equal to teh removed &quot;Apples&quot; string</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="&#x8FED;&#x4EE3;&#x6570;&#x7EC4;"><a href="#&#x8FED;&#x4EE3;&#x6570;&#x7EC4;" class="headerlink" title="&#x8FED;&#x4EE3;&#x6570;&#x7EC4;"></a>&#x8FED;&#x4EE3;&#x6570;&#x7EC4;</h1><ul>
+<li><p>&#x4F7F;&#x7528;<code>for-in</code>&#x5FAA;&#x73AF;&#x6765;&#x8FED;&#x4EE3;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x7684;&#x5B9E;&#x4F53;&#x503C;&#x3002;</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> item <span class="keyword">in</span> shoppingList {</div><div class="line">    <span class="built_in">print</span>(item)</div><div class="line">}</div></pre></td></tr></table></figure>
+</li>
+<li><p>&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x4E0B;&#x6807;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>enumerate()</code>&#x65B9;&#x6CD5;&#x6765;&#x8FED;&#x4EE3;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x3002;&#x5BF9;&#x4E8E;&#x6570;&#x7EC4;&#x7684;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;<code>enumerate()</code>&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5143;&#x7EC4;&#x3002;</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (index, value) <span class="keyword">in</span> shoppingList.<span class="built_in">enumerate</span>() {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;Item <span class="subst">\(index + <span class="number">1</span>)</span>: <span class="subst">\(value)</span>&quot;</span>)</div><div class="line">}</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="sets"><a href="#Sets" class="headerlink" title="Sets"></a>Sets</h1><ul>
+<li>&#x4E00;&#x4E2A;<code>set</code>&#x5B58;&#x50A8;&#x76F8;&#x540C;&#x7684;&#x7C7B;&#x578B;&#x548C;&#x4E0D;&#x540C;&#x7684;&#x503C;&#x5728;&#x4E00;&#x4E2A;&#x65E0;&#x5E8F;&#x7684;&#x96C6;&#x5408;&#x4E2D;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;<code>set</code>&#x6765;&#x66FF;&#x4EE3;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x5F53;&#x5143;&#x7D20;&#x7684;&#x987A;&#x5E8F;&#x4E0D;&#x662F;&#x5F88;&#x91CD;&#x8981;&#x65F6;&#xFF0C;&#x6216;&#x8005;&#x4F60;&#x9700;&#x8981;&#x786E;&#x4FDD;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x53EA;&#x4F1A;&#x51FA;&#x73B0;&#x4E00;&#x6B21;&#x3002;</li>
+</ul>
+<h2 id="set-&#x7C7B;&#x578B;&#x7684;hash&#x503C;"><a href="#Set-&#x7C7B;&#x578B;&#x7684;Hash&#x503C;" class="headerlink" title="Set &#x7C7B;&#x578B;&#x7684;Hash&#x503C;"></a>Set &#x7C7B;&#x578B;&#x7684;Hash&#x503C;</h2><ul>
+<li><p>&#x5728;&#x4E00;&#x4E2A;<code>set</code>&#x4E2D;&#x5FC5;&#x987B;&#x5B58;&#x50A8;&#x53EF;&#x88AB;hash&#x8BDD;&#x7684;&#x503C;&#x3002;&#x8FD9;&#x4E2A;&#x7C7B;&#x578B;&#x5FC5;&#x987B;&#x63D0;&#x4F9B;&#x4E00;&#x79CD;&#x53EF;&#x4EE5;&#x8BA1;&#x7B97;&#x5B83;&#x7684;hash&#x503C;&#xFF0C;&#x4E00;&#x4E2A;hash&#x503C;&#x662F;&#x4E00;&#x4E2A;<code>Int</code>&#x7C7B;&#x578B;,&#x5982;&#x679C;hash&#x503C;&#x76F8;&#x540C;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x90A3;&#x4E48;&#x4ED6;&#x4EEC;&#x662F;&#x76F8;&#x7B49;&#x7684;&#x3002;&#x4F8B;&#x5982;: a == b &#x76F8;&#x5F53;&#x4E8E; a.hasValue == b.hashValue</p>
+</li>
+<li><p>&#x6240;&#x6709;&#x7684;Swift&#x57FA;&#x672C;&#x7C7B;&#x578B;&#xFF08;&#x4F8B;&#x5982;: <code>String</code>, <code>Int</code>, <code>Double</code>&#x548C;<code>Bool</code>&#xFF09;&#x9ED8;&#x8BA4;&#x90FD;&#x662F;&#x53EF;&#x88AB;hash&#x7684;,&#x5E76;&#x4E14;&#x4ED6;&#x4EEC;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;<code>set</code>&#x7684;&#x503C;&#x7C7B;&#x578B;&#x6216;&#x8005;<code>dictionary</code>&#x7684;&#x952E;&#x7C7B;&#x578B;&#x3002;</p>
+</li>
+</ul>
+<h2 id="set-&#x7C7B;&#x578B;&#x8BED;&#x6CD5;"><a href="#Set-&#x7C7B;&#x578B;&#x8BED;&#x6CD5;" class="headerlink" title="Set &#x7C7B;&#x578B;&#x8BED;&#x6CD5;"></a>Set &#x7C7B;&#x578B;&#x8BED;&#x6CD5;</h2><ul>
+<li>&#x8FD9;&#x4E2A;&#x7C7B;&#x578B;&#x5728;swift&#x4E2D;&#x7684;&#x5199;&#x6CD5;&#x662F; <code>Set&lt;Element&gt;</code>, &#x8FD9;&#x91CC;&#x7684; <code>Element</code>&#x662F;&#x4E00;&#x79CD;&#x53EF;&#x5DF2;&#x5141;&#x8BB8;&#x88AB;&#x5B58;&#x50A8;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x4E0D;&#x50CF;&#x6570;&#x7EC4;&#xFF0C;<code>set</code> &#x6CA1;&#x6709;&#x7B80;&#x4FBF;&#x7684;&#x5F62;&#x5F0F;&#x3002;</li>
+</ul>
+<h2 id="&#x521B;&#x5EFA;&#x548C;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x7A7A;-set"><a href="#&#x521B;&#x5EFA;&#x548C;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x7A7A;-Set" class="headerlink" title="&#x521B;&#x5EFA;&#x548C;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x7A7A; Set"></a>&#x521B;&#x5EFA;&#x548C;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x7A7A; Set</h2><ul>
+<li><p>&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x521D;&#x59CB;&#x5316;&#x8BED;&#x6CD5;&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;&#x5E76;&#x4E14;&#x7C7B;&#x578B;&#x660E;&#x786E;&#x7684;<code>set</code>&#xFF1A;</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> letters = <span class="type">Set</span>&lt;<span class="type">Character</span>&gt;()</div><div class="line"><span class="built_in">print</span>(<span class="string">&quot;letters is of type Set&lt;Character&gt; with <span class="subst">\(letters.<span class="built_in">count</span>)</span> items.&quot;</span>)</div><div class="line"><span class="comment">// prints &quot;letters is of type Set&lt;Character&gt; with 0 items.&quot;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>&#x6216;&#x8005;&#xFF0C;&#x5982;&#x679C;&#x5B83;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x5DF2;&#x7ECF;&#x63D0;&#x4F9B;&#x4E86;&#x7C7B;&#x578B;&#x4FE1;&#x606F;&#xFF0C;&#x4F8B;&#x5982;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x6216;&#x8005;&#x5DF2;&#x7ECF;&#x58F0;&#x660E;&#x4E86;&#x7684;&#x53D8;&#x91CF;&#x548C;&#x5E38;&#x91CF;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;<code>set</code>&#x548C;&#x4E00;&#x4E2A;&#x7A7A;&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x91CF;:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">letters.insert(<span class="string">&quot;a&quot;</span>)</div><div class="line"><span class="comment">// letters now contains 1 value of type Character</span></div><div class="line">letters = []</div><div class="line"><span class="comment">// ltters is now an empty set, but is still of type Set&lt;Character&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="&#x7528;&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x91CF;&#x6765;&#x521B;&#x5EFA;set"><a href="#&#x7528;&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x91CF;&#x6765;&#x521B;&#x5EFA;Set" class="headerlink" title="&#x7528;&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x91CF;&#x6765;&#x521B;&#x5EFA;Set"></a>&#x7528;&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x91CF;&#x6765;&#x521B;&#x5EFA;<code>Set</code></h2><ul>
+<li>&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x91CF;&#x6765;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;<code>set</code>&#xFF0C;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x503C;&#x5230;<code>set</code>&#x96C6;&#x5408;&#x7684;&#x7B80;&#x4ECB;&#x65B9;&#x5F0F;.</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> favoriteGenres: <span class="type">Set</span>&lt;<span class="type">String</span>&gt; = [<span class="string">&quot;Rock&quot;</span>, <span class="string">&quot;Classical&quot;</span>, <span class="string">&quot;Hip hop&quot;</span>]</div></pre></td></tr></table></figure>
+<h2 id="&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;set&#x96C6;&#x5408;"><a href="#&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;Set&#x96C6;&#x5408;" class="headerlink" title="&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;Set&#x96C6;&#x5408;"></a>&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;<code>Set</code>&#x96C6;&#x5408;</h2><ul>
+<li>&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>set</code>&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;&#x6765;&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;&#x96C6;&#x5408;&#x3002;&#x627E;&#x51FA;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>count</code> &#x5C5E;&#x6027;&#x3002;</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">&quot;I have <span class="subst">\(favoriteGenres.<span class="built_in">count</span>)</span> favorite music genres.&quot;</span>)</div><div class="line"><span class="comment">// Prints &quot;I have 3 favorite music genres.&quot;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>&#x4F7F;&#x7528;<code>Boolean</code>&#x7C7B;&#x578B;&#x5C5E;&#x6027;<code>isEmpty</code>&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x68C0;&#x6D4B;<code>count</code>&#x5C5E;&#x6027;&#x662F;&#x5426;&#x7B49;&#x4E8E;0&#x7684;&#x7B80;&#x4FBF;&#x5199;&#x6CD5;&#x3002;</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> favoriteGenres.isEmpty {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;As far as music goes, I&apos;m not picky.&quot;</span>)</div><div class="line">} <span class="keyword">else</span> {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;I have particular music preferences.&quot;</span>)</div><div class="line">}</div><div class="line"><span class="comment">// Prints &quot;I have particular music preferences.&quot;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>insert(_:)</code>&#x65B9;&#x6CD5;&#x6765;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x65B0;&#x5143;&#x7D20;&#x5230;<code>set</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">favoriteGenres.insert(<span class="string">&quot;Jazz&quot;</span>)</div><div class="line"><span class="comment">// favoriteGenres now contains 4 items</span></div></pre></td></tr></table></figure>
+<ul>
+<li>&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>remove(_:)</code>&#x65B9;&#x6CD5;&#x6765;&#x79FB;&#x9664;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4F1A;&#x8FD4;&#x56DE;&#x4F60;&#x79FB;&#x9664;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5982;&#x679C;&#x8FD4;&#x56DE;&#x7684;&#x5143;&#x7D20;&#x4E3A;nil&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;set&#x4E0D;&#x5305;&#x542B;&#x8FD9;&#x4E2A;&#x5143;&#x7D20;&#x3002;&#x6216;&#x8005;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>removeAll()</code>&#x6765;&#x79FB;&#x9664;&#x6240;&#x6709;&#x7684;&#x5143;&#x7D20;&#x3002;</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="keyword">let</span> removedGenre = favoriteGenres.remove(<span class="string">&quot;Rock&quot;</span>) {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;<span class="subst">\(removedGenre)</span>? I&apos;m over it.&quot;</span>)</div><div class="line">} <span class="keyword">else</span> {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;I never much cared for that.&quot;</span>)</div><div class="line">}</div><div class="line"><span class="comment">// Prints &quot;Rock? I&apos;m over it.&quot;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>contains(_:)</code>&#x65B9;&#x6CD5;&#x6765;&#x68C0;&#x6D4B;<code>set</code>&#x4E2D;&#x662F;&#x5426;&#x5305;&#x542B;&#x5143;&#x7D20;.</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> favoriteGenres.<span class="built_in">contains</span>(<span class="string">&quot;Funk&quot;</span>) {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;I get up on the good foot.&quot;</span>)</div><div class="line">} <span class="keyword">else</span> {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;It&apos;s too funky in here.&quot;</span>)</div><div class="line">}</div><div class="line"><span class="comment">// Prints &quot;It&apos;s too funky in here.&quot;</span></div></pre></td></tr></table></figure>
+<h2 id="&#x8FED;&#x4EE3;set&#x96C6;&#x5408;"><a href="#&#x8FED;&#x4EE3;set&#x96C6;&#x5408;" class="headerlink" title="&#x8FED;&#x4EE3;set&#x96C6;&#x5408;"></a>&#x8FED;&#x4EE3;<code>set</code>&#x96C6;&#x5408;</h2><ul>
+<li>&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>for-in</code>&#x5FAA;&#x73AF;&#x6765;&#x8FED;&#x4EE3;<code>set</code>&#x96C6;&#x5408;.</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> genre <span class="keyword">in</span> favoriteGenres {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;<span class="subst">\(genre)</span>&quot;</span>)</div><div class="line">}</div></pre></td></tr></table></figure>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/swift/04/">
+    <time datetime="2016-06-25T08:09:53.000Z" class="entry-date">
+        2016-06-25
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/undefined/" rel="prev"><span class="meta-nav">←</span> (no title)</a></span>
+    
+    
+        <span class="nav-next"><a href="/study_jams/first_lesson/" rel="next">Study Jams 第一课 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-swift/04" data-title="Siwft 类型集" data-url="http://lagelalegal.github.io/swift/04/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'lagel'};
+      (function() {
+  	  var ds = document.createElement('script');
+  	  ds.type = 'text/javascript';ds.async = true;
+  	  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  	  ds.charset = 'UTF-8';
+  	  (document.getElementsByTagName('head')[0]
+  	   || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+
+  <aside class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/undefined/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/undefined/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/swift/04/">Siwft 类型集</a>
+          </li>
+        
+          <li>
+            <a href="/study_jams/first_lesson/">Study Jams 第一课</a>
+          </li>
+        
+          <li>
+            <a href="/robotframework/howToWriteGoodTestCase/">如何使用RobotFramework写出好的测试案例</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/robotframework/">robotframework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study/">study</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/">swift</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">云标签</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/robotframework/" style="font-size: 10px;">robotframework</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/test/" style="font-size: 10px;">test</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2016 Lagel
+    All rights reserved.</p>
+    <p>Powered by <a href="http://www.abstack.com/" target="_blank">Abstack</a></p>
+    
+    <!-- cnzz Analytics -->
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258129122'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1258129122%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+    <!-- End cnzz Analytics -->
+
+
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
