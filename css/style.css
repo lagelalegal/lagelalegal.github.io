@@ -815,6 +815,10 @@ footer[role="contentinfo"] a:hover {
     margin-left: 5px;
     margin-right: 5px;
 }
+/* Frineds */
+.friend-list a {
+	font-size: 12px;
+}
 
 /* =Main content and comment content
 -------------------------------------------------------------- */
