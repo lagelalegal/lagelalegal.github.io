@@ -99,7 +99,7 @@ Array Type &amp;#x7B80;&amp;#x77ED;&amp;#x7684;&amp;#x8BED;&amp;#x6CD5;
             
             <a href="/swift/04/#comments" class="leave-reply">评论</a>
             
-            <a href="javascript:void(0);" data-url="http://lagelalegal.github.io/swift/04/" data-id="civm5pbbv000eafv87uozq394" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+            <a href="javascript:void(0);" data-url="http://lagelalegal.github.io/swift/04/" data-id="civw8gnln000fyuv8f6mkdl4s" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -147,7 +147,7 @@ Array Type &amp;#x7B80;&amp;#x77ED;&amp;#x7684;&amp;#x8BED;&amp;#x6CD5;
 <h2 id="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;-array"><a href="#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;-Array" class="headerlink" title="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684; Array"></a>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684; Array</h2><ul>
 <li>&#x4F60;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x786E;&#x5B9A;&#x7C7B;&#x578B;&#x7684;&#x7A7A; Array&#x3002;</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> someInts = [<span class="type">Int</span>]()</div><div class="line"><span class="built_in">print</span>(<span class="string">&quot;someInts is of type [Int] with <span class="subst">\(someInts.cout)</span> items.&quot;</span>)</div><div class="line"><span class="comment">// prints &quot;someInts is of type [Int] with 0 items.&quot;</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> someInts = [<span class="type">Int</span>]()</div><div class="line"><span class="built_in">print</span>(<span class="string">&quot;someInts is of type [Int] with \(someInts.cout) items.&quot;</span>)</div><div class="line"><span class="comment">// prints &quot;someInts is of type [Int] with 0 items.&quot;</span></div></pre></td></tr></table></figure>
 <ul>
 <li><p>&#x6CE8;&#x610F;&#x8FD9;&#x4E2A; <code>someInts</code> &#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;&#x88AB;&#x9690;&#x5F0F;&#x8F6C;&#x6362;&#x4E3A; <code>[Int]</code> &#x4ECE;&#x4E00;&#x4E2A;&#x521D;&#x59CB;&#x5316;&#x7684;&#x7C7B;&#x578B;.</p>
 </li>
@@ -174,7 +174,7 @@ Array Type &amp;#x7B80;&amp;#x77ED;&amp;#x7684;&amp;#x8BED;&amp;#x6CD5;
 <li><p>&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5B83;&#x81EA;&#x6709;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;&#xFF0C;&#x6216;&#x901A;&#x8FC7;&#x4E0B;&#x6807;&#x8BED;&#x6CD5;&#x6765;&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;&#x6570;&#x7EC4;&#x3002;</p>
 </li>
 <li><p>&#x4E3A;&#x4E86;&#x627E;&#x51FA;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x7684;&#x9879;&#x76EE;&#x6570;&#x91CF;&#xFF0C;&#x68C0;&#x67E5;&#x8FD9;&#x4E2A;&#x53EA;&#x8BFB;&#x7684;&#x5C5E;&#x6027;<code>count</code>:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">&quot;The shopping list contains <span class="subst">\(shoppingList.<span class="built_in">count</span>)</span> items.&quot;</span>)</div><div class="line"><span class="comment">// Prints &quot;The shopping list contains 2 items.&quot;</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">&quot;The shopping list contains \(shoppingList.count) items.&quot;</span>)</div><div class="line"><span class="comment">// Prints &quot;The shopping list contains 2 items.&quot;</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;<code>Boolean</code>&#x7C7B;&#x578B;&#x7684;&#x5C5E;&#x6027;<code>isEmpty</code>&#xFF0C;&#x662F;&#x7528;&#x6765;&#x68C0;&#x6D4B;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x7684; <code>count</code>&#x5C5E;&#x6027;&#x662F;&#x5426;&#x7B49;&#x4E8E;0:</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> shoppingList.isEmpty {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;The shopping list is empty.&quot;</span>)</div><div class="line">} <span class="keyword">else</span> {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;The shopping list is not empty.&quot;</span>)</div><div class="line">}</div><div class="line"><span class="comment">// Prints &quot;The shopping list is not empty.&quot;</span></div></pre></td></tr></table></figure>
@@ -214,7 +214,7 @@ Array Type &amp;#x7B80;&amp;#x77ED;&amp;#x7684;&amp;#x8BED;&amp;#x6CD5;
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> item <span class="keyword">in</span> shoppingList {</div><div class="line">    <span class="built_in">print</span>(item)</div><div class="line">}</div></pre></td></tr></table></figure>
 </li>
 <li><p>&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x4E0B;&#x6807;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>enumerate()</code>&#x65B9;&#x6CD5;&#x6765;&#x8FED;&#x4EE3;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x3002;&#x5BF9;&#x4E8E;&#x6570;&#x7EC4;&#x7684;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;<code>enumerate()</code>&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5143;&#x7EC4;&#x3002;</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (index, value) <span class="keyword">in</span> shoppingList.<span class="built_in">enumerate</span>() {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;Item <span class="subst">\(index + <span class="number">1</span>)</span>: <span class="subst">\(value)</span>&quot;</span>)</div><div class="line">}</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (index, value) <span class="keyword">in</span> shoppingList.<span class="built_in">enumerate</span>() {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;Item \(index + 1): \(value)&quot;</span>)</div><div class="line">}</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h1 id="sets"><a href="#Sets" class="headerlink" title="Sets"></a>Sets</h1><ul>
@@ -231,7 +231,7 @@ Array Type &amp;#x7B80;&amp;#x77ED;&amp;#x7684;&amp;#x8BED;&amp;#x6CD5;
 </ul>
 <h2 id="&#x521B;&#x5EFA;&#x548C;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x7A7A;-set"><a href="#&#x521B;&#x5EFA;&#x548C;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x7A7A;-Set" class="headerlink" title="&#x521B;&#x5EFA;&#x548C;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x7A7A; Set"></a>&#x521B;&#x5EFA;&#x548C;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x7A7A; Set</h2><ul>
 <li><p>&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x521D;&#x59CB;&#x5316;&#x8BED;&#x6CD5;&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;&#x5E76;&#x4E14;&#x7C7B;&#x578B;&#x660E;&#x786E;&#x7684;<code>set</code>&#xFF1A;</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> letters = <span class="type">Set</span>&lt;<span class="type">Character</span>&gt;()</div><div class="line"><span class="built_in">print</span>(<span class="string">&quot;letters is of type Set&lt;Character&gt; with <span class="subst">\(letters.<span class="built_in">count</span>)</span> items.&quot;</span>)</div><div class="line"><span class="comment">// prints &quot;letters is of type Set&lt;Character&gt; with 0 items.&quot;</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> letters = <span class="type">Set</span>&lt;<span class="type">Character</span>&gt;()</div><div class="line"><span class="built_in">print</span>(<span class="string">&quot;letters is of type Set&lt;Character&gt; with \(letters.count) items.&quot;</span>)</div><div class="line"><span class="comment">// prints &quot;letters is of type Set&lt;Character&gt; with 0 items.&quot;</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>&#x6216;&#x8005;&#xFF0C;&#x5982;&#x679C;&#x5B83;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x5DF2;&#x7ECF;&#x63D0;&#x4F9B;&#x4E86;&#x7C7B;&#x578B;&#x4FE1;&#x606F;&#xFF0C;&#x4F8B;&#x5982;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x6216;&#x8005;&#x5DF2;&#x7ECF;&#x58F0;&#x660E;&#x4E86;&#x7684;&#x53D8;&#x91CF;&#x548C;&#x5E38;&#x91CF;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;<code>set</code>&#x548C;&#x4E00;&#x4E2A;&#x7A7A;&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x91CF;:</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">letters.insert(<span class="string">&quot;a&quot;</span>)</div><div class="line"><span class="comment">// letters now contains 1 value of type Character</span></div><div class="line">letters = []</div><div class="line"><span class="comment">// ltters is now an empty set, but is still of type Set&lt;Character&gt;</span></div></pre></td></tr></table></figure>
@@ -244,7 +244,7 @@ Array Type &amp;#x7B80;&amp;#x77ED;&amp;#x7684;&amp;#x8BED;&amp;#x6CD5;
 <h2 id="&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;set&#x96C6;&#x5408;"><a href="#&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;Set&#x96C6;&#x5408;" class="headerlink" title="&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;Set&#x96C6;&#x5408;"></a>&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;<code>Set</code>&#x96C6;&#x5408;</h2><ul>
 <li>&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>set</code>&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;&#x6765;&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;&#x96C6;&#x5408;&#x3002;&#x627E;&#x51FA;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>count</code> &#x5C5E;&#x6027;&#x3002;</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">&quot;I have <span class="subst">\(favoriteGenres.<span class="built_in">count</span>)</span> favorite music genres.&quot;</span>)</div><div class="line"><span class="comment">// Prints &quot;I have 3 favorite music genres.&quot;</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">&quot;I have \(favoriteGenres.count) favorite music genres.&quot;</span>)</div><div class="line"><span class="comment">// Prints &quot;I have 3 favorite music genres.&quot;</span></div></pre></td></tr></table></figure>
 <ul>
 <li>&#x4F7F;&#x7528;<code>Boolean</code>&#x7C7B;&#x578B;&#x5C5E;&#x6027;<code>isEmpty</code>&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x68C0;&#x6D4B;<code>count</code>&#x5C5E;&#x6027;&#x662F;&#x5426;&#x7B49;&#x4E8E;0&#x7684;&#x7B80;&#x4FBF;&#x5199;&#x6CD5;&#x3002;</li>
 </ul>
@@ -256,7 +256,7 @@ Array Type &amp;#x7B80;&amp;#x77ED;&amp;#x7684;&amp;#x8BED;&amp;#x6CD5;
 <ul>
 <li>&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>remove(_:)</code>&#x65B9;&#x6CD5;&#x6765;&#x79FB;&#x9664;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4F1A;&#x8FD4;&#x56DE;&#x4F60;&#x79FB;&#x9664;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5982;&#x679C;&#x8FD4;&#x56DE;&#x7684;&#x5143;&#x7D20;&#x4E3A;nil&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;set&#x4E0D;&#x5305;&#x542B;&#x8FD9;&#x4E2A;&#x5143;&#x7D20;&#x3002;&#x6216;&#x8005;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>removeAll()</code>&#x6765;&#x79FB;&#x9664;&#x6240;&#x6709;&#x7684;&#x5143;&#x7D20;&#x3002;</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="keyword">let</span> removedGenre = favoriteGenres.remove(<span class="string">&quot;Rock&quot;</span>) {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;<span class="subst">\(removedGenre)</span>? I&apos;m over it.&quot;</span>)</div><div class="line">} <span class="keyword">else</span> {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;I never much cared for that.&quot;</span>)</div><div class="line">}</div><div class="line"><span class="comment">// Prints &quot;Rock? I&apos;m over it.&quot;</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="keyword">let</span> removedGenre = favoriteGenres.remove(<span class="string">&quot;Rock&quot;</span>) {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;\(removedGenre)? I&apos;m over it.&quot;</span>)</div><div class="line">} <span class="keyword">else</span> {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;I never much cared for that.&quot;</span>)</div><div class="line">}</div><div class="line"><span class="comment">// Prints &quot;Rock? I&apos;m over it.&quot;</span></div></pre></td></tr></table></figure>
 <ul>
 <li>&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>contains(_:)</code>&#x65B9;&#x6CD5;&#x6765;&#x68C0;&#x6D4B;<code>set</code>&#x4E2D;&#x662F;&#x5426;&#x5305;&#x542B;&#x5143;&#x7D20;.</li>
 </ul>
@@ -264,7 +264,7 @@ Array Type &amp;#x7B80;&amp;#x77ED;&amp;#x7684;&amp;#x8BED;&amp;#x6CD5;
 <h2 id="&#x8FED;&#x4EE3;set&#x96C6;&#x5408;"><a href="#&#x8FED;&#x4EE3;set&#x96C6;&#x5408;" class="headerlink" title="&#x8FED;&#x4EE3;set&#x96C6;&#x5408;"></a>&#x8FED;&#x4EE3;<code>set</code>&#x96C6;&#x5408;</h2><ul>
 <li>&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>for-in</code>&#x5FAA;&#x73AF;&#x6765;&#x8FED;&#x4EE3;<code>set</code>&#x96C6;&#x5408;.</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> genre <span class="keyword">in</span> favoriteGenres {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;<span class="subst">\(genre)</span>&quot;</span>)</div><div class="line">}</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> genre <span class="keyword">in</span> favoriteGenres {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;\(genre)&quot;</span>)</div><div class="line">}</div></pre></td></tr></table></figure>
 
       
     </div><!-- .entry-content -->
@@ -287,6 +287,8 @@ Array Type &amp;#x7B80;&amp;#x77ED;&amp;#x7684;&amp;#x8BED;&amp;#x6CD5;
     
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/javascript/" rel="prev"><span class="meta-nav">←</span> Canvas的缩放比例</a></span>
     
     
         <span class="nav-next"><a href="/study_jams/first_lesson/" rel="next">Study Jams 第一课 <span class="meta-nav">→</span></a></span>
@@ -340,6 +342,10 @@ Array Type &amp;#x7B80;&amp;#x77ED;&amp;#x7684;&amp;#x8BED;&amp;#x6CD5;
       <ul>
         
           <li>
+            <a href="/javascript/">Canvas的缩放比例</a>
+          </li>
+        
+          <li>
             <a href="/swift/04/">Siwft 类型集</a>
           </li>
         
@@ -355,10 +361,6 @@ Array Type &amp;#x7B80;&amp;#x77ED;&amp;#x7684;&amp;#x8BED;&amp;#x6CD5;
             <a href="/swift/03/">Swift 第三课时</a>
           </li>
         
-          <li>
-            <a href="/swift/02/">Swift 第二课时</a>
-          </li>
-        
       </ul>
     </div>
   </aside>
@@ -368,7 +370,7 @@ Array Type &amp;#x7B80;&amp;#x77ED;&amp;#x7684;&amp;#x8BED;&amp;#x6CD5;
   <aside class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/robotframework/">robotframework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study/">study</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/">swift</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/">canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/robotframework/">robotframework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study/">study</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/">swift</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </aside>
 
@@ -377,7 +379,7 @@ Array Type &amp;#x7B80;&amp;#x77ED;&amp;#x7684;&amp;#x8BED;&amp;#x6CD5;
   <aside class="widget">
     <h3 class="widget-title">云标签</h3>
     <div class="widget-content tagcloud">
-      <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/robotframework/" style="font-size: 10px;">robotframework</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/test/" style="font-size: 10px;">test</a>
+      <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/robotframework/" style="font-size: 10px;">robotframework</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/test/" style="font-size: 10px;">test</a>
     </div>
   </aside>
 

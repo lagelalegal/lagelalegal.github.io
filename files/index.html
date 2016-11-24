@@ -13,17 +13,30 @@
   <meta name="baidu-site-verification" content="6YyXGXLcQi" />
   
   
-  <title>Archives: 2016/4 | 个人博客</title>
+  <title>个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个人所有的成功和失败，都是其习惯造就的结果。">
+  <meta name="description" content="#target {
+                width: 100%;
+                height: 100%;
+                border: 1px solid #CCC;
+            }">
 <meta property="og:type" content="website">
 <meta property="og:title" content="个人博客">
-<meta property="og:url" content="http://lagelalegal.github.io/archives/2016/04/index.html">
+<meta property="og:url" content="http://lagelalegal.github.io/files/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="一个人所有的成功和失败，都是其习惯造就的结果。">
+<meta property="og:description" content="#target {
+                width: 100%;
+                height: 100%;
+                border: 1px solid #CCC;
+            }">
+<meta property="og:updated_time" content="2016-11-24T10:34:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="个人博客">
-<meta name="twitter:description" content="一个人所有的成功和失败，都是其习惯造就的结果。">
+<meta name="twitter:description" content="#target {
+                width: 100%;
+                height: 100%;
+                border: 1px solid #CCC;
+            }">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -63,47 +76,119 @@
     </nav>
 </header>
       <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main">
-  
-  
-    
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="post type-post status-publish format-standard hentry archive-type-post">
-  <header class="entry-header">
-      
-  
-    <h1 class="entry-title">
-      <a class="archive-article-title" href="/study_jams/first_lesson/">Study Jams 第一课</a>
-    </h1>
-  
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="page-undefined" class="page-undefined post type-post status-publish format-standard hentry">
+    <!---->
 
-  </header>
-  <footer class="entry-meta">
-    <a href="/study_jams/first_lesson/">
-    <time datetime="2016-04-01T10:11:50.000Z" class="entry-date">
-        2016-04-01
+      <header class="entry-header">
+        
+        <div class="comments-link">
+            
+            <a href="/files/index.html#comments" class="leave-reply">评论</a>
+            
+            <a href="javascript:void(0);" data-url="http://lagelalegal.github.io/files/index.html" data-id="civw8gnk00002yuv8lfr65cgv" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            #target {
+                width: 100%;
+                height: 100%;
+                border: 1px solid #CCC;
+            }
+        </style>
+        <script>
+            window.onload = () => {
+                let canvas = document.getElementById('target');
+                let context = canvas.getContext('2d');
+                // 给 canvas 加上鼠标事件
+                let drawing = false;
+
+                let ratio = canvas.width / canvas.clientWidth;
+                let currentRatio = 1 / ratio;
+
+                window.onresize = () => {
+                    ratio = canvas.width / canvas.clientWidth;
+                    currentRatio = 1 / ratio;
+                };
+
+                context.lineWidth = 3;
+                context.strokeStyle = 'red';
+
+                canvas.addEventListener('mousedown', (e) => {
+                    context.beginPath();
+                    context.moveTo(e.offsetX / currentRatio, e.offsetY / currentRatio);
+                    drawing = true;
+                });
+
+                canvas.addEventListener('mousemove', (e) => {
+                    if (drawing) {
+                        context.lineTo(e.offsetX / currentRatio, e.offsetY / currentRatio);
+                        context.stroke();
+                    }
+                });
+
+                canvas.addEventListener('mouseup', (e) => {
+                    if (drawing) {
+                        context.lineTo(e.offsetX / currentRatio, e.offsetY / currentRatio);
+                        context.stroke();
+                        drawing = false;
+                    }
+                });
+            };
+        </script>
+    </head>
+    <body>
+        <canvas id="target" width="1024" height="640"></canvas>
+    </body>
+</html>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/files/index.html">
+    <time datetime="2016-11-24T10:39:31.000Z" class="entry-date">
+        2016-11-24
     </time>
 </a>
     
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
-
     </footer>
 </article>
-  
-  
-    </div></section>
-  
+
+
+    
+
+
+
+
+
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="page-undefined" data-title="" data-url="http://lagelalegal.github.io/files/index.html"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'lagel'};
+      (function() {
+  	  var ds = document.createElement('script');
+  	  ds.type = 'text/javascript';ds.async = true;
+  	  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  	  ds.charset = 'UTF-8';
+  	  (document.getElementsByTagName('head')[0]
+  	   || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+
 
 </div></div>
         <div id="secondary" class="widget-area" role="complementary">

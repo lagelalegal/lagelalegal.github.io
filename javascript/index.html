@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="一个人所有的成功和失败，都是其习惯造就的结果。" />
+  
+
+  
+  
+  
+  <meta name="baidu-site-verification" content="6YyXGXLcQi" />
+  
+  
+  <title>Canvas的缩放比例 | 个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x9700;&amp;#x6C42;&amp;#x8BF4;&amp;#x660E;
+&amp;#x9700;&amp;#x8981;&amp;#x5C06;&amp;#x4E00;&amp;#x4E2A;&amp;#x5927;&amp;#x5C0F;&amp;#x4E0D;&amp;#x5B9A;&amp;#x7684; cavas &amp;#x753B;&amp;#x677F;&amp;#x7F29;&amp;#x653E;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A;&amp;#x6807;&amp;#x51C6;&amp;#x7684;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Canvas的缩放比例">
+<meta property="og:url" content="http://lagelalegal.github.io/javascript/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="&amp;#x9700;&amp;#x6C42;&amp;#x8BF4;&amp;#x660E;
+&amp;#x9700;&amp;#x8981;&amp;#x5C06;&amp;#x4E00;&amp;#x4E2A;&amp;#x5927;&amp;#x5C0F;&amp;#x4E0D;&amp;#x5B9A;&amp;#x7684; cavas &amp;#x753B;&amp;#x677F;&amp;#x7F29;&amp;#x653E;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A;&amp;#x6807;&amp;#x51C6;&amp;#x7684;">
+<meta property="og:updated_time" content="2016-11-24T10:42:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Canvas的缩放比例">
+<meta name="twitter:description" content="&amp;#x9700;&amp;#x6C42;&amp;#x8BF4;&amp;#x660E;
+&amp;#x9700;&amp;#x8981;&amp;#x5C06;&amp;#x4E00;&amp;#x4E2A;&amp;#x5927;&amp;#x5C0F;&amp;#x4E0D;&amp;#x5B9A;&amp;#x7684; cavas &amp;#x753B;&amp;#x677F;&amp;#x7F29;&amp;#x653E;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A;&amp;#x6807;&amp;#x51C6;&amp;#x7684;">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="个人博客" rel="home">个人博客</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">档案</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-javascript/canvas" class="post-javascript/canvas post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      Canvas的缩放比例
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="/javascript/#comments" class="leave-reply">评论</a>
+            
+            <a href="javascript:void(0);" data-url="http://lagelalegal.github.io/javascript/" data-id="civw8gnl60005yuv8g81dumtx" class="leave-reply bdsharebuttonbox" data-cmd="more">分享</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="&#x9700;&#x6C42;&#x8BF4;&#x660E;"><a href="#&#x9700;&#x6C42;&#x8BF4;&#x660E;" class="headerlink" title="&#x9700;&#x6C42;&#x8BF4;&#x660E;"></a>&#x9700;&#x6C42;&#x8BF4;&#x660E;</h2><blockquote>
+<p>&#x9700;&#x8981;&#x5C06;&#x4E00;&#x4E2A;&#x5927;&#x5C0F;&#x4E0D;&#x5B9A;&#x7684; cavas &#x753B;&#x677F;&#x7F29;&#x653E;&#x6210;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;&#x753B;&#x5E03;&#x5927;&#x5C0F;&#x3002;&#x968F;&#x7740;&#x6D4F;&#x89C8;&#x5668;&#x7684;<code>resize</code>&#x800C;&#x53D8;&#x6362;&#x3002;</p>
+</blockquote>
+<h3 id="indexhtml"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h3><blockquote>
+<p>&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; canvas &#x5BF9;&#x8C61;&#xFF0C;&#x5728; dom &#x7ED3;&#x6784;&#x4E2D;, &#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7F29;&#x653E;&#x7684; canvas &#x5927;&#x5C0F;&#x662F; 1024*640</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1&quot;</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">&quot;target&quot;</span> <span class="attr">width</span>=<span class="string">&quot;1024&quot;</span> <span class="attr">height</span>=<span class="string">&quot;640&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="&#x6837;&#x5F0F;"><a href="#&#x6837;&#x5F0F;" class="headerlink" title="&#x6837;&#x5F0F;"></a>&#x6837;&#x5F0F;</h3><blockquote>
+<p>&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x9700;&#x8981;canvas&#x81EA;&#x9002;&#x5E94;&#xFF0C;&#x6240;&#x4EE5;&#x5728; css &#x91CC;&#x9762;&#x8BBE;&#x7F6E;&#x5B83;&#x7684;&#x5BBD;&#x9AD8;&#x90FD;&#x4E3A; 100%.</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">#target {</div><div class="line">    width: 100%;</div><div class="line">    height: 100%;</div><div class="line">}</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h3 id="javascript-&#x64CD;&#x4F5C;"><a href="#javascript-&#x64CD;&#x4F5C;" class="headerlink" title="javascript &#x64CD;&#x4F5C;"></a>javascript &#x64CD;&#x4F5C;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="params">()</span> =&gt;</span> {</div><div class="line">    <span class="keyword">let</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">&apos;target&apos;</span>);</div><div class="line">    <span class="keyword">let</span> context = canvas.getContext(<span class="string">&apos;2d&apos;</span>);</div><div class="line">    <span class="comment">// &#x7ED9; canvas &#x52A0;&#x4E0A;&#x9F20;&#x6807;&#x4E8B;&#x4EF6;</span></div><div class="line">    <span class="keyword">let</span> drawing = <span class="literal">false</span>;</div><div class="line"></div><div class="line">    context.lineWidth = <span class="number">3</span>;</div><div class="line">    context.strokeStyle = <span class="string">&apos;red&apos;</span>;</div><div class="line">    canvas.addEventListener(<span class="string">&apos;mousedown&apos;</span>, (e) =&gt; {</div><div class="line">        context.beginPath();</div><div class="line">        context.moveTo(e.offsetX, e.offsetY);</div><div class="line">        drawing = <span class="literal">true</span>;</div><div class="line">    });</div><div class="line"></div><div class="line">    canvas.addEventListener(<span class="string">&apos;mousemove&apos;</span>, (e) =&gt; {</div><div class="line">        <span class="keyword">if</span> (drawing) {</div><div class="line">            context.lineTo(e.offsetX, e.offsetY);</div><div class="line">            context.stroke();</div><div class="line">        }</div><div class="line">    });</div><div class="line"></div><div class="line">    canvas.addEventListener(<span class="string">&apos;mouseup&apos;</span>, (e) =&gt; {</div><div class="line">        <span class="keyword">if</span> (drawing) {</div><div class="line">            context.lineTo(e.offsetX, e.offsetY);</div><div class="line">            context.stroke();</div><div class="line">            drawing = <span class="literal">false</span>;</div><div class="line">        }</div><div class="line">    });</div><div class="line">};</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>&#x52A0;&#x4E0A;&#x5982;&#x4E0A;&#x4EE3;&#x7801;&#xFF0C;&#x6211;&#x4EEC;&#x7684; canvas &#x5C31;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;&#x4E86;&#xFF0C;&#x6765;&#x6D4B;&#x8BD5;&#x4E00;&#x756A;&#x5427;&#x3002;</p>
+</blockquote>
+<h3 id="bug"><a href="#BUG" class="headerlink" title="BUG"></a>BUG</h3><blockquote>
+<p>&#x5F88;&#x9057;&#x61BE;&#xFF0C;&#x5F53;&#x6211;&#x5C4F;&#x5E55;&#x7684;&#x5927;&#x5C0F;&#x53EA;&#x6709;1024 * 640 &#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x9F20;&#x6807;&#x624D;&#x80FD;&#x591F;&#x548C;&#x753B;&#x5E03;&#x4E0A;&#x9762;&#x7684;&#x70B9;&#x5BF9;&#x5E94;&#x4E0A;&#x3002;</p>
+</blockquote>
+<h3 id="&#x539F;&#x56E0;"><a href="#&#x539F;&#x56E0;" class="headerlink" title="&#x539F;&#x56E0;"></a>&#x539F;&#x56E0;</h3><ul>
+<li>&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x5F3A;&#x5236;&#x8981;&#x6C42; &#x753B;&#x5E03;&#x7684;&#x5927;&#x5C0F;&#x662F; 1024 * 640&#xFF0C;&#x4F46;&#x662F;&#x5B9E;&#x9645;&#x4E0A;&#x753B;&#x5E03;&#x7684;&#x5927;&#x5C0F;&#x662F;&#x5927;&#x4E8E;&#x6216;&#x5C0F;&#x4E8E;&#x8981;&#x6C42;&#x7684;&#x5927;&#x5C0F;&#x7684;&#x3002;</li>
+<li>&#x7531;&#x4E8E;&#x6211;&#x4EEC;&#x7684;&#x5927;&#x5C0F;&#x4E0D;&#x4E00;&#x81F4;&#xFF0C;&#x4E8E;&#x662F;<code>canvas</code> &#x81EA;&#x52A8;&#x6267;&#x884C;&#x4E86; <code>scale</code>&#x65B9;&#x6CD5;&#xFF0C;&#x4E5F;&#x5C31;&#x662F; <code>canvas</code> &#x7684;&#x7F29;&#x653E;&#x529F;&#x80FD;&#x3002;</li>
+<li>&#x6240;&#x4EE5;&#x5BFC;&#x81F4;&#x4E86;&#x6211;&#x4EEC;&#x7684;&#x9F20;&#x6807;&#x70B9;&#x51FB;&#x540E;&#x663E;&#x793A;&#x7684;&#x4F4D;&#x7F6E;&#x662F;&#x7F29;&#x653E;&#x4E4B;&#x540E;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</li>
+</ul>
+<h3 id="&#x89E3;&#x51B3;"><a href="#&#x89E3;&#x51B3;" class="headerlink" title="&#x89E3;&#x51B3;"></a>&#x89E3;&#x51B3;</h3><blockquote>
+<p>&#x6839;&#x636E;&#x4EE5;&#x4E0A;&#x6211;&#x4EEC;&#x5206;&#x6790;&#x51FA;&#x7684;&#x539F;&#x56E0;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x8BA1;&#x7B97;&#x51FA;&#x5F53;&#x524D;&#x753B;&#x5E03;&#x4E0E;&#x6807;&#x51C6;&#x753B;&#x5E03;&#x76F4;&#x63A5;&#x7684;<code>&#x6BD4;&#x4F8B;</code>&#x3002;&#x7136;&#x540E;&#x5C06;&#x9F20;&#x6807;&#x7684;&#x70B9;&#x51FB;&#x4F4D;&#x7F6E;&#xFF0C;&#x6309;&#x5BF9;&#x5E94;&#x7684;&#x6BD4;&#x4F8B;&#x6362;&#x7B97;&#xFF0C;&#x90A3;&#x4E48;&#x4E45;&#x4E0D;&#x4F1A;&#x5BFC;&#x81F4;&#x9F20;&#x6807;&#x70B9;&#x4E0E;&#x4F4D;&#x7F6E;&#x7684;&#x4E0D;&#x7EDF;&#x4E00;&#x3002;</p>
+</blockquote>
+<h4 id="&#x4EE3;&#x7801;"><a href="#&#x4EE3;&#x7801;" class="headerlink" title="&#x4EE3;&#x7801;"></a>&#x4EE3;&#x7801;</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="params">()</span> =&gt;</span> {</div><div class="line">    <span class="keyword">let</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">&apos;target&apos;</span>);</div><div class="line">    <span class="keyword">let</span> context = canvas.getContext(<span class="string">&apos;2d&apos;</span>);</div><div class="line">    <span class="comment">// &#x7ED9; canvas &#x52A0;&#x4E0A;&#x9F20;&#x6807;&#x4E8B;&#x4EF6;</span></div><div class="line">    <span class="keyword">let</span> drawing = <span class="literal">false</span>;</div><div class="line"></div><div class="line">    <span class="keyword">let</span> ratio = canvas.width / canvas.clientWidth;</div><div class="line">    <span class="keyword">let</span> currentRatio = <span class="number">1</span> / ratio;;</div><div class="line"></div><div class="line">    context.lineWidth = <span class="number">3</span>;</div><div class="line">    context.strokeStyle = <span class="string">&apos;red&apos;</span>;</div><div class="line"></div><div class="line">    canvas.addEventListener(<span class="string">&apos;mousedown&apos;</span>, (e) =&gt; {</div><div class="line">        context.beginPath();</div><div class="line">        context.moveTo(e.offsetX / currentRatio, e.offsetY / currentRatio);</div><div class="line">        drawing = <span class="literal">true</span>;</div><div class="line">    });</div><div class="line"></div><div class="line">    canvas.addEventListener(<span class="string">&apos;mousemove&apos;</span>, (e) =&gt; {</div><div class="line">        <span class="keyword">if</span> (drawing) {</div><div class="line">            context.lineTo(e.offsetX / currentRatio, e.offsetY / currentRatio);</div><div class="line">            context.stroke();</div><div class="line">        }</div><div class="line">    });</div><div class="line"></div><div class="line">    canvas.addEventListener(<span class="string">&apos;mouseup&apos;</span>, (e) =&gt; {</div><div class="line">        <span class="keyword">if</span> (drawing) {</div><div class="line">            context.lineTo(e.offsetX / currentRatio, e.offsetY / currentRatio);</div><div class="line">            context.stroke();</div><div class="line">            drawing = <span class="literal">false</span>;</div><div class="line">        }</div><div class="line">    });</div><div class="line">};</div></pre></td></tr></table></figure>
+<blockquote>
+<p>&#x4E0D;&#x96BE;&#x770B;&#x51FA;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x6211;&#x4EEC;&#x8BA1;&#x7B97; &#x6807;&#x51C6;&#x5C3A;&#x5BF8;/&#x5F53;&#x524D;&#x5C3A;&#x5BF8; &#x7684;&#x6BD4;&#x4F8B;&#x3002;&#x7136;&#x540E;&#xFF0C;&#x5C06;&#x70B9;&#x8FDB;&#x884C;&#x53CD;&#x6BD4;&#x7F29;&#x653E;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x70B9;&#x7ED8;&#x5236;&#x51FA;&#x6765;&#xFF0C;&#x5C31;&#x8FBE;&#x5230;&#x4E86;&#x70B9;&#x548C;&#x753B;&#x5E03;&#x7684;&#x5BF9;&#x5E94;&#x3002;</p>
+</blockquote>
+<h3 id="&#x6539;&#x8FDB;"><a href="#&#x6539;&#x8FDB;" class="headerlink" title="&#x6539;&#x8FDB;"></a>&#x6539;&#x8FDB;</h3><ul>
+<li>&#x5B9E;&#x65F6;&#x66F4;&#x6539;&#x753B;&#x5E03;&#x5927;&#x5C0F;</li>
+</ul>
+<blockquote>
+<p>&#x6211;&#x4EEC;&#x4E3A;&#x4E86;&#x5B9E;&#x65F6;&#x66F4;&#x6539;&#x753B;&#x5E03;&#x5927;&#x5C0F;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x9009;&#x62E9;&#x76D1;&#x542C; <code>resize</code> &#x4E8B;&#x4EF6;. &#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x5B9E;&#x65F6;&#x66F4;&#x6539;&#x5F53;&#x524D;&#x7684;&#x6BD4;&#x4F8B;&#x7CFB;&#x6570;&#x5373;&#x53EF;&#x3002;</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="params">()</span> =&gt;</span> {</div><div class="line">    <span class="keyword">let</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">&apos;target&apos;</span>);</div><div class="line">    <span class="keyword">let</span> context = canvas.getContext(<span class="string">&apos;2d&apos;</span>);</div><div class="line">    <span class="comment">// &#x7ED9; canvas &#x52A0;&#x4E0A;&#x9F20;&#x6807;&#x4E8B;&#x4EF6;</span></div><div class="line">    <span class="keyword">let</span> drawing = <span class="literal">false</span>;</div><div class="line"></div><div class="line">    <span class="keyword">let</span> ratio = canvas.width / canvas.clientWidth;</div><div class="line">    <span class="keyword">let</span> currentRatio = <span class="number">1</span> / ratio;</div><div class="line"></div><div class="line">    <span class="built_in">window</span>.onresize = <span class="function"><span class="params">()</span> =&gt;</span> {</div><div class="line">        ratio = canvas.width / canvas.clientWidth;</div><div class="line">        currentRatio = <span class="number">1</span> / ratio;</div><div class="line">    };</div><div class="line"></div><div class="line">    context.lineWidth = <span class="number">3</span>;</div><div class="line">    context.strokeStyle = <span class="string">&apos;red&apos;</span>;</div><div class="line"></div><div class="line">    canvas.addEventListener(<span class="string">&apos;mousedown&apos;</span>, (e) =&gt; {</div><div class="line">        context.beginPath();</div><div class="line">        context.moveTo(e.offsetX / currentRatio, e.offsetY / currentRatio);</div><div class="line">        drawing = <span class="literal">true</span>;</div><div class="line">    });</div><div class="line"></div><div class="line">    canvas.addEventListener(<span class="string">&apos;mousemove&apos;</span>, (e) =&gt; {</div><div class="line">        <span class="keyword">if</span> (drawing) {</div><div class="line">            context.lineTo(e.offsetX / currentRatio, e.offsetY / currentRatio);</div><div class="line">            context.stroke();</div><div class="line">        }</div><div class="line">    });</div><div class="line"></div><div class="line">    canvas.addEventListener(<span class="string">&apos;mouseup&apos;</span>, (e) =&gt; {</div><div class="line">        <span class="keyword">if</span> (drawing) {</div><div class="line">            context.lineTo(e.offsetX / currentRatio, e.offsetY / currentRatio);</div><div class="line">            context.stroke();</div><div class="line">            drawing = <span class="literal">false</span>;</div><div class="line">        }</div><div class="line">    });</div><div class="line">};</div></pre></td></tr></table></figure>
+<p>:: &#x91CD;&#x70B9;&#x5728; <code>window.onresize</code> &#x4E8B;&#x4EF6;.</p>
+<h2 id="&#x603B;&#x7ED3;"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</h2><ul>
+<li>&#x6211;&#x4EEC;&#x7684;&#x76EE;&#x6807;&#x662F;&#x5C06;&#x4E0D;&#x901A;&#x7684;&#x753B;&#x5E03;&#x5927;&#x5C0F;&#xFF0C;&#x8F6C;&#x6362;&#x6210;&#x6807;&#x51C6;&#x5927;&#x5C0F;&#x3002;</li>
+<li>&#x5728;&#x753B;&#x56FE;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x56E0;&#x4E3A;&#x6BD4;&#x4F8B;&#x4E0D;&#x5BF9;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x5C06;&#x70B9;&#x6309;&#x6BD4;&#x4F8B;&#x7F29;&#x653E;&#x5373;&#x53EF;&#x3002;</li>
+</ul>
+<p>&#x67E5;&#x770B; Demo &#x8BF7;<a href="/files/index.html">&#x70B9;&#x51FB;&#x8FD9;&#x91CC;</a></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/javascript/">
+    <time datetime="2016-11-24T08:47:14.000Z" class="entry-date">
+        2016-11-24
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/swift/04/" rel="next">Siwft 类型集 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-javascript/canvas" data-title="Canvas的缩放比例" data-url="http://lagelalegal.github.io/javascript/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'lagel'};
+      (function() {
+  	  var ds = document.createElement('script');
+  	  ds.type = 'text/javascript';ds.async = true;
+  	  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  	  ds.charset = 'UTF-8';
+  	  (document.getElementsByTagName('head')[0]
+  	   || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+
+  <aside class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/javascript/">Canvas的缩放比例</a>
+          </li>
+        
+          <li>
+            <a href="/swift/04/">Siwft 类型集</a>
+          </li>
+        
+          <li>
+            <a href="/study_jams/first_lesson/">Study Jams 第一课</a>
+          </li>
+        
+          <li>
+            <a href="/robotframework/howToWriteGoodTestCase/">如何使用RobotFramework写出好的测试案例</a>
+          </li>
+        
+          <li>
+            <a href="/swift/03/">Swift 第三课时</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/">canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/robotframework/">robotframework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study/">study</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/">swift</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">云标签</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/robotframework/" style="font-size: 10px;">robotframework</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/test/" style="font-size: 10px;">test</a>
+    </div>
+  </aside>
+
+  
+    <aside class="widget">
+<h3 class="widget-title">朋友们</h3>
+<div class="widget-content">
+  <ul class="friend-list"><li><a href="http://www.xubin.pub">xubin</a></li><li><a href="http://www.peachis.me">peach</a></li><li><a href="http://nsdont.me">nsdont</a></li><li><a href="http://tommao.me">tommao</a></li></ul>
+</div>
+</aside>
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2016 Lagel
+    All rights reserved.</p>
+    <p>Powered by <a href="http://www.abstack.com/" target="_blank">Abstack</a></p>
+    
+    <!-- cnzz Analytics -->
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258129122'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1258129122%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+    <!-- End cnzz Analytics -->
+
+
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
