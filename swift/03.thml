@@ -201,7 +201,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Swift Lession 03</p>
+        
+          <p>Swift Lession 03</p>
 <!-- toc -->
 <ul>
 <li><a href="#&#x5B57;&#x7B26;&#x4E32;&#x548C;&#x5B57;&#x7B26;">&#x5B57;&#x7B26;&#x4E32;&#x548C;&#x5B57;&#x7B26;</a><ul>
@@ -326,6 +327,7 @@ var _hmt = _hmt || [];
 </ul>
 </blockquote>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> dogString = <span class="string">&quot;Dog!!&#x1F436;&quot;</span></div><div class="line"><span class="comment">// utf8</span></div><div class="line"><span class="keyword">for</span> codeUnit <span class="keyword">in</span> dogString.utf8 {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;\(codeUnit) &quot;</span>, terminator: <span class="string">&quot;&quot;</span>)</div><div class="line">}</div><div class="line"><span class="comment">// 68 111 103 33 33 240 159 144 182 </span></div><div class="line"></div><div class="line"><span class="comment">// utf16</span></div><div class="line"><span class="keyword">for</span> codeUnit <span class="keyword">in</span> dogString.utf16 {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;\(codeUnit) &quot;</span>, terminator: <span class="string">&quot;&quot;</span>)</div><div class="line">}</div><div class="line"><span class="comment">// 68 111 103 8252 55357 56374 </span></div><div class="line"></div><div class="line"><span class="comment">// utf32 &#x53C8;&#x79F0; unicodeScalars</span></div><div class="line"><span class="keyword">for</span> scalar <span class="keyword">in</span> dogString.unicodeScalars {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;\(scalar.value) &quot;</span>, terminator: <span class="string">&quot;&quot;</span>)</div><div class="line">}</div><div class="line"><span class="comment">// 68 111 103 8252 128054 </span></div><div class="line"><span class="comment">// utf32 &#x53C8;&#x79F0; unicodeScalars</span></div><div class="line"><span class="keyword">for</span> scalar <span class="keyword">in</span> dogString.unicodeScalars {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;\(scalar) &quot;</span>, terminator: <span class="string">&quot;&quot;</span>)</div><div class="line">}</div><div class="line"><span class="comment">// D o g !! &#x1F436;</span></div></pre></td></tr></table></figure>
+        
       
 
       

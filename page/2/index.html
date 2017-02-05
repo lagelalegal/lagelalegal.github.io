@@ -184,7 +184,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Swift &#x7B2C;&#x4E00;&#x8BFE;&#x65F6;</p>
+        
+          <p>Swift &#x7B2C;&#x4E00;&#x8BFE;&#x65F6;</p>
 <!-- toc -->
 <ul>
 <li><a href="#&#x5E38;&#x91CF;&#x4E0E;&#x53D8;&#x91CF;">&#x5E38;&#x91CF;&#x4E0E;&#x53D8;&#x91CF;</a></li>
@@ -192,152 +193,8 @@ var _hmt = _hmt || [];
 <li><a href="#&#x6253;&#x5370;">&#x6253;&#x5370;</a></li>
 <li><a href="#&#x6CE8;&#x91CA;">&#x6CE8;&#x91CA;</a></li>
 <li><a href="#&#x6570;&#x5B57;&#x7C7B;&#x578B;">&#x6570;&#x5B57;&#x7C7B;&#x578B;</a><ul>
-<li><a href="#&#x6570;&#x5B57;&#x754C;&#x9650;">&#x6570;&#x5B57;&#x754C;&#x9650;</a></li>
-<li><a href="#int">Int</a></li>
-<li><a href="#uint">UInt</a></li>
-</ul>
-</li>
-<li><a href="#&#x6D6E;&#x70B9;&#x6570;&#x7C7B;&#x578B;">&#x6D6E;&#x70B9;&#x6570;&#x7C7B;&#x578B;</a></li>
-<li><a href="#&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x548C;&#x7C7B;&#x578B;&#x63A8;&#x8BBA;">&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x548C;&#x7C7B;&#x578B;&#x63A8;&#x8BBA;</a></li>
-<li><a href="#&#x6570;&#x5B57;&#x8FDB;&#x5236;">&#x6570;&#x5B57;&#x8FDB;&#x5236;</a></li>
-<li><a href="#&#x7C7B;&#x578B;&#x82B1;&#x540D;&#x522B;&#x540D;">&#x7C7B;&#x578B;&#x82B1;&#x540D;&#xFF08;&#x522B;&#x540D;&#xFF09;</a></li>
-<li><a href="#boolean">Boolean</a></li>
-<li><a href="#&#x5143;&#x7EC4;-tuples">&#x5143;&#x7EC4; (Tuples)</a></li>
-<li><a href="#optionals&#x53EF;&#x9009;&#x7684;">Optionals(&#x53EF;&#x9009;&#x7684;)</a></li>
-<li><a href="#nil">nil</a></li>
-<li><a href="#optional-&#x7ED1;&#x5B9A;">optional &#x7ED1;&#x5B9A;</a></li>
-<li><a href="#&#x9690;&#x5F0F;&#x5C55;&#x5F00;-optional">&#x9690;&#x5F0F;&#x5C55;&#x5F00; optional</a></li>
-<li><a href="#&#x9519;&#x8BEF;&#x5904;&#x7406;">&#x9519;&#x8BEF;&#x5904;&#x7406;</a></li>
-<li><a href="#&#x65AD;&#x8A00;">&#x65AD;&#x8A00;</a></li>
-</ul>
-<!-- tocstop -->
-<h2 id="&#x5E38;&#x91CF;&#x4E0E;&#x53D8;&#x91CF;"><a href="#&#x5E38;&#x91CF;&#x4E0E;&#x53D8;&#x91CF;" class="headerlink" title="&#x5E38;&#x91CF;&#x4E0E;&#x53D8;&#x91CF;"></a>&#x5E38;&#x91CF;&#x4E0E;&#x53D8;&#x91CF;</h2><p><code>&#x5E38;&#x91CF;</code> &#x4E0D;&#x53EF;&#x88AB;&#x4FEE;&#x6539;&#x3002;<br><code>&#x53D8;&#x91CF;</code> &#x53EF;&#x88AB;&#x4FEE;&#x6539;&#x3002;</p>
-<p>&#x58F0;&#x660E;&#x65B9;&#x5F0F;<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> maxLoginAttempts = <span class="number">10</span></div><div class="line"><span class="keyword">var</span> currentAttempt = <span class="number">0</span></div></pre></td></tr></table></figure></p>
-<p>&#x591A;&#x4E2A;&#x53D8;&#x91CF;&#x58F0;&#x660E;<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="number">0</span>, y = <span class="number">0</span>, z = <span class="number">0.0</span></div></pre></td></tr></table></figure></p>
-<p><strong>&#x5C0F;&#x63D0;&#x793A;</strong></p>
-<blockquote>
-<p>&#x5982;&#x679C;&#x5B58;&#x50A8;&#x7684;&#x503C;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x6539;&#x53D8;&#xFF0C;&#x8BF7;&#x4F7F;&#x7528;<code>&#x5E38;&#x91CF;</code>&#xFF0C;<code>&#x53D8;&#x91CF;</code>&#x53EA;&#x7528;&#x6765;&#x5B58;&#x50A8;&#x6C47;&#x4F1A;&#x6539;&#x53D8;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
-</blockquote>
-<h2 id="&#x7C7B;&#x578B;&#x6CE8;&#x89E3;"><a href="#&#x7C7B;&#x578B;&#x6CE8;&#x89E3;" class="headerlink" title="&#x7C7B;&#x578B;&#x6CE8;&#x89E3;"></a>&#x7C7B;&#x578B;&#x6CE8;&#x89E3;</h2><blockquote>
-<p>&#x5F53;&#x4F60;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x663E;&#x793A;&#x7684;&#x6307;&#x5B9A;&#x53D8;&#x91CF;&#x7C7B;&#x578B;&#xFF08;&#x867D;&#x7136;Swift&#x975E;&#x5E38;&#x806A;&#x660E;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x63A8;&#x5BFC;&#xFF09;&#x3002;</p>
-</blockquote>
-<p>&#x4F7F;&#x7528;&#x65B9;&#x5F0F;<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> welcomeMessage: <span class="type">String</span></div></pre></td></tr></table></figure></p>
-<p>&#x591A;&#x4E2A;&#x53D8;&#x91CF;&#x58F0;&#x660E;<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> red, green, blue: <span class="type">Double</span></div></pre></td></tr></table></figure></p>
-<p><strong>&#x5C0F;&#x63D0;&#x793A;</strong></p>
-<blockquote>
-<p>&#x5982;&#x679C;&#x4F60;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x521D;&#x59CB;&#x503C;&#xFF0C;&#x5C31;&#x4E0D;&#x7528;&#x6307;&#x5B9A;&#x53D8;&#x91CF;&#x7C7B;&#x578B;&#x3002;</p>
-</blockquote>
-<p>&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x662F;&#x4E0D;&#x5FC5;&#x8981;&#x7684;<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> red: <span class="type">String</span> = <span class="string">&quot;test&quot;</span></div></pre></td></tr></table></figure></p>
-<h2 id="&#x6253;&#x5370;"><a href="#&#x6253;&#x5370;" class="headerlink" title="&#x6253;&#x5370;"></a>&#x6253;&#x5370;</h2><blockquote>
-<p>print() &#x51FD;&#x6570;&#x662F;Swift&#x7684;&#x57FA;&#x672C;&#x6253;&#x5370;&#x529F;&#x80FD;, &#x5B83;&#x53EF;&#x4EE5;&#x6253;&#x5370;&#x4EFB;&#x610F;&#x7684;&#x5E38;&#x91CF;&#x548C;&#x53D8;&#x91CF;</p>
-</blockquote>
-<h2 id="&#x6CE8;&#x91CA;"><a href="#&#x6CE8;&#x91CA;" class="headerlink" title="&#x6CE8;&#x91CA;"></a>&#x6CE8;&#x91CA;</h2><blockquote>
-<p>&#x6CE8;&#x91CA;&#x662F;&#x4E00;&#x4E2A;&#x8BED;&#x8A00;&#x7684;&#x57FA;&#x672C;&#x6A21;&#x5757;&#xFF0C;&#x65B9;&#x4FBF;&#x6211;&#x4EEC;&#x8C03;&#x8BD5;&#xFF0C;&#x9690;&#x85CF;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x89E3;&#x91CA;&#x4E00;&#x6BB5;&#x7A0B;&#x5E8F;&#x7684;&#x529F;&#x80FD;&#x7B49;&#x3002;</p>
-</blockquote>
-<p>&#x4F7F;&#x7528;&#x65B9;&#x5F0F;<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// &#x6211;&#x662F;&#x5355;&#x884C;&#x6CE8;&#x91CA;</span></div><div class="line"><span class="comment">/* &#x6211;&#x662F;&#x591A;&#x884C;&#x6CE8;&#x91CA;</span></div><div class="line">&#x5FEB;&#x70B9;&#x6CE8;&#x91CA;&#x6211;&#xFF01;</div><div class="line"><span class="comment">/* &#x6211;&#x4E0D;&#x540C;&#x4E8E;&#x5176;&#x4ED6;&#x8BED;&#x8A00;&#xFF0C;&#x6211;&#x8FD8;&#x53EF;&#x4EE5;&#x5D4C;&#x5957;&#x591A;&#x884C;&#x6CE8;&#x91CA;&#x54E6;! */</span></div><div class="line">*/</div></pre></td></tr></table></figure></p>
-<h2 id="&#x6570;&#x5B57;&#x7C7B;&#x578B;"><a href="#&#x6570;&#x5B57;&#x7C7B;&#x578B;" class="headerlink" title="&#x6570;&#x5B57;&#x7C7B;&#x578B;"></a>&#x6570;&#x5B57;&#x7C7B;&#x578B;</h2><p>&#x548C;c&#x8BED;&#x8A00;&#x4E00;&#x6837;&#xFF0C;&#x5B83;&#x4E5F;&#x63D0;&#x4F9B;&#x4E86; <code>signed</code> &#x548C; <code>unsigned</code> &#x4E24;&#x79CD;&#x6570;&#x5B57;&#x7C7B;&#x578B;(&#x6709;&#x7B26;&#x53F7;&#x548C;&#x65E0;&#x7B26;&#x53F7;)<br>&#x6709;&#x7B26;&#x53F7;&#x7684;&#x6570;&#x5B57;&#xFF1A;&#xFF08;&#x6B63;&#x6570;&#xFF0C;0&#xFF0C;&#x8D1F;&#x6570;&#xFF09;<br>&#x65E0;&#x7B26;&#x53F7;&#x7684;&#x6570;&#x5B57;&#xFF1A;&#xFF08;&#x6B63;&#x6570;&#xFF0C;0&#xFF09;<br>Swift&#x5C06;&#x6570;&#x5B57;&#x6309;&#x7167;&#x4F4D;&#x6570;&#x5206;&#x6210;&#x4E86;&#x51E0;&#x7C7B;&#xFF1A; <code>8</code> <code>16</code> <code>32</code> <code>64</code></p>
-<h4 id="&#x6570;&#x5B57;&#x754C;&#x9650;"><a href="#&#x6570;&#x5B57;&#x754C;&#x9650;" class="headerlink" title="&#x6570;&#x5B57;&#x754C;&#x9650;"></a>&#x6570;&#x5B57;&#x754C;&#x9650;</h4><blockquote>
-<p>Swfit &#x63D0;&#x4F9B;&#x4E86;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x6570;&#x5B57;&#x7684;&#x6700;&#x5927;&#x503C;&#x548C;&#x6700;&#x5C0F;&#x503C;&#x3002;</p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> <span class="built_in">max</span> = <span class="type">UInt8</span>.<span class="built_in">max</span>  <span class="comment">// 255</span></div><div class="line"><span class="keyword">let</span> <span class="built_in">min</span> = <span class="type">UInt8</span>.<span class="built_in">min</span>  <span class="comment">// 0</span></div></pre></td></tr></table></figure>
-<h4 id="int"><a href="#Int" class="headerlink" title="Int"></a>Int</h4><blockquote>
-<p>Swift &#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x7684;&#x7C7B;&#x578B; <code>Int</code> &#x5B83;&#x662F;&#x6839;&#x636E;&#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x7684;&#x4F4D;&#x6570;&#x5B9A;&#x4E49;&#x7684;&#x3002;</p>
-<ul>
-<li>&#x5728;32&#x4F4D;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;Int &#x7B49;&#x4E8E; Int32</li>
-<li>&#x5728;64&#x4F4D;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;Int &#x7B49;&#x4E8E; Int64</li>
-</ul>
-</blockquote>
-<h4 id="uint"><a href="#UInt" class="headerlink" title="UInt"></a>UInt</h4><blockquote>
-<p>Swfit &#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x65E0;&#x7B26;&#x53F7;&#x7684;&#x7C7B;&#x578B; <code>UInt</code>, &#x5B83;&#x548C; <code>Int</code> &#x7C7B;&#x578B;&#x4E00;&#x81F4;&#xFF0C;&#x6839;&#x636E;&#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x7684;&#x4F4D;&#x6570;&#x5B9A;&#x4E49;&#x3002;</p>
-</blockquote>
-<p><strong> &#x5C0F;&#x63D0;&#x793A; </strong></p>
-<blockquote>
-<p>&#x5982;&#x679C;&#x5F53;&#x4F60;&#x9700;&#x8981;&#x660E;&#x786E;&#x6307;&#x5B9A;&#x65E0;&#x7B26;&#x53F7;&#x7684;&#x7C7B;&#x578B;&#x65F6;&#x624D;&#x4F7F;&#x7528;<code>UInt</code>&#xFF0C;&#x5426;&#x5219; <code>Int</code> &#x7C7B;&#x578B;&#x5E94;&#x5F53;&#x662F;&#x4F60;&#x7684;&#x9996;&#x9009;&#x9879;&#x3002;</p>
-</blockquote>
-<h2 id="&#x6D6E;&#x70B9;&#x6570;&#x7C7B;&#x578B;"><a href="#&#x6D6E;&#x70B9;&#x6570;&#x7C7B;&#x578B;" class="headerlink" title="&#x6D6E;&#x70B9;&#x6570;&#x7C7B;&#x578B;"></a>&#x6D6E;&#x70B9;&#x6570;&#x7C7B;&#x578B;</h2><blockquote>
-<p>&#x6D6E;&#x70B9;&#x6570;&#x7C7B;&#x578B;&#xFF0C;&#x4E00;&#x822C;&#x6307; <code>Double</code> &#x548C; <code>Float</code></p>
-<ul>
-<li><code>Double</code> &#x4EE3;&#x8868; 64&#x4F4D; &#x6D6E;&#x70B9;&#x6570;&#x7C7B;&#x578B;&#x3002;</li>
-<li><code>Float</code> &#x4EE3;&#x8868; 32&#x4F4D; &#x6D6E;&#x70B9;&#x6570;&#x7C7B;&#x578B;&#x3002;</li>
-</ul>
-</blockquote>
-<p><strong> &#x5C0F;&#x63D0;&#x793A; </strong></p>
-<blockquote>
-<p><code>Double</code> &#x7C7B;&#x578B;&#x7684;&#x7CBE;&#x786E;&#x5EA6;&#x81F3;&#x5C11;&#x6709; 15&#x4F4D;&#xFF0C;&#x800C; <code>Float</code> &#x7C7B;&#x578B;&#x7684;&#x7CBE;&#x786E;&#x5EA6;&#x6BD4; <code>Double</code> &#x5C11; 6&#x4F4D;&#x3002;</p>
-</blockquote>
-<h2 id="&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x548C;&#x7C7B;&#x578B;&#x63A8;&#x8BBA;"><a href="#&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x548C;&#x7C7B;&#x578B;&#x63A8;&#x8BBA;" class="headerlink" title="&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x548C;&#x7C7B;&#x578B;&#x63A8;&#x8BBA;"></a>&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x548C;&#x7C7B;&#x578B;&#x63A8;&#x8BBA;</h2><blockquote>
-<p>Swift &#x8BED;&#x8A00;&#x662F;&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x540C; java &#x4E00;&#x6837;&#xFF0C;&#x4F46;&#x540C;&#x65F6;&#x4E0D;&#x540C;&#x4E8E; java &#x7684;&#x662F;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x63A8;&#x5BFC;&#x51FA;&#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;&#x3002;&#x4E24;&#x4E2A;&#x7279;&#x70B9;&#x662F;&#x540C;&#x4E8B;&#x517C;&#x5907;&#x7684;&#x3002;</p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> pi = <span class="number">3.1415926</span></div><div class="line"><span class="comment">// pi &#x7C7B;&#x578B;&#x662F; Double</span></div><div class="line"><span class="keyword">let</span> maxLimit = <span class="number">2</span></div><div class="line"><span class="comment">// maxLimit &#x7C7B;&#x578B;&#x662F; Int</span></div><div class="line"><span class="keyword">let</span> anotherPi = <span class="number">3</span> + <span class="number">0.1415926</span></div><div class="line"><span class="comment">// anotherPi &#x7C7B;&#x578B;&#x662F; Double</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">&quot;test&quot;</span></div><div class="line"><span class="comment">// str &#x7C7B;&#x578B;&#x662F; String</span></div><div class="line">str = <span class="number">1</span></div><div class="line"><span class="comment">// &#x7F16;&#x8BD1;&#x9519;&#x8BEF;&#xFF0C;&#x4E0D;&#x80FD;&#x6307;&#x6D3E; Int &#x7C7B;&#x578B;&#x7ED9; String &#x7C7B;&#x578B;&#x3002;</span></div></pre></td></tr></table></figure>
-<h2 id="&#x6570;&#x5B57;&#x8FDB;&#x5236;"><a href="#&#x6570;&#x5B57;&#x8FDB;&#x5236;" class="headerlink" title="&#x6570;&#x5B57;&#x8FDB;&#x5236;"></a>&#x6570;&#x5B57;&#x8FDB;&#x5236;</h2><blockquote>
-<p>Swift &#x4E5F;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x76F4;&#x63A5;&#x8868;&#x793A;&#x6570;&#x5B57;&#x7684;&#x8FDB;&#x5236;<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// &#x5341;&#x8FDB;&#x5236;</span></div><div class="line"><span class="keyword">let</span> decimalInteger = <span class="number">17</span></div><div class="line"><span class="comment">// &#x4E8C;&#x8FDB;&#x5236;</span></div><div class="line"><span class="keyword">let</span> binaryInteger = <span class="number">0b10001</span></div><div class="line"><span class="comment">// &#x516B;&#x8FDB;&#x5236;</span></div><div class="line"><span class="keyword">let</span> octalInteger = <span class="number">0o21</span></div><div class="line"><span class="comment">// &#x5341;&#x516D;&#x8FDB;&#x5236;</span></div><div class="line"><span class="comment">// hexadecimaInteger = 0x11</span></div><div class="line"><span class="comment">// &#x79D1;&#x5B66;&#x8BA1;&#x6570;&#x6CD5;</span></div><div class="line"><span class="number">1.25e2</span> = <span class="number">1.25</span> * <span class="number">10</span> * <span class="number">10</span></div><div class="line"><span class="number">1.25e</span>-<span class="number">2</span> = <span class="number">1.25</span> / <span class="number">10</span> / <span class="number">10</span></div><div class="line"><span class="comment">// &#x5341;&#x516D;&#x8FDB;&#x5236;&#x79D1;&#x5B66;&#x8BA1;&#x6570;&#x6CD5;</span></div><div class="line">0xFp2 = <span class="number">15</span> * <span class="number">2</span> * <span class="number">2</span></div><div class="line">0xFp-<span class="number">2</span> = <span class="number">15</span> / <span class="number">2</span> / <span class="number">2</span></div><div class="line"><span class="comment">// &#x58F0;&#x660E;&#x6570;&#x5B57;(&#x652F;&#x6301;_)</span></div><div class="line"><span class="keyword">let</span> oneMillion = <span class="number">1_000_000</span></div></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="&#x7C7B;&#x578B;&#x82B1;&#x540D;&#x522B;&#x540D;"><a href="#&#x7C7B;&#x578B;&#x82B1;&#x540D;&#xFF08;&#x522B;&#x540D;&#xFF09;" class="headerlink" title="&#x7C7B;&#x578B;&#x82B1;&#x540D;&#xFF08;&#x522B;&#x540D;&#xFF09;"></a>&#x7C7B;&#x578B;&#x82B1;&#x540D;&#xFF08;&#x522B;&#x540D;&#xFF09;</h2><blockquote>
-<p>&#x7ED9; Swift &#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x7C7B;&#x578B;&#x540D;&#x79F0;&#xFF0C;&#x53D6;&#x4E00;&#x4E2A;&#x522B;&#x540D;</p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typealias</span> <span class="type">AudioSample</span> = <span class="type">UInt16</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> maxAmplitudeFound = <span class="type">AudioSample</span>.<span class="built_in">min</span></div></pre></td></tr></table></figure>
-<h2 id="boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h2><blockquote>
-<p>&#x548C;&#x5176;&#x4ED6;&#x8BED;&#x8A00;&#x4E00;&#x6837; <code>True</code> <code>False</code></p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> i = <span class="number">1</span></div><div class="line"><span class="keyword">if</span> i {</div><div class="line">    <span class="built_in">print</span>(i)</div><div class="line">}</div></pre></td></tr></table></figure>
-<h2 id="&#x5143;&#x7EC4;-tuples"><a href="#&#x5143;&#x7EC4;-Tuples" class="headerlink" title="&#x5143;&#x7EC4; (Tuples)"></a>&#x5143;&#x7EC4; (Tuples)</h2><blockquote>
-<p>&#x5143;&#x7EC4;&#x662F;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x7EC4;&#x6210;&#x4E00;&#x7EC4;&#xFF0C;&#x5B83;&#x5305;&#x542B;&#x4EFB;&#x610F;&#x7C7B;&#x578B;</p>
-</blockquote>
-<p>&#x4F8B;&#x5982;<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> http404 = (<span class="number">404</span>, <span class="string">&quot;Not Found&quot;</span>)</div><div class="line"><span class="keyword">let</span> http200 = (status: <span class="number">200</span>, description: <span class="string">&quot;OK&quot;</span>)</div><div class="line"><span class="built_in">print</span>(http200.status, http200.description)</div><div class="line"><span class="comment">// 200 OK</span></div></pre></td></tr></table></figure></p>
-<p><strong> &#x5C0F;&#x63D0;&#x793A; </strong></p>
-<blockquote>
-<p>&#x5143;&#x7EC4;&#x662F;&#x975E;&#x5E38;&#x6709;&#x7528;&#x7684;&#x6570;&#x7EC4;&#x7ED3;&#x6784;&#xFF0C;&#x53EF;&#x4EE5;&#x5B58;&#x50A8;&#x4EFB;&#x610F;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x4F60;&#x7684;&#x9700;&#x6C42;&#x58F0;&#x660E;&#x72EC;&#x7279;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;</p>
-</blockquote>
-<h2 id="optionals&#x53EF;&#x9009;&#x7684;"><a href="#Optionals-&#x53EF;&#x9009;&#x7684;" class="headerlink" title="Optionals(&#x53EF;&#x9009;&#x7684;)"></a>Optionals(&#x53EF;&#x9009;&#x7684;)</h2><blockquote>
-<p>&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x503C;&#x53EF;&#x80FD;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5730;&#x65B9;&#x4F7F;&#x7528; optionals.<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> possibleNumber = <span class="string">&quot;123&quot;</span></div><div class="line"><span class="keyword">let</span> convertedNumber = <span class="type">Int</span>(possibleNumber)</div><div class="line"><span class="comment">// convertedNumber &#x88AB;&#x63A8;&#x5BFC;&#x6210;&#x4E00;&#x4E2A; Int? &#x6216;&#x8005; Optional Int(Int? or not Int)</span></div></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="nil"><a href="#nil" class="headerlink" title="nil"></a>nil</h2><blockquote>
-<p>&#x4F60;&#x53EF;&#x4EE5;&#x7ED9; optional &#x53D8;&#x91CF;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684;&#x503C; nil .</p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> surverAnswer: <span class="type">String</span>?</div><div class="line"><span class="comment">// surverAnswer &#x7684;&#x503C;&#x81EA;&#x52A8;&#x7684;&#x88AB;&#x8BBE;&#x7F6E;&#x6210; nil</span></div><div class="line"><span class="comment">// &#x53EF;&#x4EE5;&#x4F7F;&#x7528; if &#x8BED;&#x53E5;&#x6765;&#x68C0;&#x6D4B;&#x503C;&#x662F;&#x5426;&#x662F; nil</span></div><div class="line"><span class="keyword">if</span> surverAnswer != <span class="literal">nil</span> {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;surverAnswer is /(surverAnswer)&quot;</span>)</div><div class="line">}</div></pre></td></tr></table></figure>
-<p><strong> &#x5C0F;&#x63D0;&#x793A; </strong></p>
-<blockquote>
-<p>&#x5C1D;&#x8BD5;&#x4F7F;&#x7528; <code>!</code> &#x6765;&#x5224;&#x65AD; optional &#x503C;&#xFF0C;&#x53EF;&#x4EE5;&#x6709;&#x6548;&#x63A7;&#x5236;&#x8FD0;&#x884C;&#x65F6;&#x9519;&#x8BEF;&#x53D1;&#x751F;&#x3002;&#x6BCF;&#x6B21;&#x4F18;&#x5148;&#x5224;&#x65AD; optional &#x503C;&#x5B58;&#x5728;&#x65F6;&#xFF0C;&#x624D;&#x53BB;&#x4F7F;&#x7528; optional &#x503C;&#x3002;</p>
-</blockquote>
-<h2 id="optional-&#x7ED1;&#x5B9A;"><a href="#optional-&#x7ED1;&#x5B9A;" class="headerlink" title="optional &#x7ED1;&#x5B9A;"></a>optional &#x7ED1;&#x5B9A;</h2><blockquote>
-<p>optional &#x7ED1;&#x5B9A;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5728; <code>if</code> &#x548C; <code>while</code> &#x8BED;&#x53E5;&#x4E2D;<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="keyword">let</span> a = <span class="type">Int</span>(<span class="string">&quot;4&quot;</span>), b = <span class="type">Int</span>(<span class="string">&quot;10&quot;</span>) <span class="keyword">where</span> a &lt; b {</div><div class="line">    <span class="built_in">print</span>(<span class="string">&quot;\(a) &lt; \(b)&quot;</span>)</div><div class="line">}</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="&#x9690;&#x5F0F;&#x5C55;&#x5F00;-optional"><a href="#&#x9690;&#x5F0F;&#x5C55;&#x5F00;-optional" class="headerlink" title="&#x9690;&#x5F0F;&#x5C55;&#x5F00; optional"></a>&#x9690;&#x5F0F;&#x5C55;&#x5F00; optional</h2><blockquote>
-<p>&#x9690;&#x5F0F;&#x5C55;&#x5F00;&#x7684;&#x597D;&#x5904;&#xFF0C;&#x5728;&#x4E8E;&#x4E0D;&#x7528;&#x5728;&#x6BCF;&#x6B21;&#x8C03;&#x7528; optional&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53BB;&#x68C0;&#x6D4B;&#x5B83;&#x662F;&#x5426;&#x5B58;&#x5728;&#x3002;</p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> possibleString: <span class="type">String</span>? = <span class="string">&quot;Ha ha&quot;</span></div><div class="line"><span class="keyword">let</span> forcedString: <span class="type">String</span> = possibleString!</div><div class="line"><span class="comment">// &#x8C03;&#x7528; possibleString &#x65F6;&#xFF0C;&#x9700;&#x8981;&#x4F7F;&#x7528; ! &#x53BB;&#x68C0;&#x6D4B;&#x5B83;&#x7684;&#x503C;&#x662F;&#x5426;&#x5B58;&#x5728;</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> assumedString: <span class="type">String</span>! = <span class="string">&quot;Ha ha&quot;</span></div><div class="line"><span class="keyword">let</span> implicitString: <span class="type">String</span> = assumedString</div><div class="line"><span class="comment">// &#x8C03;&#x7528; assumedString &#x65F6;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x4F7F;&#x7528; &#xFF01;&#x53BB;&#x68C0;&#x6D4B;&#xFF0C;&#x5B83;&#x4F1A;&#x81EA;&#x52A8;&#x68C0;&#x6D4B;&#x503C;&#x662F;&#x5426;&#x5B58;&#x5728;&#x3002;</span></div></pre></td></tr></table></figure>
-<p><strong> &#x5C0F;&#x63D0;&#x793A; </strong></p>
-<blockquote>
-<p>&#x5982;&#x679C; &#x9690;&#x5F0F;&#x5C55;&#x5F00; optional&#x7684;&#x503C;&#x662F;nil&#xFF0C;&#x5C1D;&#x8BD5;&#x4F7F;&#x7528;&#x5B83;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5B83;&#x4F1A;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x8FD0;&#x884C;&#x65F6;&#x9519;&#x8BEF;&#x3002;</p>
-</blockquote>
-<h2 id="&#x9519;&#x8BEF;&#x5904;&#x7406;"><a href="#&#x9519;&#x8BEF;&#x5904;&#x7406;" class="headerlink" title="&#x9519;&#x8BEF;&#x5904;&#x7406;"></a>&#x9519;&#x8BEF;&#x5904;&#x7406;</h2><blockquote>
-<p>&#x5F53;&#x4F60;&#x7684;&#x7A0B;&#x5E8F;&#x906D;&#x9047;&#x9519;&#x8BEF;&#x65F6;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; &#x9519;&#x8BEF;&#x5904;&#x7406; &#x6765;&#x54CD;&#x5E94;&#x4F60;&#x7684;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x3002;</p>
-</blockquote>
-<ul>
-<li>&#x4F60;&#x53EF;&#x4EE5;&#x6307;&#x660E;&#x4F60;&#x7684;&#x51FD;&#x6570;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x3002;&#x4F7F;&#x7528;&#x5173;&#x952E;&#x5B57; <code>throws</code></li>
-<li>&#x4F7F;&#x7528; <code>try</code> <code>catch</code> &#x6765;&#x6355;&#x83B7;&#x4F60;&#x7684;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x3002;</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">makeASandwich</span><span class="params">()</span></span> <span class="keyword">throws</span> {</div><div class="line">    &#xB7;&#xB7;&#xB7;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">do</span> {</div><div class="line">    <span class="keyword">try</span> makeASandwich()</div><div class="line">    eatASandwich()</div><div class="line">} <span class="keyword">catch</span> <span class="type">Error</span>.<span class="type">OutOfCleanDishes</span> {</div><div class="line">    washDishes()</div><div class="line">} <span class="keyword">catch</span> <span class="type">Error</span>.<span class="type">MissingIngredients</span>(<span class="keyword">let</span> ingredients) {</div><div class="line">    buyGroceries(ingredients)</div><div class="line">}</div></pre></td></tr></table></figure>
-<h2 id="&#x65AD;&#x8A00;"><a href="#&#x65AD;&#x8A00;" class="headerlink" title="&#x65AD;&#x8A00;"></a>&#x65AD;&#x8A00;</h2><blockquote>
-<p>&#x6709;&#x65F6;&#x5019;&#xFF0C;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#x4E0D;&#x53EF;&#x80FD;&#x7B80;&#x5355;&#x7684;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#xFF0C;&#x5F53;&#x5B83;&#x4E0D;&#x6EE1;&#x8DB3;&#x4E00;&#x4E9B;&#x7279;&#x5B9A;&#x7684;&#x6761;&#x4EF6;&#x3002;&#x5728;&#x8FD9;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x65AD;&#x8A00;&#x5728;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#x5230;&#x4EE3;&#x7801;&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#xFF0C;&#x5F53;&#x53D1;&#x751F;&#x5728;&#x4E00;&#x4E9B;&#x7F3A;&#x5931;&#x548C;&#x65E0;&#x6548;&#x503C;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x8C03;&#x8BD5;&#x673A;&#x4F1A;&#x3002;</p>
-</blockquote>
-<p>&#x8C03;&#x8BD5;&#x4E0E;&#x65AD;&#x8A00;</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> age = -<span class="number">3</span></div><div class="line"><span class="built_in">assert</span>(age &gt;=<span class="number">0</span>, <span class="string">&quot;A person&apos;s age cannot be less than zero&quot;</span>)</div></pre></td></tr></table></figure>
-<p><strong> &#x5C0F;&#x63D0;&#x793A; </strong></p>
-<blockquote>
-<p>&#x4F7F;&#x7528;&#x673A;&#x6784;&#x7F16;&#x8BD1;&#x540E;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x65AD;&#x8A00;&#x662F;&#x88AB;&#x7981;&#x7528;&#x7684;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5F53;&#x4F60;&#x7F16;&#x8BD1;&#x6B63;&#x5F0F;&#x7248;&#x65F6;&#x5728; Xcode &#x4E2D;&#x662F;&#x7981;&#x7528;&#x7684;&#x3002;</p>
-</blockquote>
-<p>&#x65AD;&#x8A00;&#x7684;&#x4F7F;&#x7528;&#x573A;&#x666F;</p>
-<ul>
-<li>&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#x4E0B;&#x6807;&#x662F;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x4E0B;&#x6807;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x4E0B;&#x6807;&#x7D22;&#x5F15;&#x503C;&#x4E0D;&#x80FD;&#x592A;&#x4F4E;&#x548C;&#x592A;&#x9AD8;&#x3002;</li>
-<li>&#x901A;&#x8FC7;&#x51FD;&#x6570;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x4F46;&#x662F;&#x4E00;&#x4E2A;&#x65E0;&#x6548;&#x7684;&#x503C;&#x610F;&#x5473;&#x7740;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x662F;&#x4E0D;&#x80FD;&#x5B8C;&#x6210;&#x4EFB;&#x52A1;&#x7684;&#x3002;</li>
-<li>&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;&#x503C;&#x662F; nil, &#x4F46;&#x662F;&#x4E00;&#x4E2A; non-nil &#x503C;&#x88AB;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x4EE3;&#x7801;&#x8FD8;&#x6267;&#x884C;&#x6210;&#x529F;&#x4E86;&#x3002;</li>
-</ul>
-<p><strong> &#x5C0F;&#x63D0;&#x793A; </strong></p>
-<blockquote>
-<p>&#x65AD;&#x8A00;&#x80FD;&#x591F;&#x9020;&#x6210;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x505C;&#x6B62;&#x8FD0;&#x884C;&#xFF0C;&#x8FD9;&#x4E0D;&#x80FD;&#x66FF;&#x4EE3;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#x8BBE;&#x8BA1;&#x7684;&#x5F53;&#x4E00;&#x4E2A;&#x65E0;&#x6548;&#x7684;&#x60C5;&#x51B5;&#x4ECE;&#x4E0D;&#x53EF;&#x80FD;&#x4E0A;&#x5347;&#x5230;&#x53EF;&#x80FD;&#x3002;&#x65E2;&#x7136;&#x5982;&#x6B64;&#xFF0C;&#x5728;&#x4E00;&#x4E2A;&#x65E0;&#x6548;&#x7684;&#x60C5;&#x51B5;&#x53D8;&#x4E3A;&#x53EF;&#x80FD;&#x65F6;&#xFF0C;&#x4E00;&#x4E2A;&#x65AD;&#x8A00;&#x662F;&#x6709;&#x6548;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5728;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x53D1;&#x5E03;&#x524D;&#x53EF;&#x4EE5;&#x786E;&#x4FDD;&#x8FD9;&#x4E2A;&#x6761;&#x4EF6;&#x80FD;&#x591F;&#x9AD8;&#x4EAE;&#x5E76;&#x4E14;&#x901A;&#x77E5;&#x5230;&#x5F00;&#x53D1;&#x8005;&#x3002;</p>
-</blockquote>
-
+<li><a href="#&#x6570;&#x5B57;&#...
+        
       
 
       
@@ -398,16 +255,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="quick-start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+        
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<...
+        
       
 
       
