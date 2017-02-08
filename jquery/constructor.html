@@ -8,19 +8,28 @@
   <link rel="dns-prefetch" href="http://www.lagel.me">
   <title>jQuery 第一课分析 无new构造模式与链式调用 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="jQuery &amp;#x7684;&amp;#x65E0; new &amp;#x6784;&amp;#x9020;&amp;#x6A21;&amp;#x5F0F;&amp;#x6211;&amp;#x4EEC;&amp;#x7ECF;&amp;#x5E38;&amp;#x4F7F;&amp;#x7528; jQuery &amp;#x7684;&amp;#x4EE3;&amp;#x7801;&amp;#x5982;&amp;#x4E0B;:
-12$(&amp;apos;#id&amp;apos;).find(xxx).val();$(&amp;ap">
+  <meta name="description" content="jQuery &amp;#x7684;&amp;#x65E0; new &amp;#x6784;&amp;#x9020;&amp;#x6A21;&amp;#x5F0F;
+&amp;#x5206;&amp;#x6790;
+&amp;#x5C1D;&amp;#x8BD5;
+&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x7C7B;
+&amp;#x5728;&amp;#x6784;&amp;#x9020;&amp;#x65B9;&amp;#x6CD5;&amp;#x91CC;&amp;#x9762;&amp;#x521">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jQuery 第一课分析 无new构造模式与链式调用">
 <meta property="og:url" content="http://www.lagel.me/jquery/constructor.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="jQuery &amp;#x7684;&amp;#x65E0; new &amp;#x6784;&amp;#x9020;&amp;#x6A21;&amp;#x5F0F;&amp;#x6211;&amp;#x4EEC;&amp;#x7ECF;&amp;#x5E38;&amp;#x4F7F;&amp;#x7528; jQuery &amp;#x7684;&amp;#x4EE3;&amp;#x7801;&amp;#x5982;&amp;#x4E0B;:
-12$(&amp;apos;#id&amp;apos;).find(xxx).val();$(&amp;ap">
-<meta property="og:updated_time" content="2017-02-08T08:37:24.000Z">
+<meta property="og:description" content="jQuery &amp;#x7684;&amp;#x65E0; new &amp;#x6784;&amp;#x9020;&amp;#x6A21;&amp;#x5F0F;
+&amp;#x5206;&amp;#x6790;
+&amp;#x5C1D;&amp;#x8BD5;
+&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x7C7B;
+&amp;#x5728;&amp;#x6784;&amp;#x9020;&amp;#x65B9;&amp;#x6CD5;&amp;#x91CC;&amp;#x9762;&amp;#x521">
+<meta property="og:updated_time" content="2017-02-08T08:41:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery 第一课分析 无new构造模式与链式调用">
-<meta name="twitter:description" content="jQuery &amp;#x7684;&amp;#x65E0; new &amp;#x6784;&amp;#x9020;&amp;#x6A21;&amp;#x5F0F;&amp;#x6211;&amp;#x4EEC;&amp;#x7ECF;&amp;#x5E38;&amp;#x4F7F;&amp;#x7528; jQuery &amp;#x7684;&amp;#x4EE3;&amp;#x7801;&amp;#x5982;&amp;#x4E0B;:
-12$(&amp;apos;#id&amp;apos;).find(xxx).val();$(&amp;ap">
+<meta name="twitter:description" content="jQuery &amp;#x7684;&amp;#x65E0; new &amp;#x6784;&amp;#x9020;&amp;#x6A21;&amp;#x5F0F;
+&amp;#x5206;&amp;#x6790;
+&amp;#x5C1D;&amp;#x8BD5;
+&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x7C7B;
+&amp;#x5728;&amp;#x6784;&amp;#x9020;&amp;#x65B9;&amp;#x6CD5;&amp;#x91CC;&amp;#x9762;&amp;#x521">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -187,7 +196,20 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         
-          <h2 id="jquery-&#x7684;&#x65E0;-new-&#x6784;&#x9020;&#x6A21;&#x5F0F;"><a href="#jQuery-&#x7684;&#x65E0;-new-&#x6784;&#x9020;&#x6A21;&#x5F0F;" class="headerlink" title="jQuery &#x7684;&#x65E0; new &#x6784;&#x9020;&#x6A21;&#x5F0F;"></a>jQuery &#x7684;&#x65E0; new &#x6784;&#x9020;&#x6A21;&#x5F0F;</h2><p>&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x4F7F;&#x7528; jQuery &#x7684;&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
+          <!-- toc -->
+<ul>
+<li><a href="#jquery-&#x7684;&#x65E0;-new-&#x6784;&#x9020;&#x6A21;&#x5F0F;">jQuery &#x7684;&#x65E0; new &#x6784;&#x9020;&#x6A21;&#x5F0F;</a><ul>
+<li><a href="#&#x5206;&#x6790;">&#x5206;&#x6790;</a></li>
+<li><a href="#&#x5C1D;&#x8BD5;">&#x5C1D;&#x8BD5;</a><ul>
+<li><a href="#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7C7B;">&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7C7B;</a></li>
+<li><a href="#&#x5728;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x91CC;&#x9762;&#x521D;&#x59CB;&#x5316;">&#x5728;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x91CC;&#x9762;&#x521D;&#x59CB;&#x5316;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h2 id="jquery-&#x7684;&#x65E0;-new-&#x6784;&#x9020;&#x6A21;&#x5F0F;"><a href="#jQuery-&#x7684;&#x65E0;-new-&#x6784;&#x9020;&#x6A21;&#x5F0F;" class="headerlink" title="jQuery &#x7684;&#x65E0; new &#x6784;&#x9020;&#x6A21;&#x5F0F;"></a>jQuery &#x7684;&#x65E0; new &#x6784;&#x9020;&#x6A21;&#x5F0F;</h2><p>&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x4F7F;&#x7528; jQuery &#x7684;&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">&apos;#id&apos;</span>).find(xxx).val();</div><div class="line">$(<span class="string">&apos;#id&apos;</span>).html();</div></pre></td></tr></table></figure>
 <h3 id="&#x5206;&#x6790;"><a href="#&#x5206;&#x6790;" class="headerlink" title="&#x5206;&#x6790;"></a>&#x5206;&#x6790;</h3><p>&#x4ECE;&#x4E0A;&#x9762;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x51FA; <code>$(&apos;#id&apos;)</code> &#x6BCF;&#x6B21;&#x90FD;&#x662F;&#x6784;&#x9020;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x6CA1;&#x6709;&#x4F7F;&#x7528; <code>new</code> &#x5173;&#x952E;&#x5B57;&#x6765;&#x521B;&#x5EFA;&#x3002;</p>
 <h3 id="&#x5C1D;&#x8BD5;"><a href="#&#x5C1D;&#x8BD5;" class="headerlink" title="&#x5C1D;&#x8BD5;"></a>&#x5C1D;&#x8BD5;</h3><p>&#x6211;&#x4EEC;&#x5C1D;&#x8BD5;&#x81EA;&#x5DF1;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x8FD9;&#x6837;&#x7684;&#x4E00;&#x4E2A;&#x7C7B;&#x5427;&#x3002;</p>
@@ -449,19 +471,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">indexedDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -473,11 +495,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color4">lazyload</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">lazyload</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -489,11 +511,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">study</a>
+                <a href="javascript:void(0)" class="js-tag color1">swift</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swift</a>
+                <a href="javascript:void(0)" class="js-tag color1">study</a>
               </li>
             
             <div class="clearfix"></div>
