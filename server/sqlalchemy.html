@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://www.lagel.me">
+  <title>SqlAlchemy单表查询过滤之谜 | 个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="SqlAlchemy&amp;#x5355;&amp;#x8868;&amp;#x67E5;&amp;#x8BE2;&amp;#x8FC7;&amp;#x6EE4;&amp;#x4E4B;&amp;#x8C1C;
+
+
+&amp;#x53D1;&amp;#x751F;&amp;#x80CC;&amp;#x666F;
+&amp;#x5947;&amp;#x7279;&amp;#x7684;&amp;#x4E00;&amp;#x5E55;
+&amp;#x6DF1;&amp;#x5165;&amp;#x63A2;&amp;#x7A76;
+&amp;#x6E90;&amp;#x7801;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SqlAlchemy单表查询过滤之谜">
+<meta property="og:url" content="http://www.lagel.me/server/sqlalchemy.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="SqlAlchemy&amp;#x5355;&amp;#x8868;&amp;#x67E5;&amp;#x8BE2;&amp;#x8FC7;&amp;#x6EE4;&amp;#x4E4B;&amp;#x8C1C;
+
+
+&amp;#x53D1;&amp;#x751F;&amp;#x80CC;&amp;#x666F;
+&amp;#x5947;&amp;#x7279;&amp;#x7684;&amp;#x4E00;&amp;#x5E55;
+&amp;#x6DF1;&amp;#x5165;&amp;#x63A2;&amp;#x7A76;
+&amp;#x6E90;&amp;#x7801;">
+<meta property="og:updated_time" content="2017-11-23T09:38:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SqlAlchemy单表查询过滤之谜">
+<meta name="twitter:description" content="SqlAlchemy&amp;#x5355;&amp;#x8868;&amp;#x67E5;&amp;#x8BE2;&amp;#x8FC7;&amp;#x6EE4;&amp;#x4E4B;&amp;#x8C1C;
+
+
+&amp;#x53D1;&amp;#x751F;&amp;#x80CC;&amp;#x666F;
+&amp;#x5947;&amp;#x7279;&amp;#x7684;&amp;#x4E00;&amp;#x5E55;
+&amp;#x6DF1;&amp;#x5165;&amp;#x63A2;&amp;#x7A76;
+&amp;#x6E90;&amp;#x7801;">
+  
+    <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" type="text/css" href="/./main.5d3831.css">
+  <style type="text/css">
+  
+    #container.show {
+      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+    }
+  </style>
+  
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?0db32657ba9ad8ec2ce8d44510b9eec2";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+<body>
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+    <div class="left-col" q-class="show:isShow">
+      
+<div class="overlay" style="background: #4d4d4d"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="https://avatars3.githubusercontent.com/u/5753710?v=3&amp;s=460" class="js-avatar">
+		</a>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Lagel</a></h1>
+		</hgroup>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+    		
+    			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/lagelalegal" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/lagel/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
+					<a class="jianshu" target="_blank" href="http://www.jianshu.com/users/fbf9d408bb7d/timeline" title="jianshu"><i class="icon-jianshu"></i></a>
+		        
+					<a class="mail" target="_blank" href="mailto:lagel@live.com" title="mail"><i class="icon-mail"></i></a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
+      
+<nav id="mobile-nav">
+  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+	<div class="btnctn js-mobile-btnctn">
+  		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
+	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="https://avatars3.githubusercontent.com/u/5753710?v=3&amp;s=460" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author js-header-author">Lagel</h1>
+			</hgroup>
+			
+			
+			
+				
+			
+				
+			
+			
+			
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/lagelalegal" title="github"><i class="icon-github"></i></a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/lagel/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+						<a class="jianshu" target="_blank" href="http://www.jianshu.com/users/fbf9d408bb7d/timeline" title="jianshu"><i class="icon-jianshu"></i></a>
+			        
+						<a class="mail" target="_blank" href="mailto:lagel@live.com" title="mail"><i class="icon-mail"></i></a>
+			        
+				</div>
+			</nav>
+
+			<nav class="header-menu js-header-menu">
+				<ul style="width: 50%">
+				
+				
+					<li style="width: 50%"><a href="/">主页</a></li>
+		        
+					<li style="width: 50%"><a href="/archives">随笔</a></li>
+		        
+				</ul>
+			</nav>
+		</header>				
+	</div>
+	<div class="mobile-mask" style="display:none" q-show="isShow"></div>
+</nav>
+
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            <article id="post-server/sqlalchemy" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SqlAlchemy单表查询过滤之谜
+    </h1>
+  
+
+        
+        <a href="/server/sqlalchemy.html" class="archive-article-date">
+  	<time datetime="2017-11-17T02:34:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <p>SqlAlchemy&#x5355;&#x8868;&#x67E5;&#x8BE2;&#x8FC7;&#x6EE4;&#x4E4B;&#x8C1C;</p>
+<!-- toc -->
+<ul>
+<li><a href="#&#x53D1;&#x751F;&#x80CC;&#x666F;">&#x53D1;&#x751F;&#x80CC;&#x666F;</a></li>
+<li><a href="#&#x5947;&#x7279;&#x7684;&#x4E00;&#x5E55;">&#x5947;&#x7279;&#x7684;&#x4E00;&#x5E55;</a></li>
+<li><a href="#&#x6DF1;&#x5165;&#x63A2;&#x7A76;">&#x6DF1;&#x5165;&#x63A2;&#x7A76;</a><ul>
+<li><a href="#&#x6E90;&#x7801;&#x5206;&#x6790;">&#x6E90;&#x7801;&#x5206;&#x6790;</a><br>~ <a href="#filtered-&#x5206;&#x6790;">filtered &#x5206;&#x6790;</a><br>~ <a href="#single_entity-&#x5206;&#x6790;">single_entity &#x5206;&#x6790;</a><br>~ <a href="#proc-&#x51FD;&#x6570;&#x5206;&#x6790;">proc &#x51FD;&#x6570;&#x5206;&#x6790;</a><br>~ <a href="#utilunique_list-&#x5904;&#x7406;&#x51FD;&#x6570;"><code>util.unique_list</code> &#x5904;&#x7406;&#x51FD;&#x6570;</a></li>
+</ul>
+</li>
+<li><a href="#&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</a></li>
+</ul>
+<!-- tocstop -->
+<h2 id="&#x53D1;&#x751F;&#x80CC;&#x666F;"><a href="#&#x53D1;&#x751F;&#x80CC;&#x666F;" class="headerlink" title="&#x53D1;&#x751F;&#x80CC;&#x666F;"></a>&#x53D1;&#x751F;&#x80CC;&#x666F;</h2><p>&#x5047;&#x8BBE;&#x6211;&#x6709;&#x4E24;&#x4E2A;&#x8868;&#xFF0C;A &#x548C; B<br>A&#x8868;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>&#x6D4B;&#x8BD5;1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>&#x6D4B;&#x8BD5;2</td>
+</tr>
+</tbody>
+</table>
+<p>B&#x8868;&#x7ED3;&#x6784;&#x5982;&#x4E0B;:</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>aid</th>
+<th>content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>&#x6D4B;&#x8BD5;1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>&#x6D4B;&#x8BD5;2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>&#x6D4B;&#x8BD5;3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>&#x6D4B;&#x8BD5;4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2</td>
+<td>&#x6D4B;&#x8BD5;5</td>
+</tr>
+</tbody>
+</table>
+<p>&#x73B0;&#x5728;&#x6211;&#x6709;&#x4E86;&#x4E24;&#x4E2A;&#x6A21;&#x578B;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">(model)</span>:</span></div><div class="line">    ...</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(model)</span>:</span></div><div class="line">    ....</div></pre></td></tr></table></figure>
+<h2 id="&#x5947;&#x7279;&#x7684;&#x4E00;&#x5E55;"><a href="#&#x5947;&#x7279;&#x7684;&#x4E00;&#x5E55;" class="headerlink" title="&#x5947;&#x7279;&#x7684;&#x4E00;&#x5E55;"></a>&#x5947;&#x7279;&#x7684;&#x4E00;&#x5E55;</h2><p>&#x5F53;&#x6211;&#x8FDE;&#x63A5;A,B&#x4E24;&#x4E2A;&#x8868;&#x65F6;&#xFF0C;&#x53D1;&#x751F;&#x4E86;&#x5947;&#x602A;&#x7684;&#x4E00;&#x5E55;&#x3002;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">results = A.query.join(</div><div class="line">    B, B.aid = A.id</div><div class="line">).all()</div><div class="line"><span class="comment"># &#x5C45;&#x7136; len(results) &#x7684;&#x503C; 2</span></div><div class="line">total = A.query.join(</div><div class="line">    B, B.aid = A.id</div><div class="line">).count()</div><div class="line"><span class="comment"># &#x7136;&#x800C; total &#x7684;&#x503C;&#x662F; 5</span></div></pre></td></tr></table></figure>
+<h2 id="&#x6DF1;&#x5165;&#x63A2;&#x7A76;"><a href="#&#x6DF1;&#x5165;&#x63A2;&#x7A76;" class="headerlink" title="&#x6DF1;&#x5165;&#x63A2;&#x7A76;"></a>&#x6DF1;&#x5165;&#x63A2;&#x7A76;</h2><p>&#x4ECE; sql &#x7684;&#x89D2;&#x5EA6;&#x6765;&#x8BF4;&#xFF0C;&#x67E5;&#x8BE2;&#x51FA;&#x6765;&#x5E94;&#x8BE5;&#x4E00;&#x5B9A;&#x662F;5&#x6761;&#x6570;&#x636E;&#xFF0C;&#x4E8E;&#x662F;&#x53EA;&#x80FD;&#x6DF1;&#x5165;&#x67E5;&#x8BE2; <code>sqlalchemy</code> &#x6E90;&#x7801;&#x6765;&#x63A2;&#x7A76;&#x4E86;&#x3002;</p>
+<h4 id="&#x6E90;&#x7801;&#x5206;&#x6790;"><a href="#&#x6E90;&#x7801;&#x5206;&#x6790;" class="headerlink" title="&#x6E90;&#x7801;&#x5206;&#x6790;"></a>&#x6E90;&#x7801;&#x5206;&#x6790;</h4><p>A.query &#x4E00;&#x5207;&#x90FD;&#x662F;&#x7EE7;&#x627F; <code>Query</code>&#xFF0C;&#x4E8E;&#x662F;&#x6211;&#x4EEC;&#x53BB;&#x67E5;&#x770B; <code>query.py</code> &#x7684;&#x6E90;&#x7801;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">all</span><span class="params">(self)</span>:</span></div><div class="line">    <span class="string">&quot;&quot;&quot;Return the results represented by this ``Query`` as a list.</span></div><div class="line"></div><div class="line">    This results in an execution of the underlying query.</div><div class="line"></div><div class="line">    &quot;&quot;&quot;</div><div class="line">    <span class="keyword">return</span> list(self)</div></pre></td></tr></table></figure>
+<p>&#x53D1;&#x73B0; <code>all&#x65B9;&#x6CD5;</code> &#x662F;&#x8C03;&#x7528; <code>list</code>&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4; <code>query</code> &#x5BF9;&#x8C61;&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x8FED;&#x4EE3;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x53BB;&#x770B; <code>__iter__</code> &#x65B9;&#x6CD5;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></div><div class="line">    context = self._compile_context()</div><div class="line">    context.statement.use_labels = <span class="keyword">True</span></div><div class="line">    <span class="keyword">if</span> self._autoflush <span class="keyword">and</span> <span class="keyword">not</span> self._populate_existing:</div><div class="line">        self.session._autoflush()</div><div class="line"></div><div class="line">    <span class="keyword">return</span> self._execute_and_instances(context)</div></pre></td></tr></table></figure>
+<ul>
+<li><code>_compile_context()</code> &#x662F;&#x5904;&#x7406; <code>sql</code> &#x8BED;&#x53E5;&#x7684;&#x65B9;&#x6CD5;&#x3002;</li>
+<li><code>_execute_and_instances(context)</code> &#x624D;&#x662F;&#x771F;&#x6B63;&#x8FD0;&#x884C;&#x7684; <code>sql</code> &#x7684;&#x8BED;&#x53E5;&#x3002;</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">_execute_and_instances</span><span class="params">(self, querycontext)</span>:</span></div><div class="line">    conn = self._get_bind_args(</div><div class="line">        querycontext,</div><div class="line">        self._connection_from_session,</div><div class="line">        close_with_result=<span class="keyword">True</span>)</div><div class="line"></div><div class="line">    result = conn.execute(querycontext.statement, self._params)</div><div class="line">    <span class="keyword">return</span> loading.instances(querycontext.query, result, querycontext)</div></pre></td></tr></table></figure>
+<ul>
+<li>&#x7ECF;&#x8FC7;&#x8C03;&#x8BD5;&#xFF0C;&#x6211;&#x4EEC;&#x53D1;&#x73B0; <code>result</code> &#x7684;&#x6570;&#x636E;&#x4F9D;&#x7136;&#x662F; 5 &#x6761;&#x3002;</li>
+<li>&#x56E0;&#x6B64;&#x5904;&#x7406;&#x540E;&#x7684;&#x6570;&#x636E;&#x5E94;&#x8BE5;&#x662F;&#x5728; <code>loading.instances</code> &#x91CC;&#x9762;&#x88AB;&#x5904;&#x7406;&#x7684;&#x3002;</li>
+<li>&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x7EE7;&#x7EED;&#x8FFD;&#x8E2A; <code>loading.py</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">instances</span><span class="params">(query, cursor, context)</span>:</span></div><div class="line">    <span class="string">&quot;&quot;&quot;Return an ORM result as an iterator.&quot;&quot;&quot;</span></div><div class="line"></div><div class="line">    context.runid = _new_runid()</div><div class="line"></div><div class="line">    filtered = query._has_mapper_entities</div><div class="line"></div><div class="line">    single_entity = len(query._entities) == <span class="number">1</span> <span class="keyword">and</span> \</div><div class="line">        query._entities[<span class="number">0</span>].supports_single_entity</div><div class="line"></div><div class="line">    <span class="keyword">if</span> filtered:</div><div class="line">        <span class="keyword">if</span> single_entity:</div><div class="line">            filter_fn = id</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="function"><span class="keyword">def</span> <span class="title">filter_fn</span><span class="params">(row)</span>:</span></div><div class="line">                <span class="keyword">return</span> tuple(</div><div class="line">                    id(item)</div><div class="line">                    <span class="keyword">if</span> ent.use_id_for_hash</div><div class="line">                    <span class="keyword">else</span> item</div><div class="line">                    <span class="keyword">for</span> ent, item <span class="keyword">in</span> zip(query._entities, row)</div><div class="line">                )</div><div class="line"></div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        (process, labels) = \</div><div class="line">            list(zip(*[</div><div class="line">                query_entity.row_processor(query,</div><div class="line">                                           context, cursor)</div><div class="line">                <span class="keyword">for</span> query_entity <span class="keyword">in</span> query._entities</div><div class="line">            ]))</div><div class="line"></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> single_entity:</div><div class="line">            keyed_tuple = util.lightweight_named_tuple(<span class="string">&apos;result&apos;</span>, labels)</div><div class="line"></div><div class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">            context.partials = {}</div><div class="line"></div><div class="line">            <span class="keyword">if</span> query._yield_per:</div><div class="line">                fetch = cursor.fetchmany(query._yield_per)</div><div class="line">                <span class="keyword">if</span> <span class="keyword">not</span> fetch:</div><div class="line">                    <span class="keyword">break</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                fetch = cursor.fetchall()</div><div class="line"></div><div class="line">            <span class="keyword">if</span> single_entity:</div><div class="line">                proc = process[<span class="number">0</span>]</div><div class="line">                rows = [proc(row) <span class="keyword">for</span> row <span class="keyword">in</span> fetch]</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                rows = [keyed_tuple([proc(row) <span class="keyword">for</span> proc <span class="keyword">in</span> process])</div><div class="line">                        <span class="keyword">for</span> row <span class="keyword">in</span> fetch]</div><div class="line"></div><div class="line">            <span class="keyword">if</span> filtered:</div><div class="line">                rows = util.unique_list(rows, filter_fn)</div><div class="line"></div><div class="line">            <span class="keyword">for</span> row <span class="keyword">in</span> rows:</div><div class="line">                <span class="keyword">yield</span> row</div><div class="line"></div><div class="line">            <span class="keyword">if</span> <span class="keyword">not</span> query._yield_per:</div><div class="line">                <span class="keyword">break</span></div><div class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> err:</div><div class="line">        cursor.close()</div><div class="line">        util.raise_from_cause(err)</div></pre></td></tr></table></figure>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x91CC;&#x9762;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x5982;&#x4E0B;&#x51E0;&#x70B9;&#xFF1A;</p>
+<ul>
+<li><code>filtered</code> &#x53C2;&#x6570;.</li>
+<li><code>single_entity</code> &#x53C2;&#x6570;.</li>
+<li><code>proc</code> &#x51FD;&#x6570;</li>
+<li><code>util.unique_list</code> &#x5904;&#x7406;&#x51FD;&#x6570;.</li>
+</ul>
+<h5 id="filtered-&#x5206;&#x6790;"><a href="#filtered-&#x5206;&#x6790;" class="headerlink" title="filtered &#x5206;&#x6790;"></a>filtered &#x5206;&#x6790;</h5><p>&#x6211;&#x4EEC;&#x662F;&#x5728;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x8BBE;&#x7F6E; <code>query._has_mapper_entities</code>&#x3002;&#x4E0D;&#x96BE;&#x770B;&#x51FA;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x6765;&#x6E90;&#x4E8E; <code>query</code> &#x5BF9;&#x8C61;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x8D76;&#x5FEB;&#x53BB;&#x67E5;&#x770B; <code>query</code> &#x51FD;&#x6570;&#x3002;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, entities, session=None)</span>:</span></div><div class="line">    self.session = session</div><div class="line">    self._polymorphic_adapters = {}</div><div class="line">    self._set_entities(entities)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">_set_entities</span><span class="params">(self, entities, entity_wrapper=None)</span>:</span></div><div class="line">    <span class="keyword">if</span> entity_wrapper <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">        entity_wrapper = _QueryEntity</div><div class="line">    self._entities = []</div><div class="line">    self._primary_entity = <span class="keyword">None</span></div><div class="line">    self._has_mapper_entities = <span class="keyword">False</span></div><div class="line">    <span class="keyword">for</span> ent <span class="keyword">in</span> util.to_list(entities):</div><div class="line">        entity_wrapper(self, ent)</div><div class="line"></div><div class="line">    self._set_entity_selectables(self._entities)</div></pre></td></tr></table></figure>
+<ul>
+<li><code>Query</code> &#x7684; <code>_set_entities</code> &#x53D1;&#x73B0;&#x5B83;&#x5C06; <code>_has_mapper_entities</code> &#x8BBE;&#x7F6E;&#x6210;&#x4E86; False</li>
+<li>&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x53EA;&#x80FD;&#x5BC4;&#x5E0C;&#x671B;&#x4E8E; <code>_QueryEntity</code> &#x4E86;.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">_QueryEntity</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="string">&quot;&quot;&quot;represent an entity column returned within a Query result.&quot;&quot;&quot;</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls, *args, **kwargs)</span>:</span></div><div class="line">        <span class="keyword">if</span> cls <span class="keyword">is</span> _QueryEntity:</div><div class="line">            entity = args[<span class="number">1</span>]</div><div class="line">            <span class="keyword">if</span> <span class="keyword">not</span> isinstance(entity, util.string_types) <span class="keyword">and</span> \</div><div class="line">                    _is_mapped_class(entity):</div><div class="line">                cls = _MapperEntity</div><div class="line">            <span class="keyword">elif</span> isinstance(entity, Bundle):</div><div class="line">                cls = _BundleEntity</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                cls = _ColumnEntity</div><div class="line">        <span class="keyword">return</span> object.__new__(cls)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">_MapperEntity</span><span class="params">(_QueryEntity)</span>:</span></div><div class="line">    <span class="string">&quot;&quot;&quot;mapper/class/AliasedClass entity&quot;&quot;&quot;</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, query, entity)</span>:</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> query._primary_entity:</div><div class="line">            query._primary_entity = self</div><div class="line">        query._entities.append(self)</div><div class="line">        query._has_mapper_entities = <span class="keyword">True</span></div><div class="line">        self.entities = [entity]</div><div class="line">        self.expr = entity</div><div class="line"></div><div class="line">    supports_single_entity = <span class="keyword">True</span></div></pre></td></tr></table></figure>
+<p>&#x4ECE; <code>_QueryEntity</code> &#x7684; <code>__new__</code> &#x65B9;&#x6CD5;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x6E05;&#x6670;&#x7684;&#x53D1;&#x73B0;&#xFF0C;&#x5B83;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A; <code>_MapperEntity</code> &#x5BF9;&#x8C61;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x91CC;&#x9762;&#x8BBE;&#x7F6E;&#x4E86; <code>_has_mapper_entities</code> &#x5BF9;&#x8C61;&#x3002;<br>&#x5230;&#x8FD9;&#x91CC;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4E86;&#x89E3;&#x5230;&#xFF1A;&#x5728;&#x5904;&#x7406; <code>instantce</code> &#x65F6;&#x6211;&#x4EEC;&#x7684; <code>filtered</code> &#x4E3A; True &#x4E86;&#x3002;</p>
+<h5 id="single_entity-&#x5206;&#x6790;"><a href="#single-entity-&#x5206;&#x6790;" class="headerlink" title="single_entity &#x5206;&#x6790;"></a>single_entity &#x5206;&#x6790;</h5><p>&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x770B; <code>query._entities</code> &#x6709;&#x591A;&#x5C11;&#x4E2A;&#x3002;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, entities, session=None)</span>:</span></div><div class="line">    self.session = session</div><div class="line">    self._polymorphic_adapters = {}</div><div class="line">    self._set_entities(entities)</div></pre></td></tr></table></figure>
+<p>&#x5206;&#x6790;&#x8FD9;&#x4E2A;&#xFF0C;&#x8FD8;&#x662F;&#x4ECE; <code>Query</code> &#x7684; <code>__init__</code> &#x65B9;&#x6CD5;&#x4E2D;&#x5206;&#x6790;&#x3002;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">A.query.join(</div><div class="line">    B, B.aid = A.id</div><div class="line">)</div></pre></td></tr></table></figure>
+<ul>
+<li>&#x5F53;&#x6211;&#x4EEC;&#x7ECF;&#x8FC7;&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x8C03;&#x8BD5;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53D1;&#x8D77;&#x6211;&#x4EEC;&#x7684; <code>entities</code> &#x53EA;&#x4F20;&#x5165;&#x4E86;&#x4E00;&#x4E2A; <code>A</code> &#x5BF9;&#x8C61;&#x3002;</li>
+<li>&#x5F53; <code>_MapperEntity</code> &#x5BF9;&#x8C61;&#x88AB;&#x521B;&#x5EFA;&#x65F6;&#xFF0C;&#x5C31;&#x5DF2;&#x7ECF;&#x8BBE;&#x7F6E;&#x4E86; <code>supports_single_entity</code> &#x53C2;&#x6570;&#x3002;</li>
+</ul>
+<p>&#x7ECF;&#x8FC7;&#x4EE5;&#x4E0A;&#x5206;&#x6790;&#xFF1A;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F97;&#x51FA;&#x6211;&#x4EEC;&#x7684;&#x6848;&#x4F8B;&#xFF0C;&#x5C5E;&#x4E8E;&#x5355;&#x4E2A;&#x5BF9;&#x8C61;&#x67E5;&#x8BE2;&#x3002;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x7684;&#x8FC7;&#x6EE4;&#x662F;&#xFF1A;<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> filtered:</div><div class="line">    <span class="keyword">if</span> single_entity:</div><div class="line">        filter_fn = id  <span class="comment"># &#x6211;&#x4EEC;&#x7684;&#x8FC7;&#x6EE4;&#x5668;&#x662F;&#x4F7F;&#x7528;&#x4E86;&#x5185;&#x7F6E;&#x51FD;&#x6570; id</span></div></pre></td></tr></table></figure></p>
+<h5 id="proc-&#x51FD;&#x6570;&#x5206;&#x6790;"><a href="#proc-&#x51FD;&#x6570;&#x5206;&#x6790;" class="headerlink" title="proc &#x51FD;&#x6570;&#x5206;&#x6790;"></a>proc &#x51FD;&#x6570;&#x5206;&#x6790;</h5><p>&#x4ECE; <code>loading.py</code> &#x7684; <code>instances</code> &#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5206;&#x6790;&#x51FA;&#xFF0C;<code>proc</code> &#x662F;&#x6765;&#x81EA;&#x4E8E; <code>_MapperEntity</code> &#x5BF9;&#x8C61;&#x7684; <code>row_processor</code> &#x65B9;&#x6CD5;.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">row_processor</span><span class="params">(self, query, context, result)</span>:</span></div><div class="line">    ...</div><div class="line">    _instance = loading._instance_processor(</div><div class="line">        self.mapper,</div><div class="line">        context,</div><div class="line">        result,</div><div class="line">        self.path,</div><div class="line">        adapter,</div><div class="line">        only_load_props=only_load_props,</div><div class="line">        refresh_state=refresh_state,</div><div class="line">        polymorphic_discriminator=self._polymorphic_discriminator</div><div class="line">    )</div><div class="line"></div><div class="line">    <span class="keyword">return</span> _instance, self._label_name</div></pre></td></tr></table></figure>
+<p>&#x4ECE;&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x770B;&#x51FA; <code>_instance</code> &#x6765;&#x81EA; <code>loading._instance_processor</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">_instance_processor</span><span class="params">(</span></span></div><div class="line">        mapper, context, result, path, adapter,</div><div class="line">        only_load_props=None, refresh_state=None,</div><div class="line">        polymorphic_discriminator=None,</div><div class="line">        _polymorphic_from=None):</div><div class="line">    <span class="string">&quot;&quot;&quot;Produce a mapper level row processor callable</span></div><div class="line">    which processes rows into mapped instances.&quot;&quot;&quot;</div><div class="line">...</div><div class="line">identity_class = mapper._identity_class</div><div class="line">...</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">_instance</span><span class="params">(row)</span>:</span></div><div class="line"></div><div class="line">    <span class="comment"># determine the state that we&apos;ll be populating</span></div><div class="line">    <span class="keyword">if</span> refresh_identity_key:</div><div class="line">        <span class="comment"># fixed state that we&apos;re refreshing</span></div><div class="line">        state = refresh_state</div><div class="line">        instance = state.obj()</div><div class="line">        dict_ = instance_dict(instance)</div><div class="line">        isnew = state.runid != runid</div><div class="line">        currentload = <span class="keyword">True</span></div><div class="line">        loaded_instance = <span class="keyword">False</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="comment"># look at the row, see if that identity is in the</span></div><div class="line">        <span class="comment"># session, or we have to create a new one</span></div><div class="line">        identitykey = (</div><div class="line">            identity_class,</div><div class="line">            tuple([row[column] <span class="keyword">for</span> column <span class="keyword">in</span> pk_cols])</div><div class="line">        )</div><div class="line"></div><div class="line">        instance = session_identity_map.get(identitykey)</div><div class="line"></div><div class="line">        <span class="keyword">if</span> instance <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</div><div class="line">            <span class="comment"># existing instance</span></div><div class="line">            state = instance_state(instance)</div><div class="line">            dict_ = instance_dict(instance)</div><div class="line"></div><div class="line">            isnew = state.runid != runid</div><div class="line">            currentload = <span class="keyword">not</span> isnew</div><div class="line">            loaded_instance = <span class="keyword">False</span></div><div class="line"></div><div class="line">            <span class="keyword">if</span> version_check <span class="keyword">and</span> <span class="keyword">not</span> currentload:</div><div class="line">                _validate_version_id(mapper, state, dict_, row, adapter)</div><div class="line"></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="comment"># create a new instance</span></div><div class="line"></div><div class="line">            <span class="comment"># check for non-NULL values in the primary key columns,</span></div><div class="line">            <span class="comment"># else no entity is returned for the row</span></div><div class="line">            <span class="keyword">if</span> is_not_primary_key(identitykey[<span class="number">1</span>]):</div><div class="line">                <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line"></div><div class="line">            isnew = <span class="keyword">True</span></div><div class="line">            currentload = <span class="keyword">True</span></div><div class="line">            loaded_instance = <span class="keyword">True</span></div><div class="line"></div><div class="line">            instance = mapper.class_manager.new_instance()</div><div class="line"></div><div class="line">            dict_ = instance_dict(instance)</div><div class="line">            state = instance_state(instance)</div><div class="line">            state.key = identitykey</div><div class="line"></div><div class="line">            <span class="comment"># attach instance to session.</span></div><div class="line">            state.session_id = session_id</div><div class="line">            session_identity_map._add_unpresent(state, identitykey)</div><div class="line"></div><div class="line">    <span class="comment"># populate.  this looks at whether this state is new</span></div><div class="line">    <span class="comment"># for this load or was existing, and whether or not this</span></div><div class="line">    <span class="comment"># row is the first row with this identity.</span></div><div class="line">    <span class="keyword">if</span> currentload <span class="keyword">or</span> populate_existing:</div><div class="line">        <span class="comment"># full population routines.  Objects here are either</span></div><div class="line">        <span class="comment"># just created, or we are doing a populate_existing</span></div><div class="line"></div><div class="line">        <span class="comment"># be conservative about setting load_path when populate_existing</span></div><div class="line">        <span class="comment"># is in effect; want to maintain options from the original</span></div><div class="line">        <span class="comment"># load.  see test_expire-&gt;test_refresh_maintains_deferred_options</span></div><div class="line">        <span class="keyword">if</span> isnew <span class="keyword">and</span> (propagate_options <span class="keyword">or</span> <span class="keyword">not</span> populate_existing):</div><div class="line">            state.load_options = propagate_options</div><div class="line">            state.load_path = load_path</div><div class="line"></div><div class="line">        _populate_full(</div><div class="line">            context, row, state, dict_, isnew, load_path,</div><div class="line">            loaded_instance, populate_existing, populators)</div><div class="line"></div><div class="line">        <span class="keyword">if</span> isnew:</div><div class="line">            <span class="keyword">if</span> loaded_instance:</div><div class="line">                <span class="keyword">if</span> load_evt:</div><div class="line">                    state.manager.dispatch.load(state, context)</div><div class="line">                <span class="keyword">if</span> persistent_evt:</div><div class="line">                    loaded_as_persistent(context.session, state.obj())</div><div class="line">            <span class="keyword">elif</span> refresh_evt:</div><div class="line">                state.manager.dispatch.refresh(</div><div class="line">                    state, context, only_load_props)</div><div class="line"></div><div class="line">            <span class="keyword">if</span> populate_existing <span class="keyword">or</span> state.modified:</div><div class="line">                <span class="keyword">if</span> refresh_state <span class="keyword">and</span> only_load_props:</div><div class="line">                    state._commit(dict_, only_load_props)</div><div class="line">                <span class="keyword">else</span>:</div><div class="line">                    state._commit_all(dict_, session_identity_map)</div><div class="line"></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="comment"># partial population routines, for objects that were already</span></div><div class="line">        <span class="comment"># in the Session, but a row matches them; apply eager loaders</span></div><div class="line">        <span class="comment"># on existing objects, etc.</span></div><div class="line">        unloaded = state.unloaded</div><div class="line">        isnew = state <span class="keyword">not</span> <span class="keyword">in</span> context.partials</div><div class="line"></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> isnew <span class="keyword">or</span> unloaded <span class="keyword">or</span> populators[<span class="string">&quot;eager&quot;</span>]:</div><div class="line">            <span class="comment"># state is having a partial set of its attributes</span></div><div class="line">            <span class="comment"># refreshed.  Populate those attributes,</span></div><div class="line">            <span class="comment"># and add to the &quot;context.partials&quot; collection.</span></div><div class="line"></div><div class="line">            to_load = _populate_partial(</div><div class="line">                context, row, state, dict_, isnew, load_path,</div><div class="line">                unloaded, populators)</div><div class="line"></div><div class="line">            <span class="keyword">if</span> isnew:</div><div class="line">                <span class="keyword">if</span> refresh_evt:</div><div class="line">                    state.manager.dispatch.refresh(</div><div class="line">                        state, context, to_load)</div><div class="line"></div><div class="line">                state._commit(dict_, to_load)</div><div class="line"></div><div class="line">    <span class="keyword">return</span> instance</div><div class="line">...</div><div class="line"><span class="keyword">return</span> _instance</div></pre></td></tr></table></figure>
+<p>note: &#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x5148;&#x4E0D;&#x8C08;&#x5176;&#x4ED6;&#x7684; <code>_instance</code> &#x5904;&#x7406;&#xFF0C;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x53EA;&#x9009;&#x53D6;&#x4E86;&#x6211;&#x4EEC;&#x8FD9;&#x4E2A;&#x6D4B;&#x8BD5;&#x6848;&#x4F8B;&#x7684;&#x8FD0;&#x884C;&#x8F68;&#x8FF9;&#x3002;<br>&#x6700;&#x540E;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;<code>proc</code> &#x51FD;&#x6570;&#x5C31;&#x662F;&#x8FD9;&#x91CC;&#x7684; <code>_instance</code> &#x51FD;&#x6570;&#x3002;</p>
+<p>&#x4ECE;&#x4E0A;&#x9762;&#x7684; <code>session_identity_map</code> &#x548C; <code>identitykey</code> &#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x9488;&#x5BF9;(&#x7C7B;&#x540D; + &#x4E3B;&#x952E;&#xFF09;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5B58;&#x50A8;&#x7F13;&#x5B58;&#x5BF9;&#x8C61;,<br>&#x9488;&#x5BF9;&#x76F8;&#x540C;&#x4E3B;&#x952E;&#x7684;ID&#x548C;&#x7C7B;&#x4F1A;&#x91CD;&#x590D;&#x4F7F;&#x7528;&#x7F13;&#x5B58;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x7528;&#x6211;&#x4EEC;&#x7684;&#x6848;&#x4F8B;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;A(1) &#x6709;&#x4E09;&#x6761;&#x6570;&#x636E;&#xFF0C;A(2) &#x6709;&#x4E24;&#x6761;&#x6570;&#x636E;&#x3002;&#x6700;&#x540E;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x542B;&#x6709;(5)&#x6761;&#x6570;&#x636E;&#x7684; list&#x3002;<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">list(A1, A1, A2, A1, A2)</div></pre></td></tr></table></figure></p>
+<h5 id="utilunique_list-&#x5904;&#x7406;&#x51FD;&#x6570;"><a href="#util-unique-list-&#x5904;&#x7406;&#x51FD;&#x6570;" class="headerlink" title="util.unique_list &#x5904;&#x7406;&#x51FD;&#x6570;"></a><code>util.unique_list</code> &#x5904;&#x7406;&#x51FD;&#x6570;</h5><p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8F7B;&#x6613;&#x7684;&#x5728; <code>_collections.py</code> &#x4E2D;&#xFF0C;&#x770B;&#x5230; <code>unique_list</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">unique_list</span><span class="params">(seq, hashfunc=None)</span>:</span></div><div class="line">    seen = set()</div><div class="line">    seen_add = seen.add</div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> hashfunc:</div><div class="line">        <span class="keyword">return</span> [x <span class="keyword">for</span> x <span class="keyword">in</span> seq</div><div class="line">                <span class="keyword">if</span> x <span class="keyword">not</span> <span class="keyword">in</span> seen</div><div class="line">                <span class="keyword">and</span> <span class="keyword">not</span> seen_add(x)]</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">return</span> [x <span class="keyword">for</span> x <span class="keyword">in</span> seq</div><div class="line">                <span class="keyword">if</span> hashfunc(x) <span class="keyword">not</span> <span class="keyword">in</span> seen</div><div class="line">                <span class="keyword">and</span> <span class="keyword">not</span> seen_add(hashfunc(x))]</div></pre></td></tr></table></figure>
+<p>&#x7ECF;&#x8FC7;&#x4E0A;&#x9762;&#x7684;&#x5206;&#x6790;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x6E05;&#x695A;&#x7684;&#x77E5;&#x9053;&#xFF1A;</p>
+<ul>
+<li><code>seq</code> &#x5C31;&#x662F;&#x6211;&#x4EEC;&#x6700;&#x540E;&#x5F97;&#x51FA;&#x7684;&#x542B;&#x6709;&#x7F13;&#x5B58;&#x5BF9;&#x8C61;&#x7684; <code>list</code>;</li>
+<li><code>hashfunc</code> &#x5176;&#x5B9E;&#x5C31;&#x662F;&#x5185;&#x7F6E;&#x7684; <code>id</code> &#x51FD;&#x6570;;</li>
+<li>&#x540C;&#x4E00;&#x5BF9;&#x8C61;&#x7684; <code>hash</code> &#x503C;&#x662F;&#x4E00;&#x81F4;&#x7684;&#xFF1B;</li>
+</ul>
+<p>&#x7EFC;&#x4E0A;&#x6240;&#x8FF0;&#xFF1A;&#x6240;&#x4EE5;&#x6700;&#x540E;&#x6211;&#x4EEC;&#x5F97;&#x51FA;&#x53EA;&#x542B;&#x6709;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;(<code>list</code>)</p>
+<h2 id="&#x603B;&#x7ED3;"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</h2><ul>
+<li><code>sqlalchemy</code> &#x8FD9;&#x6837;&#x7684;&#x505A;&#x6CD5;&#xFF0C;&#x4F1A;&#x4F7F;&#x6211;&#x4EEC;&#x548C;<code>SQL</code>&#x4E4B;&#x95F4;&#x4EA7;&#x751F;&#x7591;&#x60D1;&#x3002;</li>
+<li>&#x5206;&#x6790;&#x5F97;&#x51FA;&#xFF0C;<code>sqlalchemy</code> &#x5728;&#x505A;&#x5355; <code>entity</code> &#x67E5;&#x8BE2;&#x65F6;&#xFF0C;&#x4F1A;&#x5BF9;&#x540C;&#x4E00;&#x6761;&#x6570;&#x636E;&#x7684;&#x5BF9;&#x8C61;&#x91CD;&#x590D;&#x5229;&#x7528;&#x3002;</li>
+</ul>
+
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.lagel.me/server/sqlalchemy.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/server/centos.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Centos 开发端口之旅</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="server/sqlalchemy" data-title="SqlAlchemy单表查询过滤之谜" data-url="http://www.lagel.me/server/sqlalchemy.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"lagel"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+
+
+
+
+          </div>
+          <div id="js-backtop">返回顶部</div>
+        </div>
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Lagel
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		mathjax: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true,
+		showTags: false
+	}
+</script>
+
+<script>!function(t){function n(r){if(e[r])return e[r].exports;var o=e[r]={exports:{},id:r,loaded:!1};return t[r].call(o.exports,o,o.exports,n),o.loaded=!0,o.exports}var e={};return n.m=t,n.c=e,n.p="./",n(0)}([function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}function o(t,n){var e=/\/|index.html/g;return t.replace(e,"")===n.replace(e,"")}function i(){for(var t=document.querySelectorAll(".js-header-menu li a"),n=window.location.pathname,e=0,r=t.length;e<r;e++){var i=t[e];o(n,i.getAttribute("href"))&&(0,d.default)(i,"active")}}function u(t){for(var n=t.offsetLeft,e=t.offsetParent;null!==e;)n+=e.offsetLeft,e=e.offsetParent;return n}function f(t){for(var n=t.offsetTop,e=t.offsetParent;null!==e;)n+=e.offsetTop,e=e.offsetParent;return n}function c(t,n,e,r,o){var i=u(t),c=f(t)-n;if(c-e<=o){var a=t.$newDom;a||(a=t.cloneNode(!0),(0,h.default)(t,a),t.$newDom=a,a.style.position="fixed",a.style.top=(e||c)+"px",a.style.left=i+"px",a.style.zIndex=r||2,a.style.width="100%",a.style.color="#fff"),a.style.visibility="visible",t.style.visibility="hidden"}else{t.style.visibility="visible";var s=t.$newDom;s&&(s.style.visibility="hidden")}}function a(){var t=document.querySelector(".js-overlay"),n=document.querySelector(".js-header-menu");c(t,document.body.scrollTop,-63,2,0),c(n,document.body.scrollTop,1,3,0)}function s(){document.querySelector("#container").addEventListener("scroll",function(t){a()}),window.addEventListener("scroll",function(t){a()}),a()}function l(){x.default.versions.mobile&&window.screen.width<800&&(i(),s())}var p=e(72),d=r(p),v=e(73),y=(r(v),e(85)),h=r(y),b=e(70),x=r(b),m=e(76),g=r(m),w=e(71);l(),(0,w.addLoadEvent)(function(){g.default.init()}),t.exports={}},function(t,n){var e=t.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=e)},function(t,n){var e={}.hasOwnProperty;t.exports=function(t,n){return e.call(t,n)}},function(t,n,e){var r=e(49),o=e(15);t.exports=function(t){return r(o(t))}},function(t,n,e){t.exports=!e(8)(function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})},function(t,n,e){var r=e(6),o=e(12);t.exports=e(4)?function(t,n,e){return r.f(t,n,o(1,e))}:function(t,n,e){return t[n]=e,t}},function(t,n,e){var r=e(10),o=e(30),i=e(24),u=Object.defineProperty;n.f=e(4)?Object.defineProperty:function(t,n,e){if(r(t),n=i(n,!0),r(e),o)try{return u(t,n,e)}catch(t){}if("get"in e||"set"in e)throw TypeError("Accessors not supported!");return"value"in e&&(t[n]=e.value),t}},function(t,n,e){var r=e(22)("wks"),o=e(13),i=e(1).Symbol,u="function"==typeof i,f=t.exports=function(t){return r[t]||(r[t]=u&&i[t]||(u?i:o)("Symbol."+t))};f.store=r},function(t,n){t.exports=function(t){try{return!!t()}catch(t){return!0}}},function(t,n,e){var r=e(35),o=e(16);t.exports=Object.keys||function(t){return r(t,o)}},function(t,n,e){var r=e(11);t.exports=function(t){if(!r(t))throw TypeError(t+" is not an object!");return t}},function(t,n){t.exports=function(t){return"object"==typeof t?null!==t:"function"==typeof t}},function(t,n){t.exports=function(t,n){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:n}}},function(t,n){var e=0,r=Math.random();t.exports=function(t){return"Symbol(".concat(void 0===t?"":t,")_",(++e+r).toString(36))}},function(t,n){var e=t.exports={version:"2.4.0"};"number"==typeof __e&&(__e=e)},function(t,n){t.exports=function(t){if(void 0==t)throw TypeError("Can't call method on  "+t);return t}},function(t,n){t.exports="constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",")},function(t,n){t.exports={}},function(t,n){t.exports=!0},function(t,n){n.f={}.propertyIsEnumerable},function(t,n,e){var r=e(6).f,o=e(2),i=e(7)("toStringTag");t.exports=function(t,n,e){t&&!o(t=e?t:t.prototype,i)&&r(t,i,{configurable:!0,value:n})}},function(t,n,e){var r=e(22)("keys"),o=e(13);t.exports=function(t){return r[t]||(r[t]=o(t))}},function(t,n,e){var r=e(1),o="__core-js_shared__",i=r[o]||(r[o]={});t.exports=function(t){return i[t]||(i[t]={})}},function(t,n){var e=Math.ceil,r=Math.floor;t.exports=function(t){return isNaN(t=+t)?0:(t>0?r:e)(t)}},function(t,n,e){var r=e(11);t.exports=function(t,n){if(!r(t))return t;var e,o;if(n&&"function"==typeof(e=t.toString)&&!r(o=e.call(t)))return o;if("function"==typeof(e=t.valueOf)&&!r(o=e.call(t)))return o;if(!n&&"function"==typeof(e=t.toString)&&!r(o=e.call(t)))return o;throw TypeError("Can't convert object to primitive value")}},function(t,n,e){var r=e(1),o=e(14),i=e(18),u=e(26),f=e(6).f;t.exports=function(t){var n=o.Symbol||(o.Symbol=i?{}:r.Symbol||{});"_"==t.charAt(0)||t in n||f(n,t,{value:u.f(t)})}},function(t,n,e){n.f=e(7)},function(t,n,e){var r=e(1),o=e(14),i=e(46),u=e(5),f="prototype",c=function(t,n,e){var a,s,l,p=t&c.F,d=t&c.G,v=t&c.S,y=t&c.P,h=t&c.B,b=t&c.W,x=d?o:o[n]||(o[n]={}),m=x[f],g=d?r:v?r[n]:(r[n]||{})[f];d&&(e=n);for(a in e)s=!p&&g&&void 0!==g[a],s&&a in x||(l=s?g[a]:e[a],x[a]=d&&"function"!=typeof g[a]?e[a]:h&&s?i(l,r):b&&g[a]==l?function(t){var n=function(n,e,r){if(this instanceof t){switch(arguments.length){case 0:return new t;case 1:return new t(n);case 2:return new t(n,e)}return new t(n,e,r)}return t.apply(this,arguments)};return n[f]=t[f],n}(l):y&&"function"==typeof l?i(Function.call,l):l,y&&((x.virtual||(x.virtual={}))[a]=l,t&c.R&&m&&!m[a]&&u(m,a,l)))};c.F=1,c.G=2,c.S=4,c.P=8,c.B=16,c.W=32,c.U=64,c.R=128,t.exports=c},function(t,n){var e={}.toString;t.exports=function(t){return e.call(t).slice(8,-1)}},function(t,n,e){var r=e(11),o=e(1).document,i=r(o)&&r(o.createElement);t.exports=function(t){return i?o.createElement(t):{}}},function(t,n,e){t.exports=!e(4)&&!e(8)(function(){return 7!=Object.defineProperty(e(29)("div"),"a",{get:function(){return 7}}).a})},function(t,n,e){"use strict";var r=e(18),o=e(27),i=e(36),u=e(5),f=e(2),c=e(17),a=e(51),s=e(20),l=e(58),p=e(7)("iterator"),d=!([].keys&&"next"in[].keys()),v="@@iterator",y="keys",h="values",b=function(){return this};t.exports=function(t,n,e,x,m,g,w){a(e,n,x);var O,S,_,j=function(t){if(!d&&t in A)return A[t];switch(t){case y:return function(){return new e(this,t)};case h:return function(){return new e(this,t)}}return function(){return new e(this,t)}},P=n+" Iterator",E=m==h,M=!1,A=t.prototype,T=A[p]||A[v]||m&&A[m],L=T||j(m),N=m?E?j("entries"):L:void 0,C="Array"==n?A.entries||T:T;if(C&&(_=l(C.call(new t)),_!==Object.prototype&&(s(_,P,!0),r||f(_,p)||u(_,p,b))),E&&T&&T.name!==h&&(M=!0,L=function(){return T.call(this)}),r&&!w||!d&&!M&&A[p]||u(A,p,L),c[n]=L,c[P]=b,m)if(O={values:E?L:j(h),keys:g?L:j(y),entries:N},w)for(S in O)S in A||i(A,S,O[S]);else o(o.P+o.F*(d||M),n,O);return O}},function(t,n,e){var r=e(10),o=e(55),i=e(16),u=e(21)("IE_PROTO"),f=function(){},c="prototype",a=function(){var t,n=e(29)("iframe"),r=i.length,o="<",u=">";for(n.style.display="none",e(48).appendChild(n),n.src="javascript:",t=n.contentWindow.document,t.open(),t.write(o+"script"+u+"document.F=Object"+o+"/script"+u),t.close(),a=t.F;r--;)delete a[c][i[r]];return a()};t.exports=Object.create||function(t,n){var e;return null!==t?(f[c]=r(t),e=new f,f[c]=null,e[u]=t):e=a(),void 0===n?e:o(e,n)}},function(t,n,e){var r=e(35),o=e(16).concat("length","prototype");n.f=Object.getOwnPropertyNames||function(t){return r(t,o)}},function(t,n){n.f=Object.getOwnPropertySymbols},function(t,n,e){var r=e(2),o=e(3),i=e(45)(!1),u=e(21)("IE_PROTO");t.exports=function(t,n){var e,f=o(t),c=0,a=[];for(e in f)e!=u&&r(f,e)&&a.push(e);for(;n.length>c;)r(f,e=n[c++])&&(~i(a,e)||a.push(e));return a}},function(t,n,e){t.exports=e(5)},function(t,n,e){var r=e(15);t.exports=function(t){return Object(r(t))}},function(t,n,e){t.exports={default:e(41),__esModule:!0}},function(t,n,e){t.exports={default:e(42),__esModule:!0}},function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}n.__esModule=!0;var o=e(39),i=r(o),u=e(38),f=r(u),c="function"==typeof f.default&&"symbol"==typeof i.default?function(t){return typeof t}:function(t){return t&&"function"==typeof f.default&&t.constructor===f.default&&t!==f.default.prototype?"symbol":typeof t};n.default="function"==typeof f.default&&"symbol"===c(i.default)?function(t){return"undefined"==typeof t?"undefined":c(t)}:function(t){return t&&"function"==typeof f.default&&t.constructor===f.default&&t!==f.default.prototype?"symbol":"undefined"==typeof t?"undefined":c(t)}},function(t,n,e){e(65),e(63),e(66),e(67),t.exports=e(14).Symbol},function(t,n,e){e(64),e(68),t.exports=e(26).f("iterator")},function(t,n){t.exports=function(t){if("function"!=typeof t)throw TypeError(t+" is not a function!");return t}},function(t,n){t.exports=function(){}},function(t,n,e){var r=e(3),o=e(61),i=e(60);t.exports=function(t){return function(n,e,u){var f,c=r(n),a=o(c.length),s=i(u,a);if(t&&e!=e){for(;a>s;)if(f=c[s++],f!=f)return!0}else for(;a>s;s++)if((t||s in c)&&c[s]===e)return t||s||0;return!t&&-1}}},function(t,n,e){var r=e(43);t.exports=function(t,n,e){if(r(t),void 0===n)return t;switch(e){case 1:return function(e){return t.call(n,e)};case 2:return function(e,r){return t.call(n,e,r)};case 3:return function(e,r,o){return t.call(n,e,r,o)}}return function(){return t.apply(n,arguments)}}},function(t,n,e){var r=e(9),o=e(34),i=e(19);t.exports=function(t){var n=r(t),e=o.f;if(e)for(var u,f=e(t),c=i.f,a=0;f.length>a;)c.call(t,u=f[a++])&&n.push(u);return n}},function(t,n,e){t.exports=e(1).document&&document.documentElement},function(t,n,e){var r=e(28);t.exports=Object("z").propertyIsEnumerable(0)?Object:function(t){return"String"==r(t)?t.split(""):Object(t)}},function(t,n,e){var r=e(28);t.exports=Array.isArray||function(t){return"Array"==r(t)}},function(t,n,e){"use strict";var r=e(32),o=e(12),i=e(20),u={};e(5)(u,e(7)("iterator"),function(){return this}),t.exports=function(t,n,e){t.prototype=r(u,{next:o(1,e)}),i(t,n+" Iterator")}},function(t,n){t.exports=function(t,n){return{value:n,done:!!t}}},function(t,n,e){var r=e(9),o=e(3);t.exports=function(t,n){for(var e,i=o(t),u=r(i),f=u.length,c=0;f>c;)if(i[e=u[c++]]===n)return e}},function(t,n,e){var r=e(13)("meta"),o=e(11),i=e(2),u=e(6).f,f=0,c=Object.isExtensible||function(){return!0},a=!e(8)(function(){return c(Object.preventExtensions({}))}),s=function(t){u(t,r,{value:{i:"O"+ ++f,w:{}}})},l=function(t,n){if(!o(t))return"symbol"==typeof t?t:("string"==typeof t?"S":"P")+t;if(!i(t,r)){if(!c(t))return"F";if(!n)return"E";s(t)}return t[r].i},p=function(t,n){if(!i(t,r)){if(!c(t))return!0;if(!n)return!1;s(t)}return t[r].w},d=function(t){return a&&v.NEED&&c(t)&&!i(t,r)&&s(t),t},v=t.exports={KEY:r,NEED:!1,fastKey:l,getWeak:p,onFreeze:d}},function(t,n,e){var r=e(6),o=e(10),i=e(9);t.exports=e(4)?Object.defineProperties:function(t,n){o(t);for(var e,u=i(n),f=u.length,c=0;f>c;)r.f(t,e=u[c++],n[e]);return t}},function(t,n,e){var r=e(19),o=e(12),i=e(3),u=e(24),f=e(2),c=e(30),a=Object.getOwnPropertyDescriptor;n.f=e(4)?a:function(t,n){if(t=i(t),n=u(n,!0),c)try{return a(t,n)}catch(t){}if(f(t,n))return o(!r.f.call(t,n),t[n])}},function(t,n,e){var r=e(3),o=e(33).f,i={}.toString,u="object"==typeof window&&window&&Object.getOwnPropertyNames?Object.getOwnPropertyNames(window):[],f=function(t){try{return o(t)}catch(t){return u.slice()}};t.exports.f=function(t){return u&&"[object Window]"==i.call(t)?f(t):o(r(t))}},function(t,n,e){var r=e(2),o=e(37),i=e(21)("IE_PROTO"),u=Object.prototype;t.exports=Object.getPrototypeOf||function(t){return t=o(t),r(t,i)?t[i]:"function"==typeof t.constructor&&t instanceof t.constructor?t.constructor.prototype:t instanceof Object?u:null}},function(t,n,e){var r=e(23),o=e(15);t.exports=function(t){return function(n,e){var i,u,f=String(o(n)),c=r(e),a=f.length;return c<0||c>=a?t?"":void 0:(i=f.charCodeAt(c),i<55296||i>56319||c+1===a||(u=f.charCodeAt(c+1))<56320||u>57343?t?f.charAt(c):i:t?f.slice(c,c+2):(i-55296<<10)+(u-56320)+65536)}}},function(t,n,e){var r=e(23),o=Math.max,i=Math.min;t.exports=function(t,n){return t=r(t),t<0?o(t+n,0):i(t,n)}},function(t,n,e){var r=e(23),o=Math.min;t.exports=function(t){return t>0?o(r(t),9007199254740991):0}},function(t,n,e){"use strict";var r=e(44),o=e(52),i=e(17),u=e(3);t.exports=e(31)(Array,"Array",function(t,n){this._t=u(t),this._i=0,this._k=n},function(){var t=this._t,n=this._k,e=this._i++;return!t||e>=t.length?(this._t=void 0,o(1)):"keys"==n?o(0,e):"values"==n?o(0,t[e]):o(0,[e,t[e]])},"values"),i.Arguments=i.Array,r("keys"),r("values"),r("entries")},function(t,n){},function(t,n,e){"use strict";var r=e(59)(!0);e(31)(String,"String",function(t){this._t=String(t),this._i=0},function(){var t,n=this._t,e=this._i;return e>=n.length?{value:void 0,done:!0}:(t=r(n,e),this._i+=t.length,{value:t,done:!1})})},function(t,n,e){"use strict";var r=e(1),o=e(2),i=e(4),u=e(27),f=e(36),c=e(54).KEY,a=e(8),s=e(22),l=e(20),p=e(13),d=e(7),v=e(26),y=e(25),h=e(53),b=e(47),x=e(50),m=e(10),g=e(3),w=e(24),O=e(12),S=e(32),_=e(57),j=e(56),P=e(6),E=e(9),M=j.f,A=P.f,T=_.f,L=r.Symbol,N=r.JSON,C=N&&N.stringify,k="prototype",F=d("_hidden"),q=d("toPrimitive"),I={}.propertyIsEnumerable,B=s("symbol-registry"),D=s("symbols"),W=s("op-symbols"),H=Object[k],K="function"==typeof L,R=r.QObject,J=!R||!R[k]||!R[k].findChild,U=i&&a(function(){return 7!=S(A({},"a",{get:function(){return A(this,"a",{value:7}).a}})).a})?function(t,n,e){var r=M(H,n);r&&delete H[n],A(t,n,e),r&&t!==H&&A(H,n,r)}:A,G=function(t){var n=D[t]=S(L[k]);return n._k=t,n},$=K&&"symbol"==typeof L.iterator?function(t){return"symbol"==typeof t}:function(t){return t instanceof L},z=function(t,n,e){return t===H&&z(W,n,e),m(t),n=w(n,!0),m(e),o(D,n)?(e.enumerable?(o(t,F)&&t[F][n]&&(t[F][n]=!1),e=S(e,{enumerable:O(0,!1)})):(o(t,F)||A(t,F,O(1,{})),t[F][n]=!0),U(t,n,e)):A(t,n,e)},Y=function(t,n){m(t);for(var e,r=b(n=g(n)),o=0,i=r.length;i>o;)z(t,e=r[o++],n[e]);return t},Q=function(t,n){return void 0===n?S(t):Y(S(t),n)},X=function(t){var n=I.call(this,t=w(t,!0));return!(this===H&&o(D,t)&&!o(W,t))&&(!(n||!o(this,t)||!o(D,t)||o(this,F)&&this[F][t])||n)},V=function(t,n){if(t=g(t),n=w(n,!0),t!==H||!o(D,n)||o(W,n)){var e=M(t,n);return!e||!o(D,n)||o(t,F)&&t[F][n]||(e.enumerable=!0),e}},Z=function(t){for(var n,e=T(g(t)),r=[],i=0;e.length>i;)o(D,n=e[i++])||n==F||n==c||r.push(n);return r},tt=function(t){for(var n,e=t===H,r=T(e?W:g(t)),i=[],u=0;r.length>u;)!o(D,n=r[u++])||e&&!o(H,n)||i.push(D[n]);return i};K||(L=function(){if(this instanceof L)throw TypeError("Symbol is not a constructor!");var t=p(arguments.length>0?arguments[0]:void 0),n=function(e){this===H&&n.call(W,e),o(this,F)&&o(this[F],t)&&(this[F][t]=!1),U(this,t,O(1,e))};return i&&J&&U(H,t,{configurable:!0,set:n}),G(t)},f(L[k],"toString",function(){return this._k}),j.f=V,P.f=z,e(33).f=_.f=Z,e(19).f=X,e(34).f=tt,i&&!e(18)&&f(H,"propertyIsEnumerable",X,!0),v.f=function(t){return G(d(t))}),u(u.G+u.W+u.F*!K,{Symbol:L});for(var nt="hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables".split(","),et=0;nt.length>et;)d(nt[et++]);for(var nt=E(d.store),et=0;nt.length>et;)y(nt[et++]);u(u.S+u.F*!K,"Symbol",{for:function(t){return o(B,t+="")?B[t]:B[t]=L(t)},keyFor:function(t){if($(t))return h(B,t);throw TypeError(t+" is not a symbol!")},useSetter:function(){J=!0},useSimple:function(){J=!1}}),u(u.S+u.F*!K,"Object",{create:Q,defineProperty:z,defineProperties:Y,getOwnPropertyDescriptor:V,getOwnPropertyNames:Z,getOwnPropertySymbols:tt}),N&&u(u.S+u.F*(!K||a(function(){var t=L();return"[null]"!=C([t])||"{}"!=C({a:t})||"{}"!=C(Object(t))})),"JSON",{stringify:function(t){if(void 0!==t&&!$(t)){for(var n,e,r=[t],o=1;arguments.length>o;)r.push(arguments[o++]);return n=r[1],"function"==typeof n&&(e=n),!e&&x(n)||(n=function(t,n){if(e&&(n=e.call(this,t,n)),!$(n))return n}),r[1]=n,C.apply(N,r)}}}),L[k][q]||e(5)(L[k],q,L[k].valueOf),l(L,"Symbol"),l(Math,"Math",!0),l(r.JSON,"JSON",!0)},function(t,n,e){e(25)("asyncIterator")},function(t,n,e){e(25)("observable")},function(t,n,e){e(62);for(var r=e(1),o=e(5),i=e(17),u=e(7)("toStringTag"),f=["NodeList","DOMTokenList","MediaList","StyleSheetList","CSSRuleList"],c=0;c<5;c++){var a=f[c],s=r[a],l=s&&s.prototype;l&&!l[u]&&o(l,u,a),i[a]=i.Array}},,function(t,n){"use strict";var e={versions:function(){var t=window.navigator.userAgent;return{trident:t.indexOf("Trident")>-1,presto:t.indexOf("Presto")>-1,webKit:t.indexOf("AppleWebKit")>-1,gecko:t.indexOf("Gecko")>-1&&t.indexOf("KHTML")==-1,mobile:!!t.match(/AppleWebKit.*Mobile.*/),ios:!!t.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),android:t.indexOf("Android")>-1||t.indexOf("Linux")>-1,iPhone:t.indexOf("iPhone")>-1||t.indexOf("Mac")>-1,iPad:t.indexOf("iPad")>-1,webApp:t.indexOf("Safari")==-1,weixin:t.indexOf("MicroMessenger")==-1}}()};t.exports=e},function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}var o=e(40),i=r(o),u=function(){function t(t,n,e){return n||e?String.fromCharCode(n||e):o[t]||t}function n(t){return l[t]}var e=/&quot;|&lt;|&gt;|&amp;|&nbsp;|&apos;|&#(\d+);|&#(\d+)/g,r=/['<> "&]/g,o={"&quot;":'"',"&lt;":"<","&gt;":">","&amp;":"&","&nbsp;":" "},f=/\u00a0/g,c=/<br\s*\/?>/gi,a=/\r?\n/g,s=/\s/g,l={};for(var p in o)l[o[p]]=p;return o["&apos;"]="'",l["'"]="&#39;",{encode:function(t){return t?(""+t).replace(r,n).replace(a,"<br/>").replace(s,"&nbsp;"):""},decode:function(n){return n?(""+n).replace(c,"\n").replace(e,t).replace(f," "):""},encodeBase16:function(t){if(!t)return t;t+="";for(var n=[],e=0,r=t.length;r>e;e++)n.push(t.charCodeAt(e).toString(16).toUpperCase());return n.join("")},encodeBase16forJSON:function(t){if(!t)return t;t=t.replace(/[\u4E00-\u9FBF]/gi,function(t){return escape(t).replace("%u","\\u")});for(var n=[],e=0,r=t.length;r>e;e++)n.push(t.charCodeAt(e).toString(16).toUpperCase());return n.join("")},decodeBase16:function(t){if(!t)return t;t+="";for(var n=[],e=0,r=t.length;r>e;e+=2)n.push(String.fromCharCode("0x"+t.slice(e,e+2)));return n.join("")},encodeObject:function(t){if(t instanceof Array)for(var n=0,e=t.length;e>n;n++)t[n]=u.encodeObject(t[n]);else if("object"==("undefined"==typeof t?"undefined":(0,i.default)(t)))for(var r in t)t[r]=u.encodeObject(t[r]);else if("string"==typeof t)return u.encode(t);return t},loadScript:function(t){var n=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(n),n.setAttribute("src",t)},addLoadEvent:function(t){var n=window.onload;"function"!=typeof window.onload?window.onload=t:window.onload=function(){n(),t()}}}}();t.exports=u},function(t,n){function e(t,n){t.classList?t.classList.add(n):t.className+=" "+n}t.exports=e},function(t,n){function e(t,n){if(t.classList)t.classList.remove(n);else{var e=new RegExp("(^|\\b)"+n.split(" ").join("|")+"(\\b|$)","gi");t.className=t.className.replace(e," ")}}t.exports=e},,,function(t,n){"use strict";function e(){var t=document.querySelector("#page-nav");if(t&&!document.querySelector("#page-nav .extend.prev")&&(t.innerHTML='<a class="extend prev disabled" rel="prev">&laquo; Prev</a>'+t.innerHTML),t&&!document.querySelector("#page-nav .extend.next")&&(t.innerHTML=t.innerHTML+'<a class="extend next disabled" rel="next">Next &raquo;</a>'),yiliaConfig&&yiliaConfig.open_in_new){var n=document.querySelectorAll(".article-entry a:not(.article-more-a)");n.forEach(function(t){t.setAttribute("target","_blank")})}var e=document.querySelector("#js-aboutme");e&&0!==e.length&&(e.innerHTML=e.innerText)}t.exports={init:e}},,,,,,,,,function(t,n){function e(t,n){if("string"==typeof n)return t.insertAdjacentHTML("afterend",n);var e=t.nextSibling;return e?t.parentNode.insertBefore(n,e):t.parentNode.appendChild(n)}t.exports=e}])</script><script src="/./main.5d3831.js"></script><script>!function(){var t=function(t){var e=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(e),e.setAttribute("src",t)};t("/slider.11453f.js")}()</script>
+
+
+    
+<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
+  <div class="tools-nav header-menu">
+    
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+    
+
+    <ul style="width: 70%">
+    
+    
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      
+        
+    </ul>
+  </div>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all" q-show="innerArchive">
+        <div class="search-wrap">
+          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
+          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
+          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">tag:</p>
+          <label class="search-switch">
+            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+          </label>
+          <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">indexedDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">angular</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">lazyload</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">test</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">robotframework</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">study</a>
+              </li>
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            2、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: true
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
+          <li class="search-li" q-repeat="items" q-show="isShow">
+            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <p class="search-time">
+              <i class="icon-calendar icon"></i>
+              <span q-text="date|dateformat"></span>
+            </p>
+            <p class="search-tag">
+              <i class="icon-price-tags icon"></i>
+              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+          </li>
+        </ul>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="http://www.xubin.pub" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>xubin</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://www.peachis.me" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>peach</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://nsdont.me" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>nsdont</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://tommao.me" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>tommao</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://www.shengmvvb.cn" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>浩亮哥哥战江湖</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">I&#39;m a computer programer.&lt;br&gt;&lt;br&gt;Cease to struggle and you cease to live.&lt;br&gt;生命不息，奋斗不止</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
